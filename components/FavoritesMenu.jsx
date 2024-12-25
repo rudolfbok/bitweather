@@ -1,0 +1,104 @@
+"use client"
+
+import { useState } from "react";
+import { Squash as Hamburger } from 'hamburger-react'
+import { useWeather } from "@/lib/weatherContext";
+import Trash from "@/public/trash.svg"
+import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+export default function FavoritesMenu() {
+    const { fetchWeather, favoriteCities, removeCityFromFavorites, setWeatherData, setLocation, setLatlon } = useWeather();
+    const [isOpen, setIsOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+
+    const { t } = useTranslation();
+
+    const openMenu = () => {
+        setIsVisible(true);
+        setTimeout(() => setIsOpen(true), 10);
+    };
+
+    const closeMenu = () => {
+        setIsOpen(false)
+        setTimeout(() => setIsVisible(false), 500)
+    };
+
+    const handleCityClick = async (city) => {
+        try {
+            const { weatherData, location, latlon } = await fetchWeather(city);
+            setWeatherData(weatherData);
+            setLocation(location);
+            setLatlon(latlon);
+            closeMenu()
+        } catch (error) {
+            console.error(`Failed to fetch weather for ${city}:`, error);
+        }
+    };
+
+    const handleRemoveCityFromFavorites = (event, cityToRemove) => {
+        event.stopPropagation();
+        removeCityFromFavorites(cityToRemove);
+    };
+
+    return (
+        <div className="flex flex-row gap-4 items-center overflow-hidden">
+            {isVisible && (
+                <div
+                    className={`
+                      fixed
+                      flex
+                      flex-col
+                      justify-start
+                      items-center
+                      top-0
+                      right-0
+                      w-[100vw]
+                      h-[100vh]
+                      bg-white/1
+                      backdrop-blur-lg
+                      pt-[60px]
+                      transition-opacity
+                      duration-500
+                      z-40
+                      overflow-auto
+                      ${isOpen ? 'opacity-100' : 'opacity-0'}
+                      `}
+                >
+                    <p className="text-xl pb-4">{t("favorite")}</p>
+
+                    <ul className="w-2/3">
+                        {favoriteCities.length > 0 ? (
+                            favoriteCities.map((city, index) => (
+                                <li
+                                    key={index}
+                                    className="flex flex-row justify-between items-center rounded-3xl py-2 px-4 my-3 backdrop-blur-3xl bg-black/5 cursor-pointer"
+                                    onClick={() => handleCityClick(city)}
+                                >
+                                    <button className="text-start">{city}</button>
+                                    <div
+                                        className="h-[30px] aspect-square hover:bg-red-700 rounded-full flex items-center justify-center place-content-center"
+                                        onClick={(event) => handleRemoveCityFromFavorites(event, city)}
+                                    >
+                                        <Image
+                                            src={Trash}
+                                            alt="Remove city"
+                                            width={25}
+                                        />
+                                    </div>
+                                </li>
+                            ))
+                        ) : (
+                            <p className="text-center">{t("nofavorites")}</p>
+                        )}
+                    </ul>
+                    <LanguageSwitcher />
+                </div>
+            )}
+            <div className="relative z-50 md:hidden">
+                <Hamburger toggled={isOpen} onToggle={isOpen ? closeMenu : openMenu} color="white" size={22} />
+            </div>
+        </div>
+    );
+}

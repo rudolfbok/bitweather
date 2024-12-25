@@ -1,0 +1,19 @@
+{
+    "welcome": "Search for any place on earth by typing in the search bar at the top.<br><br>This web app is made using React JS and other frameworks.<br><br>Based on OpenWeather API.",
+    "search": "Search..",
+    "favorite": "Favorite cities",
+    "nofavorites": "There are no favorite cities.",
+    "currentlang": "Current language",
+    "localstorage": "Favorite cities are stored using local storage. No personal data are stored.",
+    "temp_feels": "Feels like",
+    "hourly": "Hourly forecast",
+    "daily": "Daily forecast",
+    "humidity": "Humidity",
+    "visibility": "Visibility",
+    "wind": "Wind",
+    "pressure": "Pressure",
+    "rain": "Rain",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "map": "Map"
+}

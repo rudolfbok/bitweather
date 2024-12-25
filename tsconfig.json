@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/weatherService.js", "components/DataCards.jsx", "lib/weatherContext.jsx", "components/DataCard.jsx", "components/LanguageSwitcher.jsx", "components/Compass.jsx"],
   "exclude": ["node_modules"]
 }

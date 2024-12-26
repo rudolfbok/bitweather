@@ -37,7 +37,7 @@ export default function Hero() {
   }, [location.city]);
 
   return (
-    <section className="px-4 h-[90vh] pb-4">
+    <section className="px-4 md:h-[90vh] pb-4">
       {error && !weatherData && (
         <p className="text-center mt-6 font-semibold">{t("error")}</p>
       )}

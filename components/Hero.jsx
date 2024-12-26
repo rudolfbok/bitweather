@@ -39,7 +39,7 @@ export default function Hero() {
   return (
     <section className="px-4 md:h-[90vh] pb-4">
       {error && !weatherData && (
-        <p className="text-center mt-6 font-semibold">{t("error")}</p>
+        <p className="text-center mt-6 font-semibold h-screen">{t("error")}</p>
       )}
 
       {!weatherData && !error && (

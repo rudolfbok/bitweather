@@ -1,41 +1,76 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
+import gsap from "gsap";
 import { useWeather } from "@/lib/weatherContext";
 import Image from "next/image";
 import Favorite from "@/public/favorite.svg";
 import NotFavorite from "@/public/notfavorite.svg";
 
 export default function FavoritesToggle() {
-  const { fetchWeather, location, addCityToFavorites, getFavoriteCities, removeCityFromFavorites, setIsFavorite, isFavorite } = useWeather();
+  const {
+    fetchWeather,
+    location,
+    addCityToFavorites,
+    getFavoriteCities,
+    removeCityFromFavorites,
+    setIsFavorite,
+    isFavorite,
+  } = useWeather();
+
+  const [isHovered, setIsHovered] = useState(false);
+  const iconRef = useRef(null);
 
   useEffect(() => {
     const favoriteCities = getFavoriteCities();
     if (favoriteCities.includes(location.city)) {
-        setIsFavorite(true);
+      setIsFavorite(true);
     }
   }, [location.city]);
 
+  useEffect(() => {
+    if (iconRef.current) {
+      gsap.to(iconRef.current, {
+        scale: isHovered ? 1.2 : 1,
+        duration: 0.7,
+        ease: "power2.out",
+      });
+    }
+  }, [isHovered]);
+
   const handleFavoriteToggle = async (city) => {
-    const cityName = city.trim()
+    const cityName = city.trim();
     if (cityName.length > 0) {
-        const favoriteCities = getFavoriteCities();
-        if (favoriteCities.includes(cityName)) {
-            removeCityFromFavorites(cityName);
-            setIsFavorite(false);
-        } else {
-            addCityToFavorites(cityName);
-            setIsFavorite(true);
-        }
-        await fetchWeather(cityName);
+      const favoriteCities = getFavoriteCities();
+      if (favoriteCities.includes(cityName)) {
+        removeCityFromFavorites(cityName);
+        setIsFavorite(false);
+        setIsHovered(false);
+      } else {
+        addCityToFavorites(cityName);
+        setIsFavorite(true);
+        setIsHovered(false);
+      }
+      await fetchWeather(cityName);
     }
   };
 
   return (
     <Image
-      width={40}
+      ref={iconRef}
+      width={30}
       alt="Favorite"
-      src={isFavorite ? Favorite : NotFavorite}
-      className="cursor-pointer"
+      src={
+        isHovered
+          ? isFavorite
+            ? NotFavorite
+            : Favorite
+          : isFavorite
+            ? Favorite
+            : NotFavorite
+      }
+      className="cursor-pointer absolute md:top-12 top-4 right-2 md:right-14"
       onClick={() => handleFavoriteToggle(location.city)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     />
   );
 }

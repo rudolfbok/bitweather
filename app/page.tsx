@@ -3,8 +3,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import FavoritesSlider from "@/components/FavoritesSlider";
-import { I18nextProvider } from 'react-i18next';
-import i18n from '@/lib/i18n'; // Import the i18n configuration
+import { I18nextProvider } from "react-i18next";
+import i18n from "@/lib/i18n"; // Import the i18n configuration
 
 export default function Home() {
   return (
@@ -17,4 +17,3 @@ export default function Home() {
     </I18nextProvider>
   );
 }
-

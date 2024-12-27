@@ -44,8 +44,6 @@ export default function Nameday() {
         }
       };
 
-      Helooooooooo
-
     return (
         <div>
             {namedayData && (

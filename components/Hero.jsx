@@ -11,6 +11,8 @@ import Map from "./Map";
 import FavoritesToggle from "./FavoritesToggle";
 import { useTranslation } from "react-i18next";
 
+import Nameday from "./Nameday"
+
 export default function Hero() {
   const { weatherData, location, error } = useWeather();
   const { t } = useTranslation();
@@ -44,7 +46,7 @@ export default function Hero() {
 
       {!weatherData && !error && (
         <p
-          className="text-center h-screen mt-6"
+          className="text-center mt-6 h-screen"
           dangerouslySetInnerHTML={{ __html: t("welcome") }}
         />
       )}

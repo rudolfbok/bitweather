@@ -11,6 +11,8 @@ import FavoritesMenu from "./FavoritesMenu";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
+import Nameday from "./Nameday";
+
 export default function Header() {
   const { setCity, setWeatherData, setLocation, setLatlon, setError } =
     useWeather();
@@ -93,6 +95,7 @@ export default function Header() {
         </div>
       </div>
       <div className="w-1/4 justify-end hidden md:flex">
+        <Nameday/>
         <LanguageSwitcher />
       </div>
     </header>

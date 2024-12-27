@@ -8,6 +8,8 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
+import Nameday from "./Nameday";
+
 export default function FavoritesMenu() {
   const {
     fetchWeather,
@@ -107,6 +109,7 @@ export default function FavoritesMenu() {
               <p className="text-center">{t("nofavorites")}</p>
             )}
           </ul>
+          <Nameday/>
           <LanguageSwitcher />
         </div>
       )}

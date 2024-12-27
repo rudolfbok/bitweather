@@ -109,8 +109,8 @@ export default function FavoritesMenu() {
               <p className="text-center">{t("nofavorites")}</p>
             )}
           </ul>
-          <Nameday/>
           <LanguageSwitcher />
+          <Nameday/>
         </div>
       )}
       <div className="relative z-50 md:hidden">

@@ -56,7 +56,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex flex-wrap h-auto w-screen items-center px-4 z-20">
+    <header className="flex flex-wrap w-screen items-center px-4 z-20">
       <div className="flex w-1/2 md:w-1/4 justify-start items-center z-20">
         <Image src={Logo} alt="Logo" className="max-h-11 w-auto" />
         <span>BitWeather</span>

@@ -41,7 +41,8 @@ export default function FavoritesSlider() {
   };
 
   return (
-    <div className="hidden md:flex md:flex-row max-h-[5vh] md:w-full items-center mx-4 my-3">
+    <div className="hidden md:flex md:flex-row max-h-[5vh] items-center mx-4 my-3">
+      <span>Favorite cities:</span>
       {favoriteCities.map((city, index) => (
         <li
           key={index}

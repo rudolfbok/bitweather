@@ -67,7 +67,7 @@ export default function FavoritesToggle() {
             ? Favorite
             : NotFavorite
       }
-      className="cursor-pointer absolute md:top-12 top-4 right-2 md:right-14"
+      className="cursor-pointer"
       onClick={() => handleFavoriteToggle(location.city)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

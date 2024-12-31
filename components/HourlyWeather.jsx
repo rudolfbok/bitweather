@@ -44,10 +44,9 @@ export default function DailyWeather() {
               <span className="font-bold text-sm">{hourFormatted}</span>
               <Image
                 src={`https://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}
-                width={50}
-                height={50}
+                width={70}
+                height={70}
                 alt="Weather Icon"
-                className="w-full"
               />
               <span className="text-sm">{`${Math.round(hour.temp)}°C`}</span>
             </div>

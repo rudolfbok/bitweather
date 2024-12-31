@@ -39,27 +39,30 @@ export default function Hero() {
   }, [location.city]);
 
   return (
-    <section className="px-4 md:h-[90vh] pb-4">
+    <section className="px-4 pb-4">
       {error && !weatherData && (
         <p className="text-center mt-6 font-semibold h-screen">{t("error")}</p>
       )}
 
       {!weatherData && !error && (
-        <p
-          className="text-center mt-6 h-screen"
-          dangerouslySetInnerHTML={{ __html: t("welcome") }}
-        />
+        <p className="font-bold text-2xl">
+          BitWeather
+        </p>
       )}
 
       {weatherData && (
         <div
           ref={columnRef}
-          className="grid grid-cols-1 md:grid-cols-3 h-full md:gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 md:gap-4"
         >
-          <div className="flex flex-col items-center justify-between">
-            <div className="w-full h-full rounded-3xl flex items-center justify-center backdrop-blur-xl md:bg-black/5">
-              <div className="text-center text-xl items-center flex flex-col">
+          <div className="flex flex-col items-center">
+            
+            <div className="w-full rounded-3xl flex flex-col items-center justify-center backdrop-blur-xl md:bg-black/5">
+              <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-9 pt-4">
                 <FavoritesToggle />
+              </div>
+              <div className="text-center text-xl items-center flex flex-col md:my-10">
+                
                 <h1 className="text-3xl md:mt-0 my-4 md:text-4xl">
                   {location.city}, {location.country}
                 </h1>

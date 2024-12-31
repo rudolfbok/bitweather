@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <I18nextProvider i18n={i18n}>
-      <main className={`text-white md:h-screen font-inter md:overflow-hidden ${backgroundClass}`}>
+      <main className={`text-white font-inter ${backgroundClass} h-100vh`}>
         <Header />
         <FavoritesSlider />
         <Hero />

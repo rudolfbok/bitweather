@@ -12,6 +12,7 @@ import FavoritesToggle from "./FavoritesToggle";
 import { useTranslation } from "react-i18next";
 
 import Nameday from "./Nameday"
+import RoundBox from "@/types/RoundBox";
 
 export default function Hero() {
   const { weatherData, location, error } = useWeather();
@@ -39,7 +40,7 @@ export default function Hero() {
   }, [location.city]);
 
   return (
-    <section>
+    <section className="px-4">
       {error && !weatherData && (
         <p className="text-center mt-6 font-semibold">{t("error")}</p>
       )}
@@ -57,11 +58,11 @@ export default function Hero() {
         >
           <div className="flex flex-col items-center">
             
-            <div className="w-full rounded-3xl flex flex-col items-center justify-center backdrop-blur-xl md:bg-black/5">
-              <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-9 pt-4">
+            <RoundBox>
+              <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-9 py-4">
                 <FavoritesToggle />
               </div>
-              <div className="text-center text-xl items-center flex flex-col md:my-10">
+              <div className="text-center text-xl items-center flex flex-col md:my-8">
                 
                 <h1 className="text-3xl md:mt-0 my-4 md:text-4xl">
                   {location.city}, {location.country}
@@ -101,13 +102,13 @@ export default function Hero() {
                   )}
                 </p>
               </div>
-            </div>
+            </RoundBox>
             <HourlyWeather />
           </div>
 
           <div className="flex flex-col">
             <DailyWeather />
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 py-4">
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-4 mt-5">
               <DataCard
                 icon="/icons/humidity.svg"
                 headline={t("humidity")}

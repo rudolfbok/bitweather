@@ -58,7 +58,7 @@ export default function Home() {
     <I18nextProvider i18n={i18n}>
       <main className={`text-white font-inter ${backgroundClass} min-h-screen`}>
         <Header />
-        <FavoritesSlider />
+        
         <Hero />
       </main>
     </I18nextProvider>

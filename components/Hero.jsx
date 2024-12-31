@@ -15,7 +15,7 @@ import Nameday from "./Nameday"
 import RoundBox from "@/types/RoundBox";
 
 export default function Hero() {
-  const { weatherData, location, error } = useWeather();
+  const { weatherData, location, error, setBackground } = useWeather();
   const { t } = useTranslation();
 
   const capitalizeFirstLetter = (string) => {
@@ -39,6 +39,10 @@ export default function Hero() {
     }
   }, [location.city]);
 
+  const handleBackgrounds = (event) => {
+    setBackground(false)
+};
+
   return (
     <section className="px-4">
       {error && !weatherData && (
@@ -46,9 +50,10 @@ export default function Hero() {
       )}
 
       {!weatherData && !error && (
-        <p className="font-bold text-2xl">
+        <div className="font-bold text-2xl">
           BitWeather
-        </p>
+          <button onClick={handleBackgrounds}>Permit backgrounds</button>
+        </div>
       )}
 
       {weatherData && (
@@ -126,7 +131,7 @@ export default function Hero() {
               />
               <DataCard
                 icon="/icons/sun.svg"
-                headline="UV"
+                headline="UV Index"
                 data={Math.round(weatherData.daily[0]?.uvi)}
               />
               <DataCard

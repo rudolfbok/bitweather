@@ -21,10 +21,10 @@ export default function Map() {
 
   return (
    <RoundBox>
-      <div className="flex h-auto w-full items-center">
+      <div className="flex h-auto w-full items-center mb-4">
         <Image src={MapIcon} alt="Mapa" height={25} width={25} />
         &nbsp;
-        <span className="flex w-full font-bold">{t("map")}</span>
+        <span className="flex w-full font-semibold">{t("map")}</span>
       </div>
       <GoogleMap
         center={latlon}

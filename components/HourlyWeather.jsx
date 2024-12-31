@@ -32,8 +32,8 @@ export default function DailyWeather() {
     <RoundBox>
       <div className="flex h-auto w-full mb-4">
         <Image src={Clock} alt="Daily forecast" height={25} width={25} />
-        &nbsp;
-        <span className="flex w-full font-bold">{t("hourly")}</span>
+        &nbsp;&nbsp;
+        <span className="flex w-full font-semibold">{t("hourly")}</span>
       </div>
       <Slider {...settings} className="w-full mb-5">
         {weatherData.hourly.slice(1, 24).map((hour, index) => {

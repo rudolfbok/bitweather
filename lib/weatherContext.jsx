@@ -20,6 +20,7 @@ export const WeatherProvider = ({ children }) => {
   const [latlon, setLatlon] = useState({ lat: 0, lng: 0 });
   const [favoriteCities, setFavoriteCities] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [background, setBackground] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -73,6 +74,7 @@ export const WeatherProvider = ({ children }) => {
         removeCityFromFavorites,
         isFavorite,
         setIsFavorite,
+        setBackground
       }}
     >
       {children}

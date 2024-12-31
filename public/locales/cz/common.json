@@ -1,6 +1,6 @@
 {
   "welcome": "Napište do vyhledávacího pole nahoře jakékoliv město.<br><br>Tato webová aplikace je vytvořena s použitím React JS a dalších frameworků.<br><br>Založeno na OpenWeatherAPI.",
-  "search": "Hledej..",
+  "search": "Hledej",
   "favorite": "Oblíbená města",
   "nofavorites": "Nejsou uložena žádná oblíbená města.",
   "currentlang": "Zvolený jazyk",

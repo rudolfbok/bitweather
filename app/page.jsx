@@ -11,7 +11,7 @@ export default function Home() {
   const { weatherData } = useWeather();
 
   // Default background while loading or if there's no data
-  const fallbackBackground = "bg-gradient-to-r from-blue-500 to-blue-700";
+  const fallbackBackground = "bg-gradient-to-b from-blue-400 to-blue-200";
 
   // Determine background class
   let backgroundClass = fallbackBackground;
@@ -32,17 +32,19 @@ export default function Home() {
 
     // Shared background for all other weather conditions
     const sharedBackgroundMapping = {
-      Rain: "bg-gradient-to-b from-[#025E79] to-[#94CADF]",
-      Drizzle: "bg-gradient-to-b from-[#00779A] to-[#94CADF]",
-      Thunderstorm: "bg-gradient-to-b from-[#25333B] to-[#495257]",
-      Snow: "bg-gradient-to-b from-[#AFD6F1] to-[#CFE5FB]",
-      Mist: "bg-gradient-to-b from-[#5F6C6D] to-[#909899]",
-      Smoke: "bg-gradient-to-b from-[#444746] to-[#818889]",
-      Haze: "bg-gradient-to-b from-[#5F6C6D] to-[#909899]",
-      Dust: "bg-gradient-to-b from-[#5F6C6D] to-[#909899]",
-      Fog: "bg-gradient-to-b from-[#5F6C6D] to-[#909899]",
-      Sand: "bg-gradient-to-b from-[#F7C489] to-[#E1CBAD]",
-      Ash: "bg-gradient-to-b from-[#444746] to-[#818889]",
+        "Rain": "bg-gradient-to-b from-[#025E79] to-[#94CADF]",
+        "Drizzle": "bg-gradient-to-b from-[#00779A] to-[#94CADF]",
+        "Thunderstorm": "bg-gradient-to-b from-[#25333B] to-[#495257]",
+        "Snow": "bg-gradient-to-b from-[#AFD6F1] to-[#CFE5FB]",
+        "Mist": "bg-gradient-to-b from-[#5F6C6D] to-[#909899]",
+        "Smoke": "bg-gradient-to-b from-[#444746] to-[#818889]",
+        "Haze": "bg-gradient-to-b from-[#5F6C6D] to-[#909899]", // Same as mist
+        "Dust": "bg-gradient-to-b from-[#5F6C6D] to-[#909899]", // Same as mist
+        "Fog": "bg-gradient-to-b from-[#5F6C6D] to-[#909899]", // Same as mist
+        "Sand": "bg-gradient-to-b from-[#F7C489] to-[#E1CBAD]",
+        "Ash": "bg-gradient-to-b from-[#444746] to-[#818889]", // Same as smoke
+        "Squall": "Strong winds",
+        "Tornado": "Tornado conditions"
     };
 
     // Apply specific or shared mapping

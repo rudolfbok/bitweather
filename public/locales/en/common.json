@@ -1,6 +1,6 @@
 {
   "welcome": "Search for any place on earth by typing in the search bar at the top.<br><br>This web app is made using React JS and other frameworks.<br><br>Based on OpenWeather API.",
-  "search": "Search..",
+  "search": "Search",
   "favorite": "Favorite cities",
   "nofavorites": "There are no favorite cities.",
   "currentlang": "Current language",

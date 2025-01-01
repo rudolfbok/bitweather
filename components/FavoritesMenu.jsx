@@ -124,7 +124,7 @@ export default function FavoritesMenu() {
             <Nameday />
             <DarkModeToggle />
             <button className="rounded-3xl py-2 px-4 my-5 backdrop-blur-3xl bg-black/5 cursor-pointer">
-              Kompas - (pouze pro iPhone)
+              Kompas - (pouze pro iPhone)<br/>coming soon
             </button>
           </div>
         </div>

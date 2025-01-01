@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 export default function DailyWeather() {
   const { weatherData, getIconPath } = useWeather();
 
-
   const { t, i18n } = useTranslation();
 
   const getDayOfWeek = (timestamp) => {
@@ -25,7 +24,7 @@ export default function DailyWeather() {
   };
 
   return (
-    <div id="dailybox" className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
+    <div className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
       <div className="flex h-auto w-full mb-2 items-center">
         <Image src={Calendar} alt="Daily forecast" height={25} width={25} />
         <span className="flex w-full font-semibold ml-1">{t("daily")}</span>
@@ -33,8 +32,8 @@ export default function DailyWeather() {
       <div className="flex flex-col w-full">
         {weatherData.daily.slice(1, 8).map((day, index) => {
           const dayName = getDayOfWeek(day.dt);
-          const dailyIconCode = day.weather[0].icon; // Use daily-specific icon
-          const dailyIconPath = getIconPath(dailyIconCode); // Map daily icon
+          const dailyIconCode = day.weather[0].icon;
+          const dailyIconPath = getIconPath(dailyIconCode);
           return (
             <div
               key={index}

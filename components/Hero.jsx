@@ -62,18 +62,8 @@ export default function Hero() {
     "50n": "/weathericons/fog.png"
 };
 
-const iconCode = weatherData?.current?.weather[0]?.icon || "01d"; // Default to clear-day
-const customHeroIconPath = iconMapping[iconCode];
-
-
-  if (!weatherData) {
-    return (
-      <section className="px-4 text-center">
-        <p className="text-xl">{t("loading")}</p>
-      </section>
-    );
-  }
-
+const iconCode = weatherData?.current?.weather[0]?.icon
+const heroIconPath = iconMapping[iconCode];
 
   return (
     <section className="px-4">
@@ -95,7 +85,7 @@ const customHeroIconPath = iconMapping[iconCode];
         >
           <div className="flex flex-col items-center">
 
-            <div id="mainbox" className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
+            <div id="mainbox" className="flex flex-col w-full items-center mt-4 p-4">
               <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
                 <FavoritesToggle />
               </div>
@@ -108,7 +98,7 @@ const customHeroIconPath = iconMapping[iconCode];
                   {Math.round(weatherData.current.temp)}°C
                 </span>
                 <img
-                  src={customHeroIconPath}
+                  src={heroIconPath}
                   width={150}
                   alt="Weather Icon"
                   className="md:w-[180px]"

@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative inline-block my-4 md:my-0">
+    <div className="relative inline-block">
       <select
         value={currentLanguage}
         onChange={handleLanguageChange}

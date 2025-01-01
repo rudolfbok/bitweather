@@ -118,7 +118,7 @@ export default function Map() {
   if (!isLoaded) return <div>Loading Map...</div>;
 
   return (
-   <div id="mapbox" className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
+   <div className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
       <div className="flex h-auto w-full items-center mb-4">
         <Image src={MapIcon} alt="Mapa" height={25} width={25} />
         <span className="flex w-full font-semibold ml-1">{t("map")}</span>

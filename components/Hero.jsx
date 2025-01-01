@@ -72,9 +72,9 @@ const heroIconPath = iconMapping[iconCode];
       )}
 
       {!weatherData && !error && (
-        <div className="font-bold text-2xl text-center">
-          BitWeather<br/>
-        </div>
+        <p className="font-semibold text-2xl text-center mt-6">
+          BitWeather
+        </p>
       )}
 
       {weatherData && (

@@ -45,8 +45,8 @@ export default function DailyWeather() {
               <span className="font-bold text-sm">{hourFormatted}</span>
               <Image
                 src={hourlyIconPath}
-                width={70}
-                height={70}
+                width={60}
+                height={60}
                 alt="Weather Icon"
               />
               <span className="text-sm">{`${Math.round(hour.temp)}°C`}</span>

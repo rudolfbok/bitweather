@@ -47,7 +47,7 @@ export default function DailyWeather() {
                 <span className="flex justify-center">{`${Math.round(day.temp.min)}°C`}</span>
                 <img
                   src={dailyIconPath}
-                  width={150}
+                  width={120}
                   alt={day.weather[0].description}
                 />
                 <span className="flex justify-center font-bold">{`${Math.round(day.temp.max)}°C`}</span>

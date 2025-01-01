@@ -74,6 +74,7 @@ export const WeatherProvider = ({ children }) => {
         removeCityFromFavorites,
         isFavorite,
         setIsFavorite,
+        background,
         setBackground
       }}
     >

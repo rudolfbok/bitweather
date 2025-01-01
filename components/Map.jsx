@@ -4,7 +4,6 @@ import { useWeather } from "@/lib/weatherContext";
 import Image from "next/image";
 import MapIcon from "@/public/icons/map.svg";
 import { useTranslation } from "react-i18next";
-import RoundBox from "@/types/RoundBox";
 
 export default function Map() {
   const { t } = useTranslation();
@@ -20,7 +19,7 @@ export default function Map() {
   if (!isLoaded) return <div>Loading Map...</div>;
 
   return (
-   <RoundBox>
+   <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
       <div className="flex h-auto w-full items-center mb-4">
         <Image src={MapIcon} alt="Mapa" height={25} width={25} />
         &nbsp;
@@ -38,6 +37,6 @@ export default function Map() {
       >
         <Marker position={latlon} />
       </GoogleMap>
-      </RoundBox>
+      </div>
   );
 }

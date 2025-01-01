@@ -3,8 +3,6 @@ import Image from "next/image";
 import Calendar from "@/public/icons/calendar.svg";
 import { useTranslation } from "react-i18next";
 
-import RoundBox from "@/types/RoundBox"
-
 export default function DailyWeather() {
   const { weatherData } = useWeather();
 
@@ -26,7 +24,7 @@ export default function DailyWeather() {
   };
 
   return (
-    <RoundBox>
+    <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
       <div className="flex h-auto w-full mb-2 items-center">
         <Image src={Calendar} alt="Daily forecast" height={25} width={25} />
         &nbsp;&nbsp;
@@ -57,6 +55,6 @@ export default function DailyWeather() {
           );
         })}
       </div>
-    </RoundBox>
+    </div>
   );
 }

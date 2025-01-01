@@ -59,9 +59,9 @@ export default function Nameday() {
       }, []);
 
     return (
-        <div ref={namedayRef}>
+        <div ref={namedayRef} className="">
             {namedayData && (
-                <div className="flex flex-col text-center mr-0 md:mr-10">
+                <div className="flex flex-col text-sm text-center">
                     <span>
                         {getDateInfo().dayOfWeek} {getDateInfo().dayNumber}. {getDateInfo().month}
                     </span>

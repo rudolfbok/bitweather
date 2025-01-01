@@ -56,16 +56,15 @@ export default function Header() {
   };
 
   return (
-    <header className="flex flex-wrap w-screen items-center z-20 px-4">
-      <div className="flex w-1/2 md:w-1/4 justify-start items-center z-20">
-        <Image src={Logo} alt="Logo" className="max-h-11 w-auto" />
+    <header className="flex flex-wrap w-screen justify-between items-center z-20 px-4 md:px-2">
+      <div className="flex justify-start items-center z-20 w-1/3">
+        <Image src={Logo} alt="Logo" width={50} height={50}/>
         <span>BitWeather</span>
       </div>
-      <div className="flex md:hidden w-1/2 justify-end">
+      <div className="flex justify-end md:w-1/3 md:order-2">
         <FavoritesMenu />
-      </div>
-      <div className="flex w-full md:w-1/2 justify-center relative">
-        <div className="relative w-full md:w-2/3">
+        </div>
+        <div className="w-full md:w-1/3">
           <Image
             src={MagnifyingGlass}
             alt="Search"
@@ -93,11 +92,6 @@ export default function Header() {
             />
           )}
         </div>
-      </div>
-      <div className="w-1/4 justify-end hidden md:flex">
-        <Nameday/>
-        <LanguageSwitcher />
-      </div>
     </header>
   );
 }

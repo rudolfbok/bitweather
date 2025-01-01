@@ -8,15 +8,15 @@ import i18n from "@/lib/i18n"; // Import the i18n configuration
 import { useWeather } from "@/lib/weatherContext";
 
 export default function Home() {
-  const { weatherData, setBackground } = useWeather();
+  const { weatherData, background} = useWeather();
 
   // Default background while loading or if there's no data
-  const fallbackBackground = "bg-gradient-to-b from-blue-400 to-blue-200";
+  const fallbackBackground = "bg-white";
 
   // Determine background class
   let backgroundClass = fallbackBackground;
 
-  if (setBackground && weatherData && weatherData.current) {
+  if (background && weatherData && weatherData.current) {
     const isDayTime = weatherData.current.weather[0].icon.includes("d"); // Daytime icons contain 'd'
     const weatherCondition = weatherData.current.weather[0].main; // Ensure 'main' exists
 

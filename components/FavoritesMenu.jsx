@@ -72,8 +72,8 @@ export default function FavoritesMenu() {
                       items-center
                       top-0
                       right-0
-                      w-[100vw]
-                      h-[100vh]
+                      w-screen
+                      h-screen
                       bg-white/1
                       backdrop-blur-lg
                       pt-[60px]
@@ -113,11 +113,11 @@ export default function FavoritesMenu() {
           <Nameday/>
         </div>
       )}
-      <div className="relative z-50 md:hidden">
+      <div className="z-50">
         <Hamburger
           toggled={isOpen}
           onToggle={isOpen ? closeMenu : openMenu}
-          color="white"
+          color="black"
           size={22}
           rounded={true}
         />

@@ -11,9 +11,6 @@ import Map from "./Map";
 import FavoritesToggle from "./FavoritesToggle";
 import { useTranslation } from "react-i18next";
 
-import Nameday from "./Nameday"
-import RoundBox from "@/types/RoundBox";
-
 export default function Hero() {
   const { weatherData, location, error, setBackground } = useWeather();
   const { t } = useTranslation();
@@ -39,8 +36,8 @@ export default function Hero() {
     }
   }, [location.city]);
 
-  const handleBackgrounds = (event) => {
-    setBackground(false)
+  const handleBackgrounds = () => {
+    setBackground(true)
 };
 
   return (
@@ -63,8 +60,8 @@ export default function Hero() {
         >
           <div className="flex flex-col items-center">
             
-            <RoundBox>
-              <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-9 py-4">
+            <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
+              <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
                 <FavoritesToggle />
               </div>
               <div className="text-center text-xl items-center flex flex-col md:my-8">
@@ -107,13 +104,13 @@ export default function Hero() {
                   )}
                 </p>
               </div>
-            </RoundBox>
+            </div>
             <HourlyWeather />
           </div>
 
           <div className="flex flex-col">
             <DailyWeather />
-            <div className="grid grid-cols-2 gap-5 md:grid-cols-4 mt-5">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 mt-4">
               <DataCard
                 icon="/icons/humidity.svg"
                 headline={t("humidity")}

@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useTranslation } from "react-i18next";
 
-import RoundBox from "@/types/RoundBox"
-
 export default function DailyWeather() {
   const { weatherData } = useWeather();
 
@@ -29,7 +27,7 @@ export default function DailyWeather() {
   };
 
   return (
-    <RoundBox>
+    <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
       <div className="flex h-auto w-full mb-4">
         <Image src={Clock} alt="Daily forecast" height={25} width={25} />
         &nbsp;&nbsp;
@@ -55,6 +53,6 @@ export default function DailyWeather() {
           );
         })}
       </Slider>
-    </RoundBox>
+    </div>
   );
 }

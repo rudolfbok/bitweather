@@ -9,9 +9,6 @@ import MagnifyingGlass from "@/public/searchglass.svg";
 import DeleteInput from "@/public/deleteinput.svg";
 import FavoritesMenu from "./FavoritesMenu";
 import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "./LanguageSwitcher";
-
-import Nameday from "./Nameday";
 
 export default function Header() {
   const { setCity, setWeatherData, setLocation, setLatlon, setError } =
@@ -64,8 +61,8 @@ export default function Header() {
       <div className="flex justify-end md:w-1/3 md:order-2">
         <FavoritesMenu />
         </div>
-        <div className="w-full md:w-1/3">
-          <Image
+        <div className="w-full md:w-1/3 relative">
+        <Image
             src={MagnifyingGlass}
             alt="Search"
             height={15}

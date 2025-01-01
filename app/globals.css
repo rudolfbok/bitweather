@@ -9,36 +9,38 @@
 }
 
 input::placeholder {
-  color: #000000; 
+  color: #000000;
 }
 
 p, span, button {
   color: #000000;
 }
 
-.hamburger-icon {
-  color: #000000;
+/* Dark mode styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
+.dark {
+  --background: #1F1D1F;
+  --foreground: #ededed;
+}
 
+/* Specific elements in dark mode */
+.dark p,
+.dark span,
+.dark button {
+  color: white;
+}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1F1D1F;
-    --foreground: #ededed;
-  }
+.dark input::placeholder {
+  color: #ffffff;
+}
 
-  p, span, button {
-    color: #ffffff;
-  }
-
-  input, input::placeholder {
-    color: #ffffff;
-  }
-
-  .hamburger-icon {
-    color: #ffffff;
-  }
+/* You can now use Tailwind's `dark:` variant */
+.dark .hamburger-icon {
+  color: #ffffff;
 }
 
 @font-face {
@@ -48,8 +50,9 @@ p, span, button {
   font-weight: 100 900;
 }
 
+/* Global body styling */
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: "Inter", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
 }

@@ -22,25 +22,7 @@ export const WeatherProvider = ({ children }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [background, setBackground] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const handleChange = (e) => {
-      setIsDarkMode(e.matches);
-    };
-
-    // Set the initial state based on current system theme
-    handleChange(mediaQuery);
-    
-    // Listen for changes to the color scheme
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
-
+  const [systemDarkMode, setSystemDarkMode] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -97,7 +79,9 @@ export const WeatherProvider = ({ children }) => {
         background,
         setBackground,
         isDarkMode,
-        setIsDarkMode
+        setIsDarkMode,
+        systemDarkMode,
+        setSystemDarkMode
       }}
     >
       {children}

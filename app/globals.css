@@ -2,17 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+:root {
   --background: #ffffff;
   --foreground: #171717;
+  --black-5: rgba(0, 0, 0, 0.05); /* Semi-transparent black */
 }
+
+input::placeholder {
+  color: #000000; 
+}
+
+p, span, button {
+  color: #000000;
+}
+
+.hamburger-icon {
+  color: #000000;
+}
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1F1D1F;
     --foreground: #ededed;
   }
-} */
+
+  p, span, button {
+    color: #ffffff;
+  }
+
+  input, input::placeholder {
+    color: #ffffff;
+  }
+
+  .hamburger-icon {
+    color: #ffffff;
+  }
+}
+
 @font-face {
   font-family: "Inter";
   src: url("/fonts/Inter-VariableFont.woff2") format("woff2");

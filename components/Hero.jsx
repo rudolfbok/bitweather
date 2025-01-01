@@ -60,15 +60,15 @@ export default function Hero() {
         >
           <div className="flex flex-col items-center">
 
-            <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
+            <div id="mainbox" className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
               <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
                 <FavoritesToggle />
               </div>
               <div className="text-center text-xl items-center flex flex-col md:my-8">
 
-                <h1 className="text-3xl md:mt-0 my-4 md:text-4xl">
+                <span className="text-3xl md:mt-0 my-4 md:text-4xl">
                   {location.city}, {location.country}
-                </h1>
+                </span>
                 <span className="text-5xl">
                   {Math.round(weatherData.current.temp)}°C
                 </span>

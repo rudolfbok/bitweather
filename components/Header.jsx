@@ -5,14 +5,18 @@ import { useState } from "react";
 import { useWeather } from "@/lib/weatherContext";
 import Image from "next/image";
 import Logo from "@/public/logo.svg";
-import MagnifyingGlass from "@/public/searchglass.svg";
+
+import SearchGlass from "@/public/searchglass.svg";
+import SearchGlassDark from "@/public/searchglass-dark.svg";
+
 import DeleteInput from "@/public/deleteinput.svg";
+import DeleteInputDark from "@/public/deleteinput-dark.svg";
+
 import FavoritesMenu from "./FavoritesMenu";
 import { useTranslation } from "react-i18next";
 
 export default function Header() {
-  const { setCity, setWeatherData, setLocation, setLatlon, setError } =
-    useWeather();
+  const { setCity, setWeatherData, setLocation, setLatlon, setError, isDarkMode } = useWeather();
   const [inputValue, setInputValue] = useState("");
 
   const { t } = useTranslation();
@@ -53,7 +57,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex flex-wrap w-screen justify-between items-center z-20 px-4 md:px-2">
+    <header className="flex flex-wrap w-screen justify-between items-center z-20 px-4">
       <div className="flex justify-start items-center z-20 w-1/3">
         <Image src={Logo} alt="Logo" width={50} height={50}/>
         <span>BitWeather</span>
@@ -63,7 +67,7 @@ export default function Header() {
         </div>
         <div className="w-full md:w-1/3 relative">
         <Image
-            src={MagnifyingGlass}
+            src={isDarkMode ? SearchGlass : SearchGlassDark}
             alt="Search"
             height={15}
             width={15}
@@ -71,16 +75,17 @@ export default function Header() {
             className="absolute cursor-pointer top-2.5 left-4 z-30"
           />
           <input
+            id="searchbar"
             type="text"
             placeholder={t("search")}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleSearch}
-            className="text-center w-full h-[35px] relative rounded-full focus:outline-none z-20 backdrop-blur-3xl bg-black/5 placeholder-white"
+            className="text-center w-full h-[35px] relative rounded-full focus:outline-none z-20 backdrop-blur-3xl bg-black/5"
           />
           {inputValue.trim() && (
             <Image
-              src={DeleteInput}
+              src={isDarkMode ? DeleteInput : DeleteInputDark}
               alt="Delete input"
               height={15}
               width={15}

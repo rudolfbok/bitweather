@@ -27,11 +27,10 @@ export default function DailyWeather() {
   };
 
   return (
-    <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
+    <div id="hourlybox" className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
       <div className="flex h-auto w-full mb-4">
         <Image src={Clock} alt="Daily forecast" height={25} width={25} />
-        &nbsp;&nbsp;
-        <span className="flex w-full font-semibold">{t("hourly")}</span>
+        <span className="flex w-full font-semibold ml-1">{t("hourly")}</span>
       </div>
       <Slider {...settings} className="w-full mb-5">
         {weatherData.hourly.slice(1, 24).map((hour, index) => {

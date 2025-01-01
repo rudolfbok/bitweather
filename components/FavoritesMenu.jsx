@@ -8,9 +8,13 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
+import DarkModeToggle from "./DarkModeToggle"
 import Nameday from "./Nameday";
 
 export default function FavoritesMenu() {
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   const {
     fetchWeather,
     favoriteCities,
@@ -20,6 +24,7 @@ export default function FavoritesMenu() {
     setLatlon,
     getFavoriteCities,
     setIsFavorite,
+    isDarkMode
   } = useWeather();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -119,17 +124,30 @@ export default function FavoritesMenu() {
             </ul>
             <LanguageSwitcher />
             <Nameday />
+            <DarkModeToggle />
           </div>
         </div>
       )}
       <div className="z-50">
-        <Hamburger
+      <div
+      onClick={isOpen ? closeMenu : openMenu}
+      className="flex flex-col justify-between items-center h-4 cursor-pointer hamburger-icon" 
+    >
+      {/* Top Line */}
+      <div className="w-6 h-0.5 bg-current"/>
+      {/* Middle Line */}
+      <div className="w-6 h-0.5 bg-current"/>
+      {/* Bottom Line */}
+      <div className="w-6 h-0.5 bg-current"/>
+    </div>
+        {/* <Hamburger
           toggled={isOpen}
           onToggle={isOpen ? closeMenu : openMenu}
-          color="black"
+          color="white"
           size={22}
           rounded={true}
-        />
+          className={`hamburger-icon ${isDarkMode ? "dark-mode" : "light-mode"}`}
+        /> */}
       </div>
     </div>
   );

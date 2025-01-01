@@ -24,11 +24,10 @@ export default function DailyWeather() {
   };
 
   return (
-    <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
+    <div id="dailybox" className="flex flex-col rounded-3xl w-full bg-black/5 items-center mt-4 p-4">
       <div className="flex h-auto w-full mb-2 items-center">
         <Image src={Calendar} alt="Daily forecast" height={25} width={25} />
-        &nbsp;&nbsp;
-        <span className="flex w-full font-semibold">{t("daily")}</span>
+        <span className="flex w-full font-semibold ml-1">{t("daily")}</span>
       </div>
       <div className="flex flex-col w-full">
         {weatherData.daily.slice(1, 8).map((day, index) => {

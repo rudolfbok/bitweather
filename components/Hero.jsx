@@ -74,7 +74,6 @@ const heroIconPath = iconMapping[iconCode];
       {!weatherData && !error && (
         <div className="font-bold text-2xl text-center">
           BitWeather<br/>
-          <button onClick={handleBackgrounds}>Permit backgrounds</button>
         </div>
       )}
 

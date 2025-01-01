@@ -11,8 +11,13 @@ import Map from "./Map";
 import FavoritesToggle from "./FavoritesToggle";
 import { useTranslation } from "react-i18next";
 
+import TempMin from "@/public/icons/tempmin.svg";
+import TempMinDark from "@/public/icons/tempmin-dark.svg";
+import TempMax from "@/public/icons/tempmax.svg"
+import TempMaxDark from "@/public/icons/tempmax-dark.svg"
+
 export default function Hero() {
-  const { weatherData, location, error, setBackground } = useWeather();
+  const { weatherData, location, error, setBackground, isDarkMode } = useWeather();
   const { t } = useTranslation();
 
   const capitalizeFirstLetter = (string) => {
@@ -47,8 +52,8 @@ export default function Hero() {
       )}
 
       {!weatherData && !error && (
-        <div className="font-bold text-2xl">
-          BitWeather
+        <div className="font-bold text-2xl text-center">
+          BitWeather<br/>
           <button onClick={handleBackgrounds}>Permit backgrounds</button>
         </div>
       )}
@@ -80,14 +85,14 @@ export default function Hero() {
                 />
                 <div className="flex justify-center items-center text-xl">
                   <Image
-                    src="/icons/tempmin.svg"
+                    src={isDarkMode ? TempMinDark : TempMin}
                     height={25}
                     width={25}
                     alt="Min Temp"
                   />
                   <span>{`${Math.round(weatherData.daily[0].temp.min)}°C`}</span>
                   <Image
-                    src="/icons/tempmax.svg"
+                    src={isDarkMode ? TempMaxDark : TempMax}
                     height={25}
                     width={25}
                     alt="Max Temp"

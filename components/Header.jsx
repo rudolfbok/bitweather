@@ -67,7 +67,7 @@ export default function Header() {
         </div>
         <div className="w-full md:w-1/3 relative">
         <Image
-            src={isDarkMode ? SearchGlass : SearchGlassDark}
+            src={isDarkMode ? SearchGlassDark : SearchGlass}
             alt="Search"
             height={15}
             width={15}
@@ -85,7 +85,7 @@ export default function Header() {
           />
           {inputValue.trim() && (
             <Image
-              src={isDarkMode ? DeleteInput : DeleteInputDark}
+              src={isDarkMode ? DeleteInputDark : DeleteInput}
               alt="Delete input"
               height={15}
               width={15}

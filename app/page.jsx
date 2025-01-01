@@ -55,7 +55,7 @@ export default function Home() {
 
   return (
     <I18nextProvider i18n={i18n}>
-      <main className={`text-black font-inter min-h-screen`}>
+      <main className="min-h-screen">
         <Header />
         <Hero />
       </main>

@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --black-5: rgba(0, 0, 0, 0.05); /* Semi-transparent black */
+  --black-5: rgba(0, 0, 0, 0.05);
 }
 
 input::placeholder {
@@ -16,7 +16,6 @@ p, span, button {
   color: #000000;
 }
 
-/* Dark mode styles */
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -27,7 +26,6 @@ body {
   --foreground: #ededed;
 }
 
-/* Specific elements in dark mode */
 .dark p,
 .dark span,
 .dark button {
@@ -38,7 +36,6 @@ body {
   color: #ffffff;
 }
 
-/* You can now use Tailwind's `dark:` variant */
 .dark .hamburger-icon {
   color: #ffffff;
 }
@@ -50,7 +47,6 @@ body {
   font-weight: 100 900;
 }
 
-/* Global body styling */
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--background);

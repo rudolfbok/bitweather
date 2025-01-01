@@ -17,5 +17,7 @@
   "sunset": "Sunset",
   "map": "Map",
   "error": "We couldn't find the place you were searching for. Please try again.",
-  "nameday": "Today's nameday"
+  "nameday": "Today's nameday",
+  "lightmode": "Light mode",
+  "darkmode": "Dark mode"
 }

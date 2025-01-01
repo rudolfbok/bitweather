@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import { useWeather } from "@/lib/weatherContext";
 import Trash from "@/public/trash.svg";
+import TrashDark from "@/public/trash-dark.svg";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -12,8 +13,6 @@ import DarkModeToggle from "./DarkModeToggle"
 import Nameday from "./Nameday";
 
 export default function FavoritesMenu() {
-
-  const toggleMenu = () => setIsOpen(!isOpen);
 
   const {
     fetchWeather,
@@ -114,7 +113,7 @@ export default function FavoritesMenu() {
                         handleRemoveCityFromFavorites(event, city)
                       }
                     >
-                      <Image src={Trash} alt="Remove city" width={25} />
+                      <Image src={isDarkMode ? TrashDark : Trash} alt="Remove city" width={25} />
                     </div>
                   </li>
                 ))
@@ -128,26 +127,16 @@ export default function FavoritesMenu() {
           </div>
         </div>
       )}
-      <div className="z-50">
       <div
-      onClick={isOpen ? closeMenu : openMenu}
-      className="flex flex-col justify-between items-center h-4 cursor-pointer hamburger-icon" 
-    >
-      {/* Top Line */}
-      <div className="w-6 h-0.5 bg-current"/>
-      {/* Middle Line */}
-      <div className="w-6 h-0.5 bg-current"/>
-      {/* Bottom Line */}
-      <div className="w-6 h-0.5 bg-current"/>
-    </div>
-        {/* <Hamburger
-          toggled={isOpen}
-          onToggle={isOpen ? closeMenu : openMenu}
-          color="white"
-          size={22}
-          rounded={true}
-          className={`hamburger-icon ${isDarkMode ? "dark-mode" : "light-mode"}`}
-        /> */}
+        onClick={isOpen ? closeMenu : openMenu}
+        className="flex flex-col justify-between items-center h-4 cursor-pointer hamburger-icon z-50"
+      >
+        {/* Top Line */}
+        <div className="w-6 h-0.5 bg-current" />
+        {/* Middle Line */}
+        <div className="w-6 h-0.5 bg-current" />
+        {/* Bottom Line */}
+        <div className="w-6 h-0.5 bg-current" />
       </div>
     </div>
   );

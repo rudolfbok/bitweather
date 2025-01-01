@@ -25,6 +25,27 @@ export const WeatherProvider = ({ children }) => {
   const [systemDarkMode, setSystemDarkMode] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handleChange = (e) => {
+      setIsDarkMode(e.matches);
+      if (e.matches) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    };
+
+    handleChange(mediaQuery); // Initial check for system preference
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       setFavoriteCities(getFavoriteCities());
     }

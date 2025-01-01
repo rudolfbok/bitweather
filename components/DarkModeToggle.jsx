@@ -1,8 +1,16 @@
-import { useEffect, useState } from "react";
 import { useWeather } from "@/lib/weatherContext";
+
+import { ToggleSlider }  from "react-toggle-slider";
+
+import Image from "next/image";
+
+import LightModeIcon from "@/public/lightmode.svg"
+import DarkModeIcon from "@/public/darkmode.svg"
+import { useTranslation } from "react-i18next";
 
 export default function DarkModeToggle() {
   const { setIsDarkMode, isDarkMode } = useWeather();
+  const { t } = useTranslation(); 
   
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -13,29 +21,20 @@ export default function DarkModeToggle() {
     }
   };
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const handleChange = (e) => {
-      setIsDarkMode(e.matches);
-      if (e.matches) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    };
-
-    handleChange(mediaQuery); // Initial check for system preference
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
-
   return (
-    <button onClick={toggleDarkMode}>
-      {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-    </button>
+    <div className="flex flex-row">
+        <ToggleSlider onToggle={toggleDarkMode}/>
+        <span className="mx-2">
+            {isDarkMode ? t("darkmode"): t("lightmode")}
+        </span>
+        <Image
+          src={isDarkMode ? DarkModeIcon : LightModeIcon}
+          alt={isDarkMode ? "Dark Mode Icon" : "Light Mode Icon"}
+          height={24}
+          width={24}
+        />
+    </div>
+    
+      
   );
 }

@@ -59,7 +59,7 @@ export default function Nameday() {
       }, []);
 
     return (
-        <div ref={namedayRef} className="my-2">
+        <div ref={namedayRef} className="my-6">
             {namedayData && (
                 <div className="flex flex-col text-sm text-center">
                     <span>

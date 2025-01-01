@@ -53,7 +53,7 @@ export default function Nameday() {
           gsap.fromTo(
             namedayRef.current,
             { opacity: 0 },
-            { opacity: 1, duration: 0.4, ease: "power2.in" },
+            { opacity: 1, duration: 0.2, ease: "power2.in" },
           );
         }
       }, []);

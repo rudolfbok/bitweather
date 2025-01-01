@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Turn as Hamburger } from "hamburger-react";
 import { useWeather } from "@/lib/weatherContext";
 import Trash from "@/public/trash.svg";
 import TrashDark from "@/public/trash-dark.svg";
@@ -87,7 +86,7 @@ export default function FavoritesMenu() {
                       w-full
                       h-full
                       bg-white/1
-                      backdrop-blur-lg
+                      backdrop-blur-xl
                       pt-[60px]
                       transition-opacity
                       duration-500
@@ -124,19 +123,19 @@ export default function FavoritesMenu() {
             <LanguageSwitcher />
             <Nameday />
             <DarkModeToggle />
+            <button className="rounded-3xl py-2 px-4 my-5 backdrop-blur-3xl bg-black/5 cursor-pointer">
+              Kompas - (pouze pro iPhone)
+            </button>
           </div>
         </div>
       )}
       <div
         onClick={isOpen ? closeMenu : openMenu}
-        className="flex flex-col justify-between items-center h-4 cursor-pointer hamburger-icon z-50"
+        className="flex flex-col justify-between items-center h-4 cursor-pointer hamburger-icon z-50 relative"
       >
-        {/* Top Line */}
-        <div className="w-6 h-0.5 bg-current" />
-        {/* Middle Line */}
-        <div className="w-6 h-0.5 bg-current" />
-        {/* Bottom Line */}
-        <div className="w-6 h-0.5 bg-current" />
+        <div className={`w-6 h-0.5 bg-current transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-1.5" : ""}`}/>
+        <div className={`w-6 h-0.5 bg-current transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`}/>
+        <div className={`w-6 h-0.5 bg-current transition-transform duration-300 ${isOpen ? "-rotate-45 -translate-y-1.5" : ""}`}/>
       </div>
     </div>
   );

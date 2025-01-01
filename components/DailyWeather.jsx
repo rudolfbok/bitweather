@@ -4,7 +4,8 @@ import Calendar from "@/public/icons/calendar.svg";
 import { useTranslation } from "react-i18next";
 
 export default function DailyWeather() {
-  const { weatherData } = useWeather();
+  const { weatherData, getIconPath } = useWeather();
+
 
   const { t, i18n } = useTranslation();
 
@@ -32,6 +33,8 @@ export default function DailyWeather() {
       <div className="flex flex-col w-full">
         {weatherData.daily.slice(1, 8).map((day, index) => {
           const dayName = getDayOfWeek(day.dt);
+          const dailyIconCode = day.weather[0].icon; // Use daily-specific icon
+          const dailyIconPath = getIconPath(dailyIconCode); // Map daily icon
           return (
             <div
               key={index}
@@ -44,7 +47,7 @@ export default function DailyWeather() {
               <div className="grid grid-cols-3 items-center">
                 <span className="flex justify-center">{`${Math.round(day.temp.min)}°C`}</span>
                 <img
-                  src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                  src={dailyIconPath}
                   width={150}
                   alt={day.weather[0].description}
                 />

@@ -41,9 +41,39 @@ export default function Hero() {
     }
   }, [location.city]);
 
-  const handleBackgrounds = () => {
-    setBackground(true)
-  };
+  const iconMapping = {
+    "01d": "/weathericons/clear-day.png",
+    "01n": "/weathericons/clear-night.png",
+    "02d": "/weathericons/partclouds-day.png",
+    "02n": "/weathericons/partclouds-night.png",
+    "03d": "/weathericons/clouds-day.png",
+    "03n": "/weathericons/cloudy-night.png",
+    "04d": "/weathericons/clouds-day.png",
+    "04n": "/weathericons/clouds-night.png",
+    "09d": "/weathericons/rain-day.png",
+    "09n": "/weathericons/rain-night.png",
+    "10d": "/weathericons/rain-day.png",
+    "10n": "/weathericons/rain-night.png",
+    "11d": "/weathericons/storm-day.png",
+    "11n": "/weathericons/storm-night.png",
+    "13d": "/weathericons/snow.png",
+    "13n": "/weathericons/snow.png",
+    "50d": "/weathericons/fog.png",
+    "50n": "/weathericons/fog.png"
+};
+
+const iconCode = weatherData?.current?.weather[0]?.icon || "01d"; // Default to clear-day
+const customHeroIconPath = iconMapping[iconCode];
+
+
+  if (!weatherData) {
+    return (
+      <section className="px-4 text-center">
+        <p className="text-xl">{t("loading")}</p>
+      </section>
+    );
+  }
+
 
   return (
     <section className="px-4">
@@ -78,7 +108,7 @@ export default function Hero() {
                   {Math.round(weatherData.current.temp)}°C
                 </span>
                 <img
-                  src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0]?.icon}@4x.png`}
+                  src={customHeroIconPath}
                   width={150}
                   alt="Weather Icon"
                   className="md:w-[180px]"
@@ -132,7 +162,7 @@ export default function Hero() {
                 data={`${Math.round((weatherData.daily[0]?.rain ?? 0) * 10) / 10}mm`}
               />
               <DataCard
-                icon="/icons/sun.svg"
+                icon="/icons/uv.svg"
                 headline="UV Index"
                 data={Math.round(weatherData.daily[0]?.uvi)}
               />

@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useTranslation } from "react-i18next";
 
 export default function DailyWeather() {
-  const { weatherData } = useWeather();
+  const { weatherData, getIconPath } = useWeather();
 
   const { t } = useTranslation();
 
@@ -35,6 +35,8 @@ export default function DailyWeather() {
       <Slider {...settings} className="w-full mb-5">
         {weatherData.hourly.slice(1, 24).map((hour, index) => {
           const hourFormatted = getHour(hour.dt);
+          const dailyIconCode = hour.weather[0].icon;
+          const hourlyIconPath = getIconPath(dailyIconCode);
           return (
             <div
               key={index}
@@ -42,7 +44,7 @@ export default function DailyWeather() {
             >
               <span className="font-bold text-sm">{hourFormatted}</span>
               <Image
-                src={`https://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}
+                src={hourlyIconPath}
                 width={70}
                 height={70}
                 alt="Weather Icon"

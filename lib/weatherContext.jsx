@@ -77,6 +77,34 @@ export const WeatherProvider = ({ children }) => {
     }
   };
 
+  const getIconPath = (iconCode) => iconMapping[iconCode];
+
+  const iconMapping = {
+    "01d": "/weathericons/clear-day.png",
+    "01n": "/weathericons/clear-night.png",
+    "02d": "/weathericons/partclouds-day.png",
+    "02n": "/weathericons/partclouds-night.png",
+    "03d": "/weathericons/clouds-day.png",
+    "03n": "/weathericons/clouds-night.png",
+    "04d": "/weathericons/clouds-day.png",
+    "04n": "/weathericons/clouds-night.png",
+    "09d": "/weathericons/rain-day.png",
+    "09n": "/weathericons/rain-night.png",
+    "10d": "/weathericons/rain-day.png",
+    "10n": "/weathericons/rain-night.png",
+    "11d": "/weathericons/storm-day.png",
+    "11n": "/weathericons/storm-night.png",
+    "13d": "/weathericons/snow.png",
+    "13n": "/weathericons/snow.png",
+    "50d": "/weathericons/fog.png",
+    "50n": "/weathericons/fog.png"
+  };
+
+  const updateWeatherData = (data) => {
+    setWeatherData(data);
+  };
+
+
   return (
     <WeatherContext.Provider
       value={{
@@ -84,7 +112,7 @@ export const WeatherProvider = ({ children }) => {
         city,
         setCity,
         weatherData,
-        setWeatherData,
+        setWeatherData: updateWeatherData,
         location,
         setLocation,
         error,
@@ -102,7 +130,8 @@ export const WeatherProvider = ({ children }) => {
         isDarkMode,
         setIsDarkMode,
         systemDarkMode,
-        setSystemDarkMode
+        setSystemDarkMode,
+        getIconPath
       }}
     >
       {children}

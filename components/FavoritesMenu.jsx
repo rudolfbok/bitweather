@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import { useWeather } from "@/lib/weatherContext";
 import Trash from "@/public/trash.svg";
@@ -36,6 +36,14 @@ export default function FavoritesMenu() {
     setTimeout(() => setIsVisible(false), 500);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
+
   const handleCityClick = async (city) => {
     try {
       const { weatherData, location, latlon } = await fetchWeather(city);
@@ -65,12 +73,11 @@ export default function FavoritesMenu() {
       {isVisible && (
         <div
           className={`
-                      absolute
+                      fixed
+                      overflow-y-auto
                       flex
                       flex-col
-                      items-start
                       top-0
-                      
                       right-0
                       md:w-1/4
                       w-full
@@ -85,7 +92,7 @@ export default function FavoritesMenu() {
                       ${isOpen ? "opacity-100" : "opacity-0"}
                       `}
         >
-          <div className="flex flex-col border-2 items-center w-full">
+          <div className="flex flex-col items-center w-full">
             <p className="text-xl pb-4">{t("favorite")}</p>
             <ul className="w-3/4">
               {favoriteCities.length > 0 ? (

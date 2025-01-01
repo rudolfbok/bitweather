@@ -38,7 +38,7 @@ export default function Hero() {
 
   const handleBackgrounds = () => {
     setBackground(true)
-};
+  };
 
   return (
     <section className="px-4">
@@ -59,13 +59,13 @@ export default function Hero() {
           className="grid grid-cols-1 md:grid-cols-3 md:gap-4"
         >
           <div className="flex flex-col items-center">
-            
+
             <div className="flex flex-col rounded-3xl w-full bg-gray-50 items-center mt-4 p-4">
               <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
                 <FavoritesToggle />
               </div>
               <div className="text-center text-xl items-center flex flex-col md:my-8">
-                
+
                 <h1 className="text-3xl md:mt-0 my-4 md:text-4xl">
                   {location.city}, {location.country}
                 </h1>

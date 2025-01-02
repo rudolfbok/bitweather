@@ -33,6 +33,6 @@
     "components/DataCard.jsx",
     "components/LanguageSwitcher.jsx",
     "components/Compass.tsx"
-, "app/page.jsx", "app/layout.jsx"  ],
+, "app/page.jsx", "app/layout.tsx"  ],
   "exclude": ["node_modules"]
 }

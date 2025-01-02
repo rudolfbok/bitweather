@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>
+      <body className="antialiased">
         <WeatherProvider>{children}</WeatherProvider>
       </body>
     </html>

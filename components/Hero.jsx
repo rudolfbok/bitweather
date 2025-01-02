@@ -86,9 +86,9 @@ const heroIconPath = iconMapping[iconCode];
           <div className="flex flex-col items-center">
 
             <div id="mainbox" className="flex flex-col w-full items-center mt-4 rounded-3xl">
-              {/* <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
+              <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
                 <FavoritesToggle />
-              </div> */}
+              </div>
               <div className="text-center text-xl items-center flex flex-col my-6">
 
                 <span className="text-3xl md:text-4xl">

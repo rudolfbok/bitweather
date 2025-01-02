@@ -36,7 +36,7 @@ export const WeatherProvider = ({ children }) => {
       }
     };
 
-    handleChange(mediaQuery); // Initial check for system preference
+    handleChange(mediaQuery);
     mediaQuery.addEventListener("change", handleChange);
 
     return () => {

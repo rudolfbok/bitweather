@@ -72,9 +72,10 @@ const heroIconPath = iconMapping[iconCode];
       )}
 
       {!weatherData && !error && (
-        <p className="font-semibold text-2xl text-center mt-6">
-          BitWeather
-        </p>
+        <div className="flex flex-col mt-6 text-center space-y-4">
+          <span>{t("searchtext")}</span>
+          <span>{t("menutext")}</span>
+        </div>
       )}
 
       {weatherData && (
@@ -84,13 +85,13 @@ const heroIconPath = iconMapping[iconCode];
         >
           <div className="flex flex-col items-center">
 
-            <div id="mainbox" className="flex flex-col w-full items-center mt-4 p-4 rounded-3xl">
-              <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
+            <div id="mainbox" className="flex flex-col w-full items-center mt-4 rounded-3xl">
+              {/* <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
                 <FavoritesToggle />
-              </div>
-              <div className="text-center text-xl items-center flex flex-col md:my-8">
+              </div> */}
+              <div className="text-center text-xl items-center flex flex-col my-6">
 
-                <span className="text-3xl md:mt-0 my-4 md:text-4xl">
+                <span className="text-3xl md:text-4xl">
                   {location.city}, {location.country}
                 </span>
                 <span className="text-5xl">
@@ -102,7 +103,7 @@ const heroIconPath = iconMapping[iconCode];
                   alt="Weather Icon"
                   className="md:w-[180px]"
                 />
-                <div className="flex justify-center items-center text-xl">
+                <div className="flex justify-center items-center">
                   <Image
                     src={isDarkMode ? TempMinDark : TempMin}
                     height={25}

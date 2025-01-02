@@ -124,14 +124,14 @@ export default function FavoritesMenu() {
             <Nameday />
             <DarkModeToggle />
             <button className="rounded-3xl py-2 px-4 my-5 backdrop-blur-3xl bg-black/5 cursor-pointer">
-              Kompas - (pouze pro iPhone)<br/>coming soon
+              {t("compass")}
             </button>
           </div>
         </div>
       )}
       <div
         onClick={isOpen ? closeMenu : openMenu}
-        className="flex flex-col justify-between items-center h-4 cursor-pointer hamburger-icon z-50 relative"
+        className="flex flex-col justify-between items-center h-3.5 cursor-pointer hamburger-icon z-50 relative"
       >
         <div className={`w-6 h-0.5 bg-current transition-transform duration-300 ${isOpen ? "rotate-45 translate-y-1.5" : ""}`}/>
         <div className={`w-6 h-0.5 bg-current transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`}/>

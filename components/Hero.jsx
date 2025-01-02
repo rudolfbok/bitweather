@@ -47,7 +47,7 @@ export default function Hero() {
     "02d": "/weathericons/partclouds-day.png",
     "02n": "/weathericons/partclouds-night.png",
     "03d": "/weathericons/clouds-day.png",
-    "03n": "/weathericons/cloudy-night.png",
+    "03n": "/weathericons/clouds-night.png",
     "04d": "/weathericons/clouds-day.png",
     "04n": "/weathericons/clouds-night.png",
     "09d": "/weathericons/rain-day.png",
@@ -84,7 +84,7 @@ const heroIconPath = iconMapping[iconCode];
         >
           <div className="flex flex-col items-center">
 
-            <div id="mainbox" className="flex flex-col w-full items-center mt-4 p-4">
+            <div id="mainbox" className="flex flex-col w-full items-center mt-4 p-4 rounded-3xl">
               <div className="w-full flex justify-end pr-6 items-center -mb-12 md:-mb-14">
                 <FavoritesToggle />
               </div>

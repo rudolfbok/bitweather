@@ -19,5 +19,8 @@
   "error": "We couldn't find the place you were searching for. Please try again.",
   "nameday": "Today's nameday",
   "lightmode": "Light mode",
-  "darkmode": "Dark mode"
+  "darkmode": "Dark mode",
+  "language": "Change language",
+  "compass": "Compass (available only for iPhone)",
+  "compass_permission": "Grant permission"
 }

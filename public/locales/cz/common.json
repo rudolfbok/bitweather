@@ -19,5 +19,8 @@
   "error": "Nepodařilo se najít vámi hledané místo, zkuste to prosím znovu",
   "nameday": "Dnes má svátek",
   "lightmode": "Světlý režim",
-  "darkmode": "Tmavý režim"
+  "darkmode": "Tmavý režim",
+  "language": "Změnit jazyk",
+  "compass": "Kompas (pouze pro iPhone)",
+  "compass_permission": "Udělit povolení"
 }

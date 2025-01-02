@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useWeather } from "@/lib/weatherContext";
 
 export default function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const { setError, setWeatherData } = useWeather();
 
@@ -14,7 +14,9 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="flex flex-col space-y-2">
+        <span className="text-center">{t("language")}</span>
+        <div className="relative inline-block">
       <select
         value={currentLanguage}
         onChange={handleLanguageChange}
@@ -34,5 +36,6 @@ export default function LanguageSwitcher() {
         </svg>
       </div>
     </div>
-  );
+    </div>
+      );
 }

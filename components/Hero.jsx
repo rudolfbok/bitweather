@@ -83,8 +83,7 @@ const heroIconPath = iconMapping[iconCode];
           ref={columnRef}
           className="grid grid-cols-1 md:grid-cols-3 md:gap-4"
         >
-          <div className="flex flex-col items-center">
-
+          <div className="flex flex-col">
             <div id="mainbox" className="flex flex-col w-full items-center mt-4 rounded-3xl">
               <div className="w-full flex justify-end pr-6 pt-4 items-center -mb-20 md:-mb-18">
                 <FavoritesToggle />
@@ -94,7 +93,7 @@ const heroIconPath = iconMapping[iconCode];
                 <span className="text-3xl md:text-4xl">
                   {location.city}, {location.country}
                 </span>
-                <span className="text-5xl">
+                <span className="text-5xl pt-2">
                   {Math.round(weatherData.current.temp)}°C
                 </span>
                 <img
@@ -179,9 +178,8 @@ const heroIconPath = iconMapping[iconCode];
             </div>
           </div>
 
-          <div>
-            <Map />
-          </div>
+          <Map />
+                    
         </div>
       )}
     </section>

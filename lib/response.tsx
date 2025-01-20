@@ -1,6 +1,12 @@
 'use client';
 
-import { useState, useEffect, createContext, useContext } from 'react';
+import {
+	useState,
+	useEffect,
+	createContext,
+	useContext,
+	ReactNode,
+} from 'react';
 import { fetchWeather } from './weatherService';
 import {
 	getFavoriteCities,
@@ -9,20 +15,84 @@ import {
 } from '@/lib/crudService';
 import { useTranslation } from 'react-i18next';
 
-export const WeatherContext = createContext();
+interface LatLonResponse {
+	lat: number;
+	lng: number;
+}
 
-export const WeatherProvider = ({ children }) => {
+interface LocationResponse {
+	city: string;
+	country: string;
+}
+
+interface OpenWeatherResponse {
+	current: {
+		temp: number;
+		feels_like: number;
+		humidity: number;
+		pressure: number;
+		weather: {
+			icon: string;
+		}[];
+	};
+	hourly: {
+		dt: number;
+		temp: number;
+		weather: {
+			icon: string;
+		}[];
+	}[];
+	daily: {
+		dt: number;
+		temp: {
+			max: number;
+			min: number;
+		};
+		rain: number;
+		uvi: number;
+		visibility: number;
+		wind_speed: number;
+		sunrise: number;
+		sunset: number;
+		weather: {
+			description: string;
+			icon: string;
+		}[];
+	}[];
+}
+
+interface WeatherContextType {
+	city: string;
+	setCity: (city: string) => void;
+	weatherData: OpenWeatherResponse;
+	setWeatherData: (data: OpenWeatherResponse) => void;
+	location: LocationResponse;
+	setLocation: (location: Location) => void;
+	error: string;
+	setError: (error: string) => void;
+	latlon: LatLonResponse;
+	setLatlon: (latlon: LatLonResponse) => void;
+}
+
+export const WeatherContext = createContext<WeatherContextType | undefined>(
+	undefined,
+);
+
+export const WeatherProvider = ({ children }: { children: ReactNode }) => {
 	const { i18n } = useTranslation();
-	const [city, setCity] = useState('');
-	const [weatherData, setWeatherData] = useState(null);
-	const [location, setLocation] = useState({ city: '', country: '' });
-	const [error, setError] = useState('');
-	const [latlon, setLatlon] = useState({ lat: 0, lng: 0 });
-	const [favoriteCities, setFavoriteCities] = useState([]);
-	const [isFavorite, setIsFavorite] = useState(false);
-	const [isDarkMode, setIsDarkMode] = useState(false);
-
-	const [suggestions, setSuggestions] = useState([]);
+	const [city, setCity] = useState<string | null>('');
+	const [weatherData, setWeatherData] = useState<OpenWeatherResponse | null>(
+		null,
+	);
+	const [location, setLocation] = useState<LocationResponse>({
+		city: '',
+		country: '',
+	});
+	const [error, setError] = useState<string | null>('');
+	const [latlon, setLatlon] = useState<LatLonResponse>({ lat: 0, lng: 0 });
+	const [favoriteCities, setFavoriteCities] = useState<string[] | null>([]);
+	const [isFavorite, setIsFavorite] = useState<boolean | null>(false);
+	const [isDarkMode, setIsDarkMode] = useState<boolean | null>(false);
 
 	useEffect(() => {
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -64,21 +134,19 @@ export const WeatherProvider = ({ children }) => {
 		}
 	}, [i18n.language, location.city]);
 
-	const addCityToFavorites = (city) => {
+	const addCityToFavorites = (city: string) => {
 		if (addFavoriteCity(city)) {
 			setFavoriteCities(getFavoriteCities());
 		}
 	};
 
-	const removeCityFromFavorites = (city) => {
+	const removeCityFromFavorites = (city: string) => {
 		if (removeFavoriteCity(city)) {
 			setFavoriteCities(getFavoriteCities());
 		}
 	};
 
-	const getIconPath = (iconCode) => iconMapping[iconCode];
-
-	const iconMapping = {
+	const iconMapping: Record<string, string> = {
 		'01d': '/weathericons/clear-day.png',
 		'01n': '/weathericons/clear-night.png',
 		'02d': '/weathericons/partclouds-day.png',
@@ -98,6 +166,9 @@ export const WeatherProvider = ({ children }) => {
 		'50d': '/weathericons/fog.png',
 		'50n': '/weathericons/fog.png',
 	};
+
+	const getIconPath = (iconCode: string): string | undefined =>
+		iconMapping[iconCode];
 
 	const updateWeatherData = (data) => {
 		setWeatherData(data);
@@ -126,8 +197,6 @@ export const WeatherProvider = ({ children }) => {
 				isDarkMode,
 				setIsDarkMode,
 				getIconPath,
-				suggestions,
-				setSuggestions,
 			}}
 		>
 			{children}

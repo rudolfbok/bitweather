@@ -1,38 +1,40 @@
 {
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    }
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "lib/weatherService.js",
-    "components/DataCards.jsx",
-    "lib/weatherContext.jsx",
-    "components/DataCard.jsx",
-    "components/LanguageSwitcher.jsx",
-    "components/Compass.tsx"
-, "app/page.jsx", "app/layout.tsx"  ],
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"target": "ES2017",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"paths": {
+			"@/*": ["./*"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"lib/weatherService.js",
+		"components/DataCards.jsx",
+		"lib/weatherContext.tsx",
+		"components/DataCard.jsx",
+		"components/LanguageSwitcher.jsx",
+		"components/Compass.tsx",
+		"app/page.jsx",
+		"app/layout.tsx"
+	],
+	"exclude": ["node_modules"]
 }

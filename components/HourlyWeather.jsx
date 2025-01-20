@@ -58,8 +58,6 @@ export default function DailyWeather() {
 		slidesToShow: 6,
 		slidesToScroll: 6,
 		rows: 1,
-		nextArrow: <NextArrow />,
-		prevArrow: <PreviousArrow />,
 	};
 
 	return (

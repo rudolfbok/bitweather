@@ -53,7 +53,6 @@ export default function DailyWeather() {
 	const settings = {
 		dots: true,
 		infinite: false,
-		arrows: true,
 		speed: 500,
 		slidesToShow: 6,
 		slidesToScroll: 6,

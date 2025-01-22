@@ -20,7 +20,7 @@ export default function DailyWeather() {
 		const { className, style, onClick } = props;
 		return (
 			<div
-				className={`w-7 absolute right-[-20] top-[38%] cursor-pointer ${onClick ? 'block' : 'hidden'}`}
+				className={`w-5 absolute right-[-10] top-[40%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
 				onClick={onClick}
 			>
 				<img
@@ -37,7 +37,7 @@ export default function DailyWeather() {
 		const { className, style, onClick } = props;
 		return (
 			<div
-				className={`w-7 absolute left-[-20] top-[38%] cursor-pointer ${onClick ? 'block' : 'hidden'}`}
+				className={`w-5 absolute left-[-10] top-[40%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
 				onClick={onClick}
 			>
 				<img
@@ -53,6 +53,9 @@ export default function DailyWeather() {
 	const settings = {
 		dots: true,
 		infinite: false,
+		arrow: true,
+		prevArrow: <PreviousArrow />,
+		nextArrow: <NextArrow />,
 		speed: 500,
 		slidesToShow: 6,
 		slidesToScroll: 6,

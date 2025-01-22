@@ -21,9 +21,7 @@ export default function FavoritesToggle() {
 
 	useEffect(() => {
 		const favoriteCities = getFavoriteCities();
-		if (favoriteCities.includes(location.city)) {
-			setIsFavorite(true);
-		}
+		setIsFavorite(favoriteCities.includes(location.city));
 	}, [location.city]);
 
 	useEffect(() => {

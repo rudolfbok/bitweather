@@ -36,7 +36,6 @@ export default function Header() {
 		const searchValue = cityName ? cityName.trim() : inputValue.trim();
 		if (!searchValue) return;
 		setInputValue('');
-
 		try {
 			const { weatherData, location, latlon, error } =
 				await fetchWeather(searchValue);
@@ -55,13 +54,13 @@ export default function Header() {
 			setError('Failed to fetch weather data.');
 			console.error('Error in handleWeatherData:', err);
 		}
+		setSuggestions([]);
 	};
 
 	const handleSearch = (event) => {
 		if (event.key === 'Enter') {
 			handleWeatherData();
 			document.activeElement.blur();
-			setSuggestions([]);
 		}
 	};
 
@@ -98,7 +97,7 @@ export default function Header() {
 		} else {
 			setSuggestions(response.locations); // Store multiple cities
 		}
-	}, 300);
+	});
 
 	const handleInput = (e) => {
 		const value = e.target.value;

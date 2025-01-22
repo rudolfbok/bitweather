@@ -11,6 +11,10 @@ import LanguageSwitcher from './LanguageSwitcher';
 import DarkModeToggle from './DarkModeToggle';
 import Nameday from './Nameday';
 
+import gsap from 'gsap';
+
+import { Cross as Hamburger } from 'hamburger-react';
+
 export default function FavoritesMenu() {
 	const {
 		fetchWeather,
@@ -24,20 +28,9 @@ export default function FavoritesMenu() {
 		isDarkMode,
 	} = useWeather();
 	const [isOpen, setIsOpen] = useState(false);
-	const [isVisible, setIsVisible] = useState(false);
 	const menuRef = useRef(null);
 
 	const { t } = useTranslation();
-
-	const openMenu = () => {
-		setIsVisible(true);
-		setTimeout(() => setIsOpen(true), 10);
-	};
-
-	const closeMenu = () => {
-		setIsOpen(false);
-		setTimeout(() => setIsVisible(false), 500);
-	};
 
 	useEffect(() => {
 		if (isOpen) {
@@ -53,7 +46,7 @@ export default function FavoritesMenu() {
 			setWeatherData(weatherData);
 			setLocation(location);
 			setLatlon(latlon);
-			closeMenu();
+			setIsOpen(false);
 		} catch (error) {
 			console.error(`Failed to fetch weather for ${city}:`, error);
 		}
@@ -73,8 +66,12 @@ export default function FavoritesMenu() {
 
 	useEffect(() => {
 		const handleClickOutsideMenu = (event) => {
-			if (menuRef.current && !menuRef.current.contains(event.target)) {
-				closeMenu();
+			if (
+				menuRef.current &&
+				!menuRef.current.contains(event.target) &&
+				!event.target.closest('.hamburger-react')
+			) {
+				setIsOpen(false);
 			}
 		};
 		document.addEventListener('mousedown', handleClickOutsideMenu);
@@ -83,11 +80,29 @@ export default function FavoritesMenu() {
 		};
 	}, []);
 
+	useEffect(() => {
+		if (menuRef.current) {
+			if (isOpen) {
+				gsap.fromTo(
+					menuRef.current,
+					{ opacity: 0 }, // Start at 0 opacity
+					{ opacity: 1, duration: 0.3, ease: 'linear' }, // Fade in smoothly
+				);
+			} else {
+				gsap.fromTo(
+					menuRef.current,
+					{ opacity: 1 }, // Start at 1 opacity
+					{ opacity: 0, duration: 1, ease: 'linear' }, // Fade out smoothly
+				);
+			}
+		}
+	}, [isOpen]);
+
 	return (
 		<div className="flex flex-row gap-4 items-center overflow-hidden">
-			{isVisible && (
+			{isOpen && (
 				<div
-					className={`
+					className="
                       fixed
                       overflow-y-auto
                       flex
@@ -100,12 +115,10 @@ export default function FavoritesMenu() {
                       bg-white/1
                       backdrop-blur-xl
                       pt-[60px]
-                      transition-opacity
                       duration-500
                       z-40
                       overflow-auto
-                      ${isOpen ? 'opacity-100' : 'opacity-0'}
-                      `}
+					  opacity-0"
 					ref={menuRef}
 				>
 					<div className="flex flex-col items-center w-full">
@@ -146,18 +159,13 @@ export default function FavoritesMenu() {
 					</div>
 				</div>
 			)}
-			<div
-				onClick={isOpen ? closeMenu : openMenu}
-				className="flex flex-col justify-between items-center h-3.5 cursor-pointer hamburger-icon z-50 relative"
-			>
-				<div
-					className={`w-6 h-0.5 bg-current transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}
-				/>
-				<div
-					className={`w-6 h-0.5 bg-current transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`}
-				/>
-				<div
-					className={`w-6 h-0.5 bg-current transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}
+			<div className="z-50">
+				<Hamburger
+					rounded
+					size={22}
+					distance="sm"
+					toggled={isOpen}
+					toggle={setIsOpen}
 				/>
 			</div>
 		</div>

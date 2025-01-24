@@ -72,7 +72,7 @@ export default function Hero() {
 			)}
 
 			{!weatherData && !error && (
-				<div className="flex flex-col text-center h-[80vh] place-content-center space-y-4">
+				<div className="flex flex-col text-center h-[60vh] place-content-center space-y-4">
 					<span>{t('searchtext')}</span>
 					<span>{t('menutext')}</span>
 				</div>

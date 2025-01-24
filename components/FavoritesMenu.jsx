@@ -150,14 +150,13 @@ export default function FavoritesMenu() {
 					</div>
 				</div>
 			)}
-			<div >
+			<div className="z-50">
 				<Hamburger
 					rounded
 					size={22}
 					distance="sm"
 					toggled={isOpen}
 					toggle={setIsOpen}
-					className="z-50"
 				/>
 			</div>
 		</div>

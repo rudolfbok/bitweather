@@ -83,18 +83,8 @@ export default function FavoritesMenu() {
 	useEffect(() => {
 		if (menuRef.current) {
 			if (isOpen) {
-				gsap.fromTo(
-					menuRef.current,
-					{ opacity: 0 }, // Start at 0 opacity
-					{ opacity: 1, duration: 0.3, ease: 'linear' }, // Fade in smoothly
-				);
-			} else {
-				gsap.fromTo(
-					menuRef.current,
-					{ opacity: 1 }, // Start at 1 opacity
-					{ opacity: 0, duration: 1, ease: 'linear' }, // Fade out smoothly
-				);
-			}
+				gsap.to(menuRef.current, { opacity: 1, duration: 0.2 });
+			} 
 		}
 	}, [isOpen]);
 
@@ -118,7 +108,8 @@ export default function FavoritesMenu() {
                       duration-500
                       z-40
                       overflow-auto
-					  opacity-0"
+					  opacity-0
+					  "
 					ref={menuRef}
 				>
 					<div className="flex flex-col items-center w-full">
@@ -159,13 +150,14 @@ export default function FavoritesMenu() {
 					</div>
 				</div>
 			)}
-			<div className="z-50">
+			<div >
 				<Hamburger
 					rounded
 					size={22}
 					distance="sm"
 					toggled={isOpen}
 					toggle={setIsOpen}
+					className="z-50"
 				/>
 			</div>
 		</div>

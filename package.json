@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@react-google-maps/api": "^2.20.3",
+		"bitweather": ".",
 		"clsx": "^2.1.1",
 		"gsap": "^3.12.5",
 		"hamburger-react": "^2.5.2",

@@ -8,7 +8,7 @@ import Hero from '@/components/Hero';
 export default function Home() {
 	return (
 		<I18nextProvider i18n={i18n}>
-			<main className="min-h-screen">
+			<main className="min-h-screen px-6">
 				<Header />
 				<Hero />
 			</main>

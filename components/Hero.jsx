@@ -66,7 +66,7 @@ export default function Hero() {
 	const heroIconPath = iconMapping[iconCode];
 
 	return (
-		<section className="px-4">
+		<section>
 			{error && !weatherData && (
 				<p className="text-center mt-6 font-semibold">{t('error')}</p>
 			)}

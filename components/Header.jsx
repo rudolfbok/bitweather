@@ -127,22 +127,23 @@ export default function Header() {
 	}, []);
 
 	return (
-		<header className="flex flex-wrap w-screen justify-between items-center z-20 px-4">
-			<div className="flex justify-start items-center z-20 w-1/3">
+		<header className="flex flex-wrap md:flex-nowrap justify-between items-center z-20 space-y-2">
+			<div className="flex justify-start items-center z-20 gap-2">
 				<Image src={Logo} alt="Logo" width={50} height={50} />
-				<span>BitWeather</span>
+				<span className='font-medium'>BitWeather</span>
 			</div>
-			<div className="flex justify-end md:w-1/3 md:order-2">
+			<div className="flex justify-end md:order-2">
 				<FavoritesMenu />
 			</div>
-			<div className="w-full md:w-1/3 relative">
+			<div className="flex w-[100%] justify-center relative">
+				<div className='w-[100%] justify-between flex'>
 				<Image
 					src={isDarkMode ? SearchGlassDark : SearchGlass}
 					alt="Search"
 					height={15}
 					width={15}
 					onClick={handleWeatherData}
-					className="absolute cursor-pointer top-2.5 left-4 z-30"
+					className="absolute cursor-pointer top-3 left-4 z-30"
 				/>
 				<input
 					id="searchbar"
@@ -151,12 +152,23 @@ export default function Header() {
 					value={inputValue}
 					onChange={handleInput}
 					onKeyDown={handleSearch}
-					className={`text-center w-full h-[35px] relative rounded-3xl focus:outline-none z-20 backdrop-blur-3xl bg-black/5 ${suggestions && suggestions.length > 0 ? 'rounded-tr-[1rem] rounded-tl-[1rem] rounded-bl-none rounded-br-none' : 'rounded-3xl'}`}
+					className={`text-center h-10 w-[100%] md:w-[60%] relative rounded-3xl focus:outline-none z-20 backdrop-blur-3xl bg-black/5 ${suggestions && suggestions.length > 0 ? 'rounded-tr-[1rem] rounded-tl-[1rem] rounded-bl-none rounded-br-none' : 'rounded-3xl'}`}
 					autoComplete="off"
 				/>
+				{inputValue.trim() && (
+					<Image
+						src={isDarkMode ? DeleteInputDark : DeleteInput}
+						alt="Delete input"
+						height={15}
+						width={15}
+						className="absolute cursor-pointer top-3 right-4 z-20"
+						onClick={handleClearInput}
+					/>
+				)}
+				</div>
 				{suggestions.length > 0 && (
 					<ul
-						className={`absolute top-full left-0 w-full rounded-bl-[1rem] rounded-br-[1rem] ${isDarkMode ? 'bg-suggestions_dark' : 'bg-suggestions_light'}`}
+						className={`absolute top-full left-0 w-[100%] rounded-bl-[1rem] rounded-br-[1rem] ${isDarkMode ? 'bg-suggestions_dark' : 'bg-suggestions_light'}`}
 						ref={suggestionsRef}
 					>
 						{suggestions.map((city, idx) => (
@@ -170,16 +182,7 @@ export default function Header() {
 						))}
 					</ul>
 				)}
-				{inputValue.trim() && (
-					<Image
-						src={isDarkMode ? DeleteInputDark : DeleteInput}
-						alt="Delete input"
-						height={15}
-						width={15}
-						className="absolute cursor-pointer top-2.5 right-4 z-20"
-						onClick={handleClearInput}
-					/>
-				)}
+
 			</div>
 		</header>
 	);

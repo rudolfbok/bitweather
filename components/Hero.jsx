@@ -88,9 +88,6 @@ export default function Hero() {
 							id="mainbox"
 							className="flex flex-col w-full items-center mt-4 rounded-3xl"
 						>
-							<div className="w-full flex justify-end pr-6 pt-4 items-center -mb-20 md:-mb-18">
-								<FavoritesToggle />
-							</div>
 							<div className="text-center text-xl items-center flex flex-col mt-12 mb-6">
 								<span className="text-3xl md:text-4xl">
 									{location.city}, {location.country}
@@ -129,6 +126,9 @@ export default function Hero() {
 										weatherData.current.weather[0].description,
 									)}
 								</p>
+								<div className="justify-end flex">
+									<FavoritesToggle />
+								</div>
 							</div>
 						</div>
 						<HourlyWeather />

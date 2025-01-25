@@ -85,7 +85,7 @@ export default function Hero() {
 				>
 					<div
 						id="mainbox"
-						className="flex flex-col w-full justify-center items-center mt-4 rounded-3xl"
+						className="flex flex-col w-full items-center rounded-3xl mt-4"
 					>
 						<div className="text-center text-xl items-center flex flex-col relative w-full">
 							<span className="text-3xl md:text-4xl">

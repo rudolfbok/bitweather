@@ -128,7 +128,7 @@ export default function Header() {
 
 	return (
 		<header className="flex flex-wrap justify-between items-center z-20 space-y-2">
-			<div className="flex justify-start items-center z-20 gap-2 w-[160px]">
+			<div className="flex justify-start items-center z-5 gap-2 w-[160px]">
 				<Image src={Logo} alt="Logo" width={40} height={40} />
 				<span className="font-medium">BitWeather</span>
 			</div>
@@ -166,7 +166,7 @@ export default function Header() {
 				)}
 				{suggestions.length > 0 && (
 					<ul
-						className={`absolute z-2000000 top-full left-0 right-0 m-auto rounded-bl-[1rem] rounded-br-[1rem] ${isDarkMode ? 'bg-suggestions_dark' : 'bg-suggestions_light'}`}
+						className={`z-20 absolute top-full left-0 right-0 m-auto rounded-bl-[1rem] rounded-br-[1rem] ${isDarkMode ? 'bg-suggestions_dark' : 'bg-suggestions_light'}`}
 						ref={suggestionsRef}
 					>
 						{suggestions.map((city, idx) => (

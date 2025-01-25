@@ -20,12 +20,11 @@ export default function DailyWeather() {
 		const { className, style, onClick } = props;
 		return (
 			<div
-				className={`w-5 absolute right-[-10] top-[40%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
-				onClick={onClick}
+				className={`w-5 absolute right-3 top-[50%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
 			>
 				<img
 					src={isDarkMode ? '/arrowrightlight.svg' : '/arrowright.svg'}
-					className=""
+					className={className}
 					onClick={onClick}
 					style={{ ...style }}
 				/>
@@ -37,12 +36,11 @@ export default function DailyWeather() {
 		const { className, style, onClick } = props;
 		return (
 			<div
-				className={`w-5 absolute left-[-10] top-[40%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
-				onClick={onClick}
+				className={`w-5 absolute left-3 top-[50%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
 			>
 				<img
 					src={isDarkMode ? '/arrowleftlight.svg' : '/arrowleft.svg'}
-					className=""
+					className={className}
 					onClick={onClick}
 					style={{ ...style }}
 				/>
@@ -63,7 +61,7 @@ export default function DailyWeather() {
 	};
 
 	return (
-		<div className="flex flex-col rounded-3xl w-full bg-zinc-500/5 items-center mt-4 p-4">
+		<div className="flex flex-col rounded-3xl w-full bg-zinc-500/5 items-center mt-4 p-4 md:px-6">
 			<div className="flex h-auto w-full mb-4">
 				<Image src={Clock} alt="Daily forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('hourly')}</span>

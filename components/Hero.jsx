@@ -81,7 +81,7 @@ export default function Hero() {
 			{weatherData && (
 				<div
 					ref={columnRef}
-					className="grid grid-cols-1 md:grid-cols-3 md:gap-4"
+					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4"
 				>
 					<div
 						id="mainbox"
@@ -132,7 +132,7 @@ export default function Hero() {
 
 					<div className="flex flex-col">
 						<DailyWeather />
-						<div className="grid grid-cols-2 gap-4 md:grid-cols-4 mt-4">
+						<div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 mt-4">
 							<DataCard
 								icon="/icons/humidity.svg"
 								headline={t('humidity')}
@@ -175,7 +175,6 @@ export default function Hero() {
 							/>
 						</div>
 					</div>
-
 					<Map />
 				</div>
 			)}

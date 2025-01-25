@@ -99,8 +99,9 @@ export default function FavoritesMenu() {
                       flex-col
                       top-0
                       right-0
-                      md:w-1/4
-                      w-full
+					  w-full
+					  md:w-[40%] 
+					  lg:w-1/4
                       h-full
                       bg-white/1
                       backdrop-blur-xl

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useWeather } from '@/lib/weatherContext';
 import Image from 'next/image';
-import Calendar from '@/public/icons/calendar.png';
+import Calendar from '@/public/icons/calendar.svg';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 

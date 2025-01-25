@@ -132,6 +132,7 @@ export default function Map() {
 					width: '100%',
 					borderRadius: '1.5rem',
 					aspectRatio: '1 / 1',
+					color: 'black',
 				}}
 			>
 				<Marker position={latlon} />

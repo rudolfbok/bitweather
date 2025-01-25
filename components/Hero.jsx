@@ -72,7 +72,7 @@ export default function Hero() {
 			)}
 
 			{!weatherData && !error && (
-				<div className="flex flex-col text-center h-[60vh] place-content-center space-y-4">
+				<div className="flex flex-col text-center h-[70vh] place-content-center space-y-4">
 					<span>{t('searchtext')}</span>
 					<span>{t('menutext')}</span>
 				</div>
@@ -83,51 +83,49 @@ export default function Hero() {
 					ref={columnRef}
 					className="grid grid-cols-1 md:grid-cols-3 md:gap-4"
 				>
-					<div className="flex flex-col">
-						<div
-							id="mainbox"
-							className="flex flex-row w-full justify-center items-center mt-4 rounded-3xl"
-						>
-							<div className="text-center text-xl items-center flex flex-col relative w-full">
-								<span className="text-3xl md:text-4xl">
-									{location.city}, {location.country}
-								</span>
-								<span className="text-5xl pt-2">
-									{Math.round(weatherData.current.temp)}°C
-								</span>
-								<img
-									src={heroIconPath}
-									width={150}
-									alt="Weather Icon"
-									className="md:w-[180px]"
+					<div
+						id="mainbox"
+						className="flex flex-col w-full justify-center items-center mt-4 rounded-3xl"
+					>
+						<div className="text-center text-xl items-center flex flex-col relative w-full">
+							<span className="text-3xl md:text-4xl">
+								{location.city}, {location.country}
+							</span>
+							<span className="text-5xl pt-2">
+								{Math.round(weatherData.current.temp)}°C
+							</span>
+							<img
+								src={heroIconPath}
+								width={150}
+								alt="Weather Icon"
+								className="md:w-[180px]"
+							/>
+							<div className="flex justify-center items-center">
+								<Image
+									src={isDarkMode ? TempMinDark : TempMin}
+									height={25}
+									width={25}
+									alt="Min Temp"
 								/>
-								<div className="flex justify-center items-center">
-									<Image
-										src={isDarkMode ? TempMinDark : TempMin}
-										height={25}
-										width={25}
-										alt="Min Temp"
-									/>
-									<span>{`${Math.round(weatherData.daily[0].temp.min)}°C`}</span>
-									<Image
-										src={isDarkMode ? TempMaxDark : TempMax}
-										height={25}
-										width={25}
-										alt="Max Temp"
-									/>
-									<span>{`${Math.round(weatherData.daily[0].temp.max)}°C`}</span>
-								</div>
-								<p className="my-1">
-									{t('temp_feels')}:{' '}
-									{Math.round(weatherData.current.feels_like)}°C
-								</p>
-								<p className="font-semibold">
-									{capitalizeFirstLetter(
-										weatherData.current.weather[0].description,
-									)}
-								</p>
-								<FavoritesToggle />
+								<span>{`${Math.round(weatherData.daily[0].temp.min)}°C`}</span>
+								<Image
+									src={isDarkMode ? TempMaxDark : TempMax}
+									height={25}
+									width={25}
+									alt="Max Temp"
+								/>
+								<span>{`${Math.round(weatherData.daily[0].temp.max)}°C`}</span>
 							</div>
+							<p className="my-1">
+								{t('temp_feels')}:{' '}
+								{Math.round(weatherData.current.feels_like)}°C
+							</p>
+							<p className="font-semibold">
+								{capitalizeFirstLetter(
+									weatherData.current.weather[0].description,
+								)}
+							</p>
+							<FavoritesToggle />
 						</div>
 						<HourlyWeather />
 					</div>

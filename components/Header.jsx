@@ -128,14 +128,14 @@ export default function Header() {
 
 	return (
 		<header className="flex flex-wrap justify-between items-center z-20 space-y-2">
-			<div className="flex justify-start items-center z-20 gap-2 border-2 w-[160px]">
+			<div className="flex justify-start items-center z-20 gap-2 w-[160px]">
 				<Image src={Logo} alt="Logo" width={50} height={50} />
 				<span className='font-medium'>BitWeather</span>
 			</div>
 			<div className="flex justify-end w-[160px] sm:order-2">
 				<FavoritesMenu />
 			</div>
-			<div className="flex w-[400px] justify-center relative border-2">
+			<div className="flex w-[400px] justify-center relative">
 				<Image
 					src={isDarkMode ? SearchGlassDark : SearchGlass}
 					alt="Search"

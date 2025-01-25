@@ -88,7 +88,7 @@ export default function Hero() {
 							id="mainbox"
 							className="flex flex-col w-full items-center mt-4 rounded-3xl"
 						>
-							<div className="text-center text-xl items-center flex flex-col mt-12 mb-6">
+							<div className="text-center text-xl items-center flex flex-col mb-6">
 								<span className="text-3xl md:text-4xl">
 									{location.city}, {location.country}
 								</span>

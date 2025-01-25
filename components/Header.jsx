@@ -130,7 +130,7 @@ export default function Header() {
 		<header className="flex flex-wrap justify-between items-center z-20 space-y-2">
 			<div className="flex justify-start items-center z-20 gap-2 w-[160px]">
 				<Image src={Logo} alt="Logo" width={50} height={50} />
-				<span className='font-medium'>BitWeather</span>
+				<span className="font-medium">BitWeather</span>
 			</div>
 			<div className="flex justify-end w-[160px] sm:order-2">
 				<FavoritesMenu />

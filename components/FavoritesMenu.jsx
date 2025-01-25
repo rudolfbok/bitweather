@@ -84,7 +84,7 @@ export default function FavoritesMenu() {
 		if (menuRef.current) {
 			if (isOpen) {
 				gsap.to(menuRef.current, { opacity: 1, duration: 0.2 });
-			} 
+			}
 		}
 	}, [isOpen]);
 

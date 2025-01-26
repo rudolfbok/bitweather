@@ -40,7 +40,7 @@ export default function DailyWeather() {
 	};
 
 	return (
-		<div className="flex flex-col rounded-3xl w-full bg-zinc-500/5 items-center mt-4 p-4">
+		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center mt-4 p-4">
 			<div className="flex h-auto w-full mb-2 items-center">
 				<Image src={Calendar} alt="Daily forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('daily')}</span>

@@ -120,7 +120,7 @@ export default function FavoritesMenu() {
 								favoriteCities.map((city, index) => (
 									<li
 										key={index}
-										className="flex flex-row justify-between items-center rounded-3xl py-2 px-4 my-3 backdrop-blur-3xl bg-zinc-500/5 cursor-pointer"
+										className="flex flex-row justify-between items-center rounded-2xl py-2 px-4 my-3 backdrop-blur-3xl bg-zinc-500/5 cursor-pointer"
 										onClick={() => handleCityClick(city)}
 									>
 										<button className="text-start">{city}</button>
@@ -145,7 +145,7 @@ export default function FavoritesMenu() {
 						<LanguageSwitcher />
 						<Nameday />
 						<DarkModeToggle />
-						<button className="rounded-3xl py-2 px-4 my-5 backdrop-blur-3xl bg-zinc-500/5 cursor-pointer">
+						<button className="rounded-2xl py-2 px-4 my-5 backdrop-blur-3xl bg-zinc-500/5 cursor-pointer">
 							{t('compass')}
 						</button>
 					</div>

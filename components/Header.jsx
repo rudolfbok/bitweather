@@ -132,10 +132,10 @@ export default function Header() {
 				<Image src={Logo} alt="Logo" width={40} height={40} />
 				<span className="font-medium">BitWeather</span>
 			</div>
-			<div className="flex justify-end w-[160px] sm:order-2">
+			<div className="flex justify-end w-[160px] md:order-2">
 				<FavoritesMenu />
 			</div>
-			<div className="flex w-[400px] justify-center relative">
+			<div className="flex w-full md:w-[400px] justify-center relative">
 				<Image
 					src={isDarkMode ? SearchGlassDark : SearchGlass}
 					alt="Search"
@@ -151,7 +151,7 @@ export default function Header() {
 					value={inputValue}
 					onChange={handleInput}
 					onKeyDown={handleSearch}
-					className={`text-center h-10 w-full relative rounded-3xl focus:outline-none z-20 backdrop-blur-3xl bg-zinc-500/5 ${suggestions && suggestions.length > 0 ? 'rounded-tr-[1rem] rounded-tl-[1rem] rounded-bl-none rounded-br-none' : 'rounded-3xl'}`}
+					className={`text-center h-10 w-full relative rounded-2xl focus:outline-none z-20 backdrop-blur-3xl bg-zinc-500/5 ${suggestions && suggestions.length > 0 && 'rounded-tr-2xl rounded-tl-2xl rounded-bl-none rounded-br-none'}`}
 					autoComplete="off"
 				/>
 				{inputValue.trim() && (
@@ -166,7 +166,7 @@ export default function Header() {
 				)}
 				{suggestions.length > 0 && (
 					<ul
-						className={`z-20 absolute top-full left-0 right-0 m-auto rounded-bl-[1rem] rounded-br-[1rem] ${isDarkMode ? 'bg-suggestions_dark' : 'bg-suggestions_light'}`}
+						className={`z-20 absolute top-full left-0 right-0 m-auto rounded-bl-2xl rounded-br-2xl ${isDarkMode ? 'bg-suggestions_dark' : 'bg-suggestions_light'}`}
 						ref={suggestionsRef}
 					>
 						{suggestions.map((city, idx) => (

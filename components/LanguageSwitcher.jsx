@@ -20,7 +20,7 @@ export default function LanguageSwitcher() {
 				<select
 					value={currentLanguage}
 					onChange={handleLanguageChange}
-					className="appearance-none rounded-full focus:outline-none pl-3 pr-10 text-center w-full cursor-pointer bg-zinc-500/5 h-[35px]"
+					className="appearance-none rounded-2xl focus:outline-none pl-3 pr-10 text-center w-full cursor-pointer bg-zinc-500/5 h-[35px]"
 				>
 					<option value="en">English</option>
 					<option value="cz">Česky</option>

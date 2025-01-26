@@ -42,16 +42,16 @@ export default function DailyWeather() {
 			<div className="flex h-auto w-full mb-2 items-center">
 				<Image src={Calendar} alt="Daily forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('daily')}</span>
-				<Image ref={arrowRef} alt="Detailed forecast" src={isDarkMode ? ThreeDotsDark : ThreeDots} width={20} height={20} onClick={handleSummaryClick} className='cursor-pointer mx-1' />
+				<Image ref={arrowRef} alt="Detailed forecast" src={isDarkMode ? ThreeDotsDark : ThreeDots} width={20} height={20} onClick={handleSummaryClick} className='cursor-pointer mx-3' />
 			</div>
-			<div className="flex flex-col w-full justify-center space-y-2 lg:space-y-0">
+			<div className="flex flex-col w-full justify-center">
 				{weatherData.daily.slice(1, 8).map((day, index) => {
 					const dayName = getDayOfWeek(day.dt);
 					const dailyIconCode = day.weather[0].icon;
 					const dailyIconPath = getIconPath(dailyIconCode);
 					return (
 						<div key={index}>
-							<div className="flex flex-row items-center last:border-none justify-between">
+							<div className="flex flex-row items-center justify-between">
 								<span className="w-full font-bold">{dayName}</span>
 								<span className="text-xs w-full">
 									{day.weather[0].description}
@@ -62,6 +62,7 @@ export default function DailyWeather() {
 										<img
 											src={dailyIconPath}
 											width={120}
+											height={120}
 											alt={day.weather[0].description}
 										/>
 									

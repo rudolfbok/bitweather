@@ -6,6 +6,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useTranslation } from 'react-i18next';
 
+import CarouselDot from '@/public/carouseldot.svg'
+
 export default function DailyWeather() {
 	const { weatherData, getIconPath, isDarkMode } = useWeather();
 
@@ -50,8 +52,15 @@ export default function DailyWeather() {
 
 	const settings = {
 		dots: true,
+		customPaging: i => (
+			<div className='mt-2'>
+				<img src={isDarkMode ? '/carouseldotdark.svg' : '/carouseldot.svg'} />
+			</div>
+		),
 		infinite: false,
 		arrow: true,
+		initialSlide: 0,
+		adaptiveWidth: true,
 		prevArrow: <PreviousArrow />,
 		nextArrow: <NextArrow />,
 		speed: 500,

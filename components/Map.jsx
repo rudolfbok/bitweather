@@ -130,7 +130,7 @@ export default function Map() {
 				options={mapOptions}
 				mapContainerStyle={{
 					width: '100%',
-					borderRadius: '1.5rem',
+					borderRadius: '1rem',
 					aspectRatio: '1 / 1',
 					color: 'black',
 				}}

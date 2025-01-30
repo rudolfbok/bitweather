@@ -57,20 +57,21 @@ export default function DailyWeather() {
 	}, [openSummaryIndex]);
 
 	useEffect(() => {
-		// Translate all summaries to Czech when language is set to Czech
 		if (i18n.language === 'cz') {
-			const translations = {};
-			weatherData.daily.slice(1, 8).forEach((day, index) => {
-				translateToCzech(day.summary).then((translatedText) => {
-					translations[index] = translatedText;
-					setTranslatedSummaries((prevState) => ({
-						...prevState,
-						[index]: translatedText,
-					}));
-				});
-			});
+			const fetchTranslations = async () => {
+				const translations = {};
+				await Promise.all(
+					weatherData.daily.slice(1, 8).map(async (day, index) => {
+						const translatedText = await translateToCzech(day.summary);
+						translations[index] = translatedText;
+					})
+				);
+				setTranslatedSummaries(translations);
+			};
+			fetchTranslations();
 		}
 	}, [i18n.language, weatherData]);
+	
 
 	return (
 		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center mt-4 p-4">

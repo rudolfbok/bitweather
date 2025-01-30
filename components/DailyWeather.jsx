@@ -119,7 +119,6 @@ export default function DailyWeather() {
 											? translatedSummaries[index]
 											: day.summary}
 									</p>
-									<p>zkouška</p>
 								</div>
 							)}
 						</div>

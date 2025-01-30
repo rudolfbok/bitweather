@@ -69,14 +69,6 @@ export default function Header() {
 		setSuggestions([]);
 	};
 
-	const handleInputSecondary = () => {
-		setInputValue(e.target.value);
-		debounce(async () => {
-			const results = await fetchWeather(e.target.value);
-			setSuggestions(results);
-		}, 300)();
-	};
-
 	const debounce = (fn, delay) => {
 		let timer;
 		return (...args) => {
@@ -106,9 +98,10 @@ export default function Header() {
 	};
 
 	const handleSelect = (selectedCity) => {
-		setInputValue(selectedCity.city); // Set exact city name
-		setSuggestions([]); // Hide suggestions
-		handleWeatherData(selectedCity.city); // Fetch weather for the selected city
+		const fullCityName = `${selectedCity.city}, ${selectedCity.country}`;
+		setInputValue(fullCityName);
+		setSuggestions([]);
+		handleWeatherData(fullCityName);
 	};
 
 	useEffect(() => {
@@ -128,7 +121,7 @@ export default function Header() {
 
 	return (
 		<header className="flex flex-wrap justify-between items-center z-20 space-y-2">
-			<div className="flex justify-start items-center z-5 gap-2 w-[160px]">
+			<div className="flex justify-start items-center z-5 gap-2 w-[160px] px-1">
 				<Image src={Logo} alt="Logo" width={40} height={40} />
 				<span className="font-medium">BitWeather</span>
 			</div>
@@ -151,7 +144,7 @@ export default function Header() {
 					value={inputValue}
 					onChange={handleInput}
 					onKeyDown={handleSearch}
-					className={`text-center h-10 w-full relative rounded-2xl focus:outline-none z-20 backdrop-blur-3xl bg-zinc-500/5 ${suggestions && suggestions.length > 0 && 'rounded-tr-2xl rounded-tl-2xl rounded-bl-none rounded-br-none'}`}
+					className={`text-center h-10 w-full px-12 relative rounded-2xl focus:outline-none z-20 backdrop-blur-3xl bg-zinc-500/5 ${suggestions && suggestions.length > 0 && 'rounded-tr-2xl rounded-tl-2xl rounded-bl-none rounded-br-none'}`}
 					autoComplete="off"
 				/>
 				{inputValue.trim() && (
@@ -172,7 +165,7 @@ export default function Header() {
 						{suggestions.map((city, idx) => (
 							<li
 								key={idx}
-								className="p-2 cursor-pointer"
+								className={`p-2 cursor-pointer ${isDarkMode ? 'hover:bg-suggestions_light/5' : 'hover:bg-suggestions_dark/5'} last:rounded-bl-2xl last:rounded-br-2xl`}
 								onClick={() => handleSelect(city)}
 							>
 								{city.city}, {city.country}

@@ -22,7 +22,7 @@ export default function DarkModeToggle() {
 	};
 
 	return (
-		<div className="flex flex-row">
+		<div className="flex flex-row justify-center">
 			<ToggleSlider onToggle={toggleDarkMode} />
 			<span className="mx-2">
 				{isDarkMode ? t('darkmode') : t('lightmode')}

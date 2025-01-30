@@ -21,6 +21,7 @@ export const WeatherProvider = ({ children }) => {
 	const [favoriteCities, setFavoriteCities] = useState([]);
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
+	const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
 	const [suggestions, setSuggestions] = useState([]);
 
@@ -128,6 +129,8 @@ export const WeatherProvider = ({ children }) => {
 				getIconPath,
 				suggestions,
 				setSuggestions,
+				currentLanguage,
+				setCurrentLanguage,
 			}}
 		>
 			{children}

@@ -73,8 +73,7 @@ export default function Hero() {
 
 			{!weatherData && !error && (
 				<div className="flex flex-col text-center h-[70vh] place-content-center space-y-4">
-					<span>{t('searchtext')}</span>
-					<span>{t('menutext')}</span>
+					Welcome
 				</div>
 			)}
 
@@ -117,8 +116,8 @@ export default function Hero() {
 								<span>{`${Math.round(weatherData.daily[0].temp.max)}°C`}</span>
 							</div>
 							<p className="my-1">
-								{t('temp_feels')}:{' '}
-								{Math.round(weatherData.current.feels_like)}°C
+								{t('temp_feels')}: {Math.round(weatherData.current.feels_like)}
+								°C
 							</p>
 							<p className="font-semibold">
 								{capitalizeFirstLetter(

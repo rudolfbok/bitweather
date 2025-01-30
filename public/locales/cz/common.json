@@ -24,5 +24,7 @@
 	"compass": "Kompas (pouze pro iPhone)",
 	"compass_permission": "Udělit povolení",
 	"searchtext": "Pro vyhledání napište město do vyhledávacího pole.",
-	"menutext": "Uložená města a nastavení naleznete v menu nahoře."
+	"menutext": "Uložená města a nastavení naleznete v menu nahoře.",
+	"english": "Angličtina",
+	"czech": "Čeština"
 }

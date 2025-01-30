@@ -3,8 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import i18n from '@/lib/i18n';
 import { useTranslation } from 'react-i18next';
-import gsap from 'gsap';
-import { useRef } from 'react';
 
 export default function Nameday() {
 	const [namedayData, setNamedayData] = useState(null);
@@ -45,32 +43,18 @@ export default function Nameday() {
 		}
 	};
 
-	const namedayRef = useRef(null);
-
-	useEffect(() => {
-		{
-			gsap.fromTo(
-				namedayRef.current,
-				{ opacity: 0 },
-				{ opacity: 1, duration: 0.2, ease: 'power2.in' },
-			);
-		}
-	}, []);
-
 	return (
-		<div ref={namedayRef} className="my-6">
-			{namedayData && (
-				<div className="flex flex-col text-sm text-center">
-					<span>
-						{getDateInfo().dayOfWeek} {getDateInfo().dayNumber}.{' '}
-						{getDateInfo().month}
-					</span>
-					<span>
-						{t('nameday')}:&nbsp;
-						<span className="font-semibold">{namedayData.name}</span>
-					</span>
-				</div>
-			)}
+		<div className="flex flex-col text-sm text-center">
+			<div>
+				{getDateInfo().dayOfWeek} {getDateInfo().dayNumber}.{' '}
+				{getDateInfo().month}
+			</div>
+			<div>
+				<span>{t('nameday')}:&nbsp;</span>
+				{namedayData && (
+					<span className="font-semibold">{namedayData.name}</span>
+				)}
+			</div>
 		</div>
 	);
 }

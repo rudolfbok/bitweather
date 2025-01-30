@@ -2,15 +2,21 @@ import { useEffect, useRef } from 'react';
 import { useWeather } from '@/lib/weatherContext';
 import Image from 'next/image';
 import Calendar from '@/public/icons/calendar.svg';
-import ThreeDots from '@/public/threedots.svg'
-import ThreeDotsDark from '@/public/threedotsdark.svg'
+import ThreeDots from '@/public/threedots.svg';
+import ThreeDotsDark from '@/public/threedotsdark.svg';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+
+import gsap from 'gsap';
+
+import { translateToCzech } from '@/lib/translateService';
 
 export default function DailyWeather() {
 	const { weatherData, getIconPath, isDarkMode } = useWeather();
 	const [openSummaryIndex, setOpenSummaryIndex] = useState([]);
-	const arrowRef = useRef();
+	const [translatedSummaries, setTranslatedSummaries] = useState({});
+	const dotsRef = useRef();
+	const summaryRef = useRef([]);
 
 	const { t, i18n } = useTranslation();
 
@@ -31,18 +37,55 @@ export default function DailyWeather() {
 
 	const handleSummaryClick = () => {
 		if (openSummaryIndex.length === weatherData.daily.slice(1, 8).length) {
-			setOpenSummaryIndex([])
+			setOpenSummaryIndex([]);
 		} else {
-			setOpenSummaryIndex(weatherData.daily.slice(1, 8).map((_, idx) => idx))
+			setOpenSummaryIndex(weatherData.daily.slice(1, 8).map((_, idx) => idx));
 		}
 	};
+
+	useEffect(() => {
+		openSummaryIndex.forEach((index) => {
+			const summary = summaryRef.current[index];
+			if (summary) {
+				gsap.fromTo(
+					summary,
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.2, ease: 'power2.in' },
+				);
+			}
+		});
+	}, [openSummaryIndex]);
+
+	useEffect(() => {
+		// Translate all summaries to Czech when language is set to Czech
+		if (i18n.language === 'cz') {
+			const translations = {};
+			weatherData.daily.slice(1, 8).forEach((day, index) => {
+				translateToCzech(day.summary).then((translatedText) => {
+					translations[index] = translatedText;
+					setTranslatedSummaries((prevState) => ({
+						...prevState,
+						[index]: translatedText,
+					}));
+				});
+			});
+		}
+	}, [i18n.language, weatherData]);
 
 	return (
 		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center mt-4 p-4">
 			<div className="flex h-auto w-full mb-2 items-center">
 				<Image src={Calendar} alt="Daily forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('daily')}</span>
-				<Image ref={arrowRef} alt="Detailed forecast" src={isDarkMode ? ThreeDotsDark : ThreeDots} width={20} height={20} onClick={handleSummaryClick} className='cursor-pointer mx-3' />
+				<Image
+					ref={dotsRef}
+					alt="Detailed forecast"
+					src={isDarkMode ? ThreeDotsDark : ThreeDots}
+					width={20}
+					height={20}
+					onClick={handleSummaryClick}
+					className="cursor-pointer mx-3"
+				/>
 			</div>
 			<div className="flex flex-col w-full justify-center">
 				{weatherData.daily.slice(1, 8).map((day, index) => {
@@ -58,20 +101,24 @@ export default function DailyWeather() {
 								</span>
 								<div className="grid grid-cols-3 items-center">
 									<span className="flex justify-center">{`${Math.round(day.temp.min)}°C`}</span>
-									
-										<img
-											src={dailyIconPath}
-											width={120}
-											height={120}
-											alt={day.weather[0].description}
-										/>
-									
+
+									<img
+										src={dailyIconPath}
+										width={120}
+										height={120}
+										alt={day.weather[0].description}
+									/>
+
 									<span className="flex justify-center font-bold">{`${Math.round(day.temp.max)}°C`}</span>
 								</div>
 							</div>
 							{openSummaryIndex.includes(index) && (
-								<div>
-									<p className="text-sm">{day.summary}</p>
+								<div ref={(el) => (summaryRef.current[index] = el)}>
+									<p className="text-sm">
+										{i18n.language === 'cz'
+											? translatedSummaries[index]
+											: day.summary}
+									</p>
 								</div>
 							)}
 						</div>

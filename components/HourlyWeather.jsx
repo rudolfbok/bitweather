@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useWeather } from '@/lib/weatherContext';
 import Image from 'next/image';
 import Clock from '@/public/icons/clock.svg';
@@ -6,10 +7,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useTranslation } from 'react-i18next';
 
-import CarouselDot from '@/public/carouseldot.svg'
-
 export default function DailyWeather() {
 	const { weatherData, getIconPath, isDarkMode } = useWeather();
+	const [activeIndex, setActiveIndex] = useState(0);
 
 	const { t } = useTranslation();
 
@@ -25,7 +25,7 @@ export default function DailyWeather() {
 				className={`w-5 absolute right-3 top-[50%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
 			>
 				<img
-					src={isDarkMode ? '/arrowrightlight.svg' : '/arrowright.svg'}
+					src={isDarkMode ? '/arrowright.svg' : '/arrowrightdark.svg'}
 					className={className}
 					onClick={onClick}
 					style={{ ...style }}
@@ -41,7 +41,7 @@ export default function DailyWeather() {
 				className={`w-5 absolute left-3 top-[50%] cursor-pointer hidden ${onClick ? 'lg:block' : ''}`}
 			>
 				<img
-					src={isDarkMode ? '/arrowleftlight.svg' : '/arrowleft.svg'}
+					src={isDarkMode ? '/arrowleft.svg' : '/arrowleftdark.svg'}
 					className={className}
 					onClick={onClick}
 					style={{ ...style }}
@@ -52,9 +52,9 @@ export default function DailyWeather() {
 
 	const settings = {
 		dots: true,
-		customPaging: i => (
-			<div className='mt-2'>
-				<img src={isDarkMode ? '/carouseldotdark.svg' : '/carouseldot.svg'} />
+		customPaging: (i) => (
+			<div id="dots" className="mt-2">
+				<img src={isDarkMode ? '/carouseldot-dark.svg' : '/carouseldot.svg'} />
 			</div>
 		),
 		infinite: false,

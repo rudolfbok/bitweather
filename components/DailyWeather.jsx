@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { useWeather } from '@/lib/weatherContext';
 import Image from 'next/image';
 import Calendar from '@/public/icons/calendar.svg';
@@ -23,7 +23,16 @@ export default function DailyWeather() {
 	const getDayOfWeek = (timestamp) => {
 		const date = new Date(timestamp * 1000);
 		const locale = getLocale(i18n.language);
-		return date.toLocaleString(locale, { weekday: 'long' });
+		return date.toLocaleString(locale, {
+			weekday: 'long',
+		});
+	};
+
+	const getDayMonth = (timestamp) => {
+		const date = new Date(timestamp * 1000);
+		const day = date.getDate();
+		const month = date.getMonth() + 1;
+		return `${day}.${month}.`;
 	};
 
 	const getLocale = (lang) => {
@@ -50,7 +59,11 @@ export default function DailyWeather() {
 				gsap.fromTo(
 					summary,
 					{ opacity: 0 },
-					{ opacity: 1, duration: 0.2, ease: 'power2.in' },
+					{
+						opacity: 1,
+						duration: 0.2,
+						ease: 'power2.in',
+					},
 				);
 			}
 		});
@@ -59,19 +72,23 @@ export default function DailyWeather() {
 	useEffect(() => {
 		if (i18n.language === 'cz') {
 			const fetchTranslations = async () => {
-				const translations = {};
-				await Promise.all(
-					weatherData.daily.slice(1, 8).map(async (day, index) => {
-						const translatedText = await translateToCzech(day.summary);
-						translations[index] = translatedText;
-					})
-				);
+				const translations = [];
+				const delay = 500; // Delay in milliseconds
+
+				for (let index = 0; index < 7; index++) {
+					const translatedText = await translateToCzech(
+						weatherData.daily[index + 1].summary,
+					);
+					translations[index] = translatedText;
+					await new Promise((resolve) => setTimeout(resolve, delay));
+				}
+
 				setTranslatedSummaries(translations);
 			};
+
 			fetchTranslations();
 		}
 	}, [i18n.language, weatherData]);
-	
 
 	return (
 		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center mt-4 p-4">
@@ -93,23 +110,23 @@ export default function DailyWeather() {
 					const dayName = getDayOfWeek(day.dt);
 					const dailyIconCode = day.weather[0].icon;
 					const dailyIconPath = getIconPath(dailyIconCode);
+					const monthNumber = getDayMonth(day.dt);
 					return (
 						<div key={index}>
 							<div className="flex flex-row items-center justify-between">
+								<span className="mr-1 items-center text-sm">{monthNumber}</span>
 								<span className="w-full font-bold">{dayName}</span>
 								<span className="text-xs w-full">
 									{day.weather[0].description}
 								</span>
 								<div className="grid grid-cols-3 items-center">
 									<span className="flex justify-center">{`${Math.round(day.temp.min)}°C`}</span>
-
 									<img
 										src={dailyIconPath}
 										width={120}
 										height={120}
 										alt={day.weather[0].description}
 									/>
-
 									<span className="flex justify-center font-bold">{`${Math.round(day.temp.max)}°C`}</span>
 								</div>
 							</div>

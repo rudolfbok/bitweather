@@ -26,7 +26,10 @@ export default function Hero() {
 
 	const formatTime = (timestamp) => {
 		const date = new Date(timestamp * 1000);
-		return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+		return date.toLocaleTimeString([], {
+			hour: '2-digit',
+			minute: '2-digit',
+		});
 	};
 
 	const columnRef = useRef(null);
@@ -36,7 +39,11 @@ export default function Hero() {
 			gsap.fromTo(
 				columnRef.current,
 				{ opacity: 0 },
-				{ opacity: 1, duration: 0.5, ease: 'power2.in' },
+				{
+					opacity: 1,
+					duration: 0.5,
+					ease: 'power2.in',
+				},
 			);
 		}
 	}, [location.city]);
@@ -91,7 +98,8 @@ export default function Hero() {
 								{location.city}, {location.country}
 							</span>
 							<span className="text-5xl pt-2">
-								{Math.round(weatherData.current.temp)}°C
+								{Math.round(weatherData.current.temp)}
+								°C
 							</span>
 							<img
 								src={heroIconPath}

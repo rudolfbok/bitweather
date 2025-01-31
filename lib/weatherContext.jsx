@@ -15,12 +15,19 @@ export const WeatherProvider = ({ children }) => {
 	const { i18n } = useTranslation();
 	const [city, setCity] = useState('');
 	const [weatherData, setWeatherData] = useState(null);
-	const [location, setLocation] = useState({ city: '', country: '' });
+	const [location, setLocation] = useState({
+		city: '',
+		country: '',
+	});
 	const [error, setError] = useState('');
-	const [latlon, setLatlon] = useState({ lat: 0, lng: 0 });
+	const [latlon, setLatlon] = useState({
+		lat: 0,
+		lng: 0,
+	});
 	const [favoriteCities, setFavoriteCities] = useState([]);
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
 	const [suggestions, setSuggestions] = useState([]);
@@ -131,6 +138,8 @@ export const WeatherProvider = ({ children }) => {
 				setSuggestions,
 				currentLanguage,
 				setCurrentLanguage,
+				isOpen,
+				setIsOpen,
 			}}
 		>
 			{children}

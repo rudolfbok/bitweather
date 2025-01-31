@@ -15,7 +15,10 @@ export default function DailyWeather() {
 
 	const getHour = (timestamp) => {
 		const date = new Date(timestamp * 1000);
-		return date.toLocaleTimeString('en-US', { hour: '2-digit', hour12: false });
+		return date.toLocaleTimeString('en-US', {
+			hour: '2-digit',
+			hour12: false,
+		});
 	};
 
 	function NextArrow(props) {

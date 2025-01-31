@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function Map() {
 	const { t } = useTranslation();
-	const { latlon, isDarkMode } = useWeather();
+	const { latlon, isDarkMode, isOpen } = useWeather();
 	const { isLoaded } = useLoadScript({
 		googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
 	});
@@ -119,7 +119,9 @@ export default function Map() {
 	if (!isLoaded) return <div>Loading Map...</div>;
 
 	return (
-		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center my-auo p-4 aspect-square my-4">
+		<div
+			className={`flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center my-auo p-4 aspect-square my-4 ${isOpen ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}
+		>
 			<div className="flex h-auto w-full items-center mb-4">
 				<Image src={MapIcon} alt="Mapa" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('map')}</span>

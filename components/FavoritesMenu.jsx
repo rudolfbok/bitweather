@@ -27,8 +27,10 @@ export default function FavoritesMenu() {
 		getFavoriteCities,
 		setIsFavorite,
 		isDarkMode,
+		isOpen,
+		setIsOpen,
 	} = useWeather();
-	const [isOpen, setIsOpen] = useState(false);
+
 	const menuRef = useRef(null);
 
 	const { t } = useTranslation();

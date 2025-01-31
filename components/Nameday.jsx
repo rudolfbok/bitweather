@@ -28,10 +28,17 @@ export default function Nameday() {
 	const getDateInfo = () => {
 		const date = new Date();
 		const locale = getLocale(i18n.language);
-		const dayOfWeek = date.toLocaleString(locale, { weekday: 'long' });
+		const dayOfWeek = date.toLocaleString(locale, {
+			weekday: 'long',
+		});
 		const dayNumber = date.getDate();
-		const month = date.toLocaleString(locale, { month: 'long' });
-		return { dayOfWeek, dayNumber, month };
+		const month = date.toLocaleString(locale, {
+			month: 'long',
+		});
+		const year = date.toLocaleString(locale, {
+			year: 'numeric',
+		});
+		return { dayOfWeek, dayNumber, month, year };
 	};
 
 	const getLocale = (lang) => {
@@ -47,7 +54,7 @@ export default function Nameday() {
 		<div className="flex flex-col text-sm text-center">
 			<div>
 				{getDateInfo().dayOfWeek} {getDateInfo().dayNumber}.{' '}
-				{getDateInfo().month}
+				{getDateInfo().month} {getDateInfo().year}
 			</div>
 			<div>
 				<span>{t('nameday')}:&nbsp;</span>

@@ -12,13 +12,9 @@ export default function Compass() {
 	const requestPermission = async () => {
 		const DeviceOrientationEventWithPermission = DeviceOrientationEvent;
 
-		if (
-			typeof DeviceOrientationEventWithPermission.requestPermission ===
-			'function'
-		) {
+		if (typeof DeviceOrientationEventWithPermission.requestPermission === 'function') {
 			try {
-				const permission =
-					await DeviceOrientationEventWithPermission.requestPermission();
+				const permission = await DeviceOrientationEventWithPermission.requestPermission();
 				if (permission === 'granted') {
 					setPermissionGranted(true);
 				} else {
@@ -80,10 +76,7 @@ export default function Compass() {
 					{/* North indicator */}
 				</div>
 			) : (
-				<button
-					onClick={requestPermission}
-					className="px-4 py-2 text-white bg-blue-500 rounded"
-				>
+				<button onClick={requestPermission} className="px-4 py-2 text-white bg-blue-500 rounded">
 					{t('compass_permission')}
 				</button>
 			)}

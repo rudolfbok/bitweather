@@ -23,9 +23,7 @@ export default function DailyWeather() {
 	const getDayOfWeek = (timestamp) => {
 		const date = new Date(timestamp * 1000);
 		const locale = getLocale(i18n.language);
-		return date.toLocaleString(locale, {
-			weekday: 'long',
-		});
+		return date.toLocaleString(locale, { weekday: 'long' });
 	};
 
 	const getDayMonth = (timestamp) => {
@@ -56,15 +54,7 @@ export default function DailyWeather() {
 		openSummaryIndex.forEach((index) => {
 			const summary = summaryRef.current[index];
 			if (summary) {
-				gsap.fromTo(
-					summary,
-					{ opacity: 0 },
-					{
-						opacity: 1,
-						duration: 0.2,
-						ease: 'power2.in',
-					},
-				);
+				gsap.fromTo(summary, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.in' });
 			}
 		});
 	}, [openSummaryIndex]);
@@ -76,9 +66,7 @@ export default function DailyWeather() {
 				const delay = 500; // Delay in milliseconds
 
 				for (let index = 0; index < 7; index++) {
-					const translatedText = await translateToCzech(
-						weatherData.daily[index + 1].summary,
-					);
+					const translatedText = await translateToCzech(weatherData.daily[index + 1].summary);
 					translations[index] = translatedText;
 					await new Promise((resolve) => setTimeout(resolve, delay));
 				}
@@ -114,28 +102,23 @@ export default function DailyWeather() {
 					return (
 						<div key={index}>
 							<div className="flex flex-row items-center justify-between">
-								<span className="mr-1 items-center text-sm">{monthNumber}</span>
 								<span className="w-full font-bold">{dayName}</span>
-								<span className="text-xs w-full">
-									{day.weather[0].description}
-								</span>
+								<span className="text-xs w-full">{day.weather[0].description}</span>
 								<div className="grid grid-cols-3 items-center">
-									<span className="flex justify-center">{`${Math.round(day.temp.min)}°C`}</span>
+									<span className="block text-center">{`${Math.round(day.temp.min)}°C`}</span>
 									<img
 										src={dailyIconPath}
 										width={120}
 										height={120}
 										alt={day.weather[0].description}
 									/>
-									<span className="flex justify-center font-bold">{`${Math.round(day.temp.max)}°C`}</span>
+									<span className="text-center font-bold">{`${Math.round(day.temp.max)}°C`}</span>
 								</div>
 							</div>
 							{openSummaryIndex.includes(index) && (
 								<div ref={(el) => (summaryRef.current[index] = el)}>
 									<p className="text-sm">
-										{i18n.language === 'cz'
-											? translatedSummaries[index]
-											: day.summary}
+										{i18n.language === 'cz' ? translatedSummaries[index] : day.summary}
 									</p>
 								</div>
 							)}

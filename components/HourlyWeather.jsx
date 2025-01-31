@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 
 export default function DailyWeather() {
 	const { weatherData, getIconPath, isDarkMode } = useWeather();
-	const [activeIndex, setActiveIndex] = useState(0);
 
 	const { t } = useTranslation();
 
@@ -75,26 +74,18 @@ export default function DailyWeather() {
 	return (
 		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center mt-4 p-4 md:px-6">
 			<div className="flex h-auto w-full mb-4">
-				<Image src={Clock} alt="Daily forecast" height={25} width={25} />
+				<Image src={Clock} alt="Hourly forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('hourly')}</span>
 			</div>
 			<Slider {...settings} className="w-full mb-5">
 				{weatherData.hourly.slice(1, 24).map((hour, index) => {
 					const hourFormatted = getHour(hour.dt);
-					const dailyIconCode = hour.weather[0].icon;
-					const hourlyIconPath = getIconPath(dailyIconCode);
+					const hourlyIconCode = hour.weather[0].icon;
+					const hourlyIconPath = getIconPath(hourlyIconCode);
 					return (
-						<div
-							key={index}
-							className="flex flex-col place-items-center text-center"
-						>
+						<div key={index} className="flex flex-col place-items-center text-center">
 							<span className="font-bold text-sm">{hourFormatted}</span>
-							<Image
-								src={hourlyIconPath}
-								width={60}
-								height={60}
-								alt="Weather Icon"
-							/>
+							<Image src={hourlyIconPath} width={60} height={60} alt="Weather Icon" />
 							<span className="text-sm">{`${Math.round(hour.temp)}°C`}</span>
 						</div>
 					);

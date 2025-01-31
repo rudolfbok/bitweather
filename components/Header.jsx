@@ -18,14 +18,7 @@ import FavoritesMenu from './FavoritesMenu';
 import { useTranslation } from 'react-i18next';
 
 export default function Header() {
-	const {
-		setCity,
-		setWeatherData,
-		setLocation,
-		setLatlon,
-		setError,
-		isDarkMode,
-	} = useWeather();
+	const { setCity, setWeatherData, setLocation, setLatlon, setError, isDarkMode } = useWeather();
 	const [inputValue, setInputValue] = useState('');
 	const [suggestions, setSuggestions] = useState([]);
 	const suggestionsRef = useRef(null);
@@ -37,8 +30,7 @@ export default function Header() {
 		if (!searchValue) return;
 		setInputValue('');
 		try {
-			const { weatherData, location, latlon, error } =
-				await fetchWeather(searchValue);
+			const { weatherData, location, latlon, error } = await fetchWeather(searchValue);
 			if (error) {
 				setWeatherData(null);
 				setError(error);
@@ -106,10 +98,7 @@ export default function Header() {
 
 	useEffect(() => {
 		const handleClickOutsideSuggestions = (event) => {
-			if (
-				suggestionsRef.current &&
-				!suggestionsRef.current.contains(event.target)
-			) {
+			if (suggestionsRef.current && !suggestionsRef.current.contains(event.target)) {
 				setSuggestions([]);
 			}
 		};

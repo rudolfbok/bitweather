@@ -70,11 +70,7 @@ export default function FavoritesMenu() {
 	useEffect(() => {
 		if (menuRef.current) {
 			if (isOpen) {
-				gsap.fromTo(
-					menuRef.current,
-					{ opacity: 0 },
-					{ opacity: 1, duration: 0.5 },
-				);
+				gsap.fromTo(menuRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 });
 			}
 		}
 	}, [isOpen]);
@@ -82,7 +78,7 @@ export default function FavoritesMenu() {
 	return (
 		<div className="flex flex-row gap-4 items-center overflow-hidden">
 			{isOpen && (
-				<div className="fixed inset-0 z-50 backdrop-blur-3xl" ref={menuRef}>
+				<div className="fixed inset-0 z-50 backdrop-blur-3xl lg:bg-background" ref={menuRef}>
 					<div
 						className={`fixed overflow-y-auto flex flex-col top-0 right-0 w-full md:w-[40%] lg:w-screen h-full md:bg-background lg:bg-transparent pt-[50px] z-40 overflow-auto`}
 					>
@@ -90,7 +86,7 @@ export default function FavoritesMenu() {
 							<p className="text-xl mb-4 w-full text-center lg:text-start lg:text-2xl">
 								{t('favorite')}
 							</p>
-							<ul className="flex flex-col lg:flex-row w-2/3 lg:w-full gap-3 lg:gap-8 lg:flex-wrap">
+							<ul className="flex flex-col lg:flex-row w-[70%] lg:w-full gap-3 lg:gap-8 lg:flex-wrap">
 								{favoriteCities.length > 0 ? (
 									favoriteCities.map((city, index) => (
 										<li
@@ -104,15 +100,9 @@ export default function FavoritesMenu() {
 											</div>
 											<div
 												className="h-[30px] aspect-square hover:bg-red-700 rounded-full flex items-center justify-center place-content-center"
-												onClick={(event) =>
-													handleRemoveCityFromFavorites(event, city)
-												}
+												onClick={(event) => handleRemoveCityFromFavorites(event, city)}
 											>
-												<Image
-													src={isDarkMode ? TrashDark : Trash}
-													alt="Remove city"
-													width={25}
-												/>
+												<Image src={isDarkMode ? TrashDark : Trash} alt="Remove city" width={25} />
 											</div>
 										</li>
 									))
@@ -133,13 +123,7 @@ export default function FavoritesMenu() {
 				</div>
 			)}
 			<div className="z-50">
-				<Hamburger
-					rounded
-					size={22}
-					distance="sm"
-					toggled={isOpen}
-					toggle={setIsOpen}
-				/>
+				<Hamburger rounded size={22} distance="sm" toggled={isOpen} toggle={setIsOpen} />
 			</div>
 		</div>
 	);

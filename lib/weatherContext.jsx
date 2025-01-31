@@ -2,11 +2,7 @@
 
 import { useState, useEffect, createContext, useContext } from 'react';
 import { fetchWeather } from './weatherService';
-import {
-	getFavoriteCities,
-	addFavoriteCity,
-	removeFavoriteCity,
-} from '@/lib/crudService';
+import { getFavoriteCities, addFavoriteCity, removeFavoriteCity } from '@/lib/crudService';
 import { useTranslation } from 'react-i18next';
 
 export const WeatherContext = createContext();
@@ -15,15 +11,9 @@ export const WeatherProvider = ({ children }) => {
 	const { i18n } = useTranslation();
 	const [city, setCity] = useState('');
 	const [weatherData, setWeatherData] = useState(null);
-	const [location, setLocation] = useState({
-		city: '',
-		country: '',
-	});
+	const [location, setLocation] = useState({ city: '', country: '' });
 	const [error, setError] = useState('');
-	const [latlon, setLatlon] = useState({
-		lat: 0,
-		lng: 0,
-	});
+	const [latlon, setLatlon] = useState({ lat: 0, lng: 0 });
 	const [favoriteCities, setFavoriteCities] = useState([]);
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);

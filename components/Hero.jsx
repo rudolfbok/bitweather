@@ -17,7 +17,7 @@ import TempMax from '@/public/icons/tempmax.svg';
 import TempMaxDark from '@/public/icons/tempmax-dark.svg';
 
 export default function Hero() {
-	const { weatherData, location, error, isDarkMode } = useWeather();
+	const { weatherData, location, error, isDarkMode, getIconPath } = useWeather();
 	const { t } = useTranslation();
 
 	const capitalizeFirstLetter = (string) => {
@@ -48,35 +48,12 @@ export default function Hero() {
 		}
 	}, [location.city]);
 
-	const iconMapping = {
-		'01d': '/weathericons/clear-day.png',
-		'01n': '/weathericons/clear-night.png',
-		'02d': '/weathericons/partclouds-day.png',
-		'02n': '/weathericons/partclouds-night.png',
-		'03d': '/weathericons/clouds-day.png',
-		'03n': '/weathericons/clouds-night.png',
-		'04d': '/weathericons/clouds-day.png',
-		'04n': '/weathericons/clouds-night.png',
-		'09d': '/weathericons/rain-day.png',
-		'09n': '/weathericons/rain-night.png',
-		'10d': '/weathericons/rain-day.png',
-		'10n': '/weathericons/rain-night.png',
-		'11d': '/weathericons/storm-day.png',
-		'11n': '/weathericons/storm-night.png',
-		'13d': '/weathericons/snow.png',
-		'13n': '/weathericons/snow.png',
-		'50d': '/weathericons/fog.png',
-		'50n': '/weathericons/fog.png',
-	};
-
-	const iconCode = weatherData?.current?.weather[0]?.icon;
-	const heroIconPath = iconMapping[iconCode];
+	const currentIconCode = weatherData?.current?.weather[0]?.icon;
+	const currentIconPath = getIconPath(currentIconCode);
 
 	return (
 		<section>
-			{error && !weatherData && (
-				<p className="text-center mt-6 font-semibold">{t('error')}</p>
-			)}
+			{error && !weatherData && <p className="text-center mt-6 font-semibold">{t('error')}</p>}
 
 			{!weatherData && !error && (
 				<div className="flex flex-col text-center h-[70vh] place-content-center space-y-4">
@@ -85,14 +62,8 @@ export default function Hero() {
 			)}
 
 			{weatherData && (
-				<div
-					ref={columnRef}
-					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4"
-				>
-					<div
-						id="mainbox"
-						className="flex flex-col w-full items-center rounded-3xl mt-4"
-					>
+				<div ref={columnRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
+					<div id="mainbox" className="flex flex-col w-full items-center mt-4">
 						<div className="text-center text-xl items-center flex flex-col relative w-full">
 							<span className="text-3xl md:text-4xl">
 								{location.city}, {location.country}
@@ -101,12 +72,7 @@ export default function Hero() {
 								{Math.round(weatherData.current.temp)}
 								°C
 							</span>
-							<img
-								src={heroIconPath}
-								width={150}
-								alt="Weather Icon"
-								className="md:w-[180px]"
-							/>
+							<img src={currentIconPath} width={150} alt="Weather Icon" className="md:w-[180px]" />
 							<div className="flex justify-center items-center">
 								<Image
 									src={isDarkMode ? TempMinDark : TempMin}
@@ -128,9 +94,7 @@ export default function Hero() {
 								°C
 							</p>
 							<p className="font-semibold">
-								{capitalizeFirstLetter(
-									weatherData.current.weather[0].description,
-								)}
+								{capitalizeFirstLetter(weatherData.current.weather[0].description)}
 							</p>
 							<FavoritesToggle />
 						</div>

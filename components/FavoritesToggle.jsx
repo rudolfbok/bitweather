@@ -56,15 +56,7 @@ export default function FavoritesToggle() {
 			ref={iconRef}
 			width={30}
 			alt="Favorite"
-			src={
-				isHovered
-					? isFavorite
-						? NotFavorite
-						: Favorite
-					: isFavorite
-						? Favorite
-						: NotFavorite
-			}
+			src={isHovered ? (isFavorite ? NotFavorite : Favorite) : isFavorite ? Favorite : NotFavorite}
 			className="absolute right-5 bottom-5 cursor-pointer"
 			onClick={() => handleFavoriteToggle(location.city)}
 			onMouseEnter={() => setIsHovered(true)}

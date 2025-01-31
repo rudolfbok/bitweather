@@ -53,14 +53,12 @@ export default function Nameday() {
 	return (
 		<div className="flex flex-col text-sm text-center">
 			<div>
-				{getDateInfo().dayOfWeek} {getDateInfo().dayNumber}.{' '}
-				{getDateInfo().month} {getDateInfo().year}
+				{getDateInfo().dayOfWeek} {getDateInfo().dayNumber}. {getDateInfo().month}{' '}
+				{getDateInfo().year}
 			</div>
 			<div>
 				<span>{t('nameday')}:&nbsp;</span>
-				{namedayData && (
-					<span className="font-semibold">{namedayData.name}</span>
-				)}
+				{namedayData && <span className="font-semibold">{namedayData.name}</span>}
 			</div>
 		</div>
 	);

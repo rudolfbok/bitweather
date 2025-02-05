@@ -10,6 +10,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@next/bundle-analyzer": "^15.1.6",
 		"@react-google-maps/api": "^2.20.3",
 		"bitweather": ".",
 		"clsx": "^2.1.1",

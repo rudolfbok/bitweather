@@ -51,7 +51,7 @@ export default function Compass() {
 	}, [permissionGranted]);
 
 	return (
-		<div className="flex flex-col items-center justify-center max-h-[70vh] bg-background rounded-3xl">
+		<div className="flex flex-col items-center justify-center h-[70vh] bg-background rounded-3xl">
 			{permissionGranted ? (
 				<div className="relative w-40 h-40">
 					<div

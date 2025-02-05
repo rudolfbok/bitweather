@@ -51,31 +51,34 @@ export default function Compass() {
 	}, [permissionGranted]);
 
 	return (
-		<div className="flex flex-col items-center justify-center h-[70vh] bg-background rounded-3xl">
+		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
 			{permissionGranted ? (
-				<div className="relative w-40 h-40">
-					<div
-						className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
-						style={{
-							transform: `rotate(${direction ?? 0}deg)`,
-						}}
-					/>
-					<div
-						className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
-					>
-						<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-							{t('north')}
-						</span>
-						<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
-							{t('west')}
-						</span>
-						<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
-							{t('east')}
-						</span>
-						<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-							{t('south')}
-						</span>
+				<div className='flex flex-col justify-center items-center space-y-4'>
+					<div className="relative w-40 h-40">
+						<div
+							className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
+							style={{
+								transform: `rotate(${direction ?? 0}deg)`,
+							}}
+						/>
+						<div
+							className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
+						>
+							<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+								{t('north')}
+							</span>
+							<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
+								{t('west')}
+							</span>
+							<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
+								{t('east')}
+							</span>
+							<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+								{t('south')}
+							</span>
+						</div>
 					</div>
+					<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
 				</div>
 			) : (
 				<div className="text-center space-y-4">
@@ -88,7 +91,6 @@ export default function Compass() {
 					</button>
 				</div>
 			)}
-			{permissionGranted && <p className="text-red-500 font-bold">{Math.round(direction)}°</p>}
 		</div>
 	);
 }

@@ -146,14 +146,12 @@ export default function FavoritesMenu() {
 							<div className="flex flex-col space-y-4">
 								<Nameday />
 								<DarkModeToggle />
-
 								<button
-									className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer"
+									className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer lg:hidden"
 									onClick={handleCompass}
 								>
 									{t('compass')}
 								</button>
-
 								<LanguageSwitcher />
 							</div>
 						</div>

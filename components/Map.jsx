@@ -119,7 +119,7 @@ export default function Map() {
 
 	return (
 		<div
-			className={`flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center my-auo p-4 aspect-square my-4 ${isOpen ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}
+			className={`md:hidden lg:flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center my-auo p-4 aspect-square my-4 ${isOpen ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}
 		>
 			<div className="flex h-auto w-full items-center mb-4">
 				<Image src={MapIcon} alt="Mapa" height={25} width={25} />

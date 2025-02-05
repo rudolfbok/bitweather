@@ -76,11 +76,11 @@ export default function Compass() {
 					</div>
 				</div>
 			) : (
-				<button onClick={requestPermission} className="px-4 py-2 text-white bg-blue-500 rounded">
+				<button onClick={requestPermission} className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer">
 					{t('compass_permission')}
 				</button>
 			)}
-			<p className="text-red-500 font-bold">{Math.round(direction)}°</p>
+			{permissionGranted && (<p className="text-red-500 font-bold">{Math.round(direction)}°</p>)}
 		</div>
 	);
 }

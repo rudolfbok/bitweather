@@ -71,7 +71,7 @@ export default function DailyWeather() {
 	};
 
 	return (
-		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center p-4 pb-6 md:px-6 mt-4">
+		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center pt-4 pb-8 px-4 md:px-6 mt-4">
 			<div className="flex h-auto w-full mb-4">
 				<Image src={Clock} alt="Hourly forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('hourly')}</span>

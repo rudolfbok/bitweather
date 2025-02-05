@@ -78,16 +78,14 @@ export default function Compass() {
 					</div>
 				</div>
 			) : (
-				<div className='text-center space-y-4'>
-				<p>
-				{t('compasstext')}
-				</p>
-				<button
-					onClick={requestPermission}
-					className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer"
-				>
-					{t('compassbutton')}
-				</button>
+				<div className="text-center space-y-4">
+					<p>{t('compasstext')}</p>
+					<button
+						onClick={requestPermission}
+						className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer"
+					>
+						{t('compassbutton')}
+					</button>
 				</div>
 			)}
 			{permissionGranted && <p className="text-red-500 font-bold">{Math.round(direction)}°</p>}

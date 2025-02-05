@@ -54,7 +54,12 @@ export default function Compass() {
 		<div className="flex flex-col items-center justify-center h-[80vh] bg-background rounded-3xl">
 			{permissionGranted ? (
 				<div className="relative w-40 h-40">
-					<div className={`absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2 rotate-${direction ?? 0}`} />
+					<div
+						className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
+						style={{
+							transform: `rotate(${direction ?? 0}deg)`
+						}}
+					/>
 					<div className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}>
 						<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
 							{t('north')}

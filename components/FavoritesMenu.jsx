@@ -87,7 +87,7 @@ export default function FavoritesMenu() {
 							<p className="text-xl w-full text-center lg:text-start lg:text-2xl">
 								{t('favorite')}
 							</p>
-							<ul className="flex flex-col lg:flex-row w-[75%] lg:w-full gap-3 lg:gap-6 lg:flex-wrap py-6">
+							<ul className="flex flex-col lg:flex-row w-[90%] lg:w-full gap-3 lg:gap-6 lg:flex-wrap py-6">
 								{favoriteCities.length > 0 ? (
 									favoriteCities.map((city, index) => {
 										const cityWeather = weatherByCity[city]; // Moved inside curly braces

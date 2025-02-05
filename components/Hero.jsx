@@ -57,7 +57,7 @@ export default function Hero() {
 
 			{!weatherData && !error && (
 				<div className="flex flex-col text-center h-[70vh] place-content-center space-y-4">
-					Welcome
+					<p>{t('welcome')}</p>
 				</div>
 			)}
 

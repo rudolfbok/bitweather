@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useWeather } from '@/lib/weatherContext';
 
 export default function Compass() {
 	const { t } = useTranslation();
+	const { isDarkMode } = useWeather();
 	const [direction, setDirection] = useState(null); // Compass heading in degrees
 	const [permissionGranted, setPermissionGranted] = useState(false);
 
@@ -49,31 +51,24 @@ export default function Compass() {
 	}, [permissionGranted]);
 
 	return (
-		<div className="flex flex-col items-center justify-center h-screen bg-background rounded-3xl">
+		<div className="flex flex-col items-center justify-center h-[80vh] bg-background rounded-3xl">
 			{permissionGranted ? (
 				<div className="relative w-40 h-40">
-					{/* Compass container */}
-					<div
-						className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
-						style={{
-							transform: `rotate(${direction ?? 0}deg)`, // Rotate the entire compass based on direction
-						}}
-					/>
-					<div className="absolute inset-0 w-full h-full rounded-full border-2 border-black text-black">
-						<div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-							S
-						</div>
-						<div className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
-							Z
-						</div>
-						<div className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
-							V
-						</div>
-						<div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-							J
-						</div>
+					<div className={`absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2 rotate-${direction ?? 0}`} />
+					<div className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}>
+						<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+							{t('north')}
+						</span>
+						<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
+							{t('west')}
+						</span>
+						<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
+							{t('east')}
+						</span>
+						<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+							{t('south')}
+						</span>
 					</div>
-					{/* North indicator */}
 				</div>
 			) : (
 				<button onClick={requestPermission} className="px-4 py-2 text-white bg-blue-500 rounded">

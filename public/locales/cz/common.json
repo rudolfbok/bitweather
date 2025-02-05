@@ -25,5 +25,9 @@
 	"searchtext": "Pro vyhledání napište město do vyhledávacího pole.",
 	"menutext": "Uložená města a nastavení naleznete v menu nahoře.",
 	"english": "Angličtina",
-	"czech": "Čeština"
+	"czech": "Čeština",
+	"north": "S",
+	"east": "V",
+	"south": "J",
+	"west": "Z"
 }

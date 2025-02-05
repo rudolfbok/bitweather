@@ -25,5 +25,9 @@
 	"searchtext": "For searching type in the search bar.",
 	"menutext": "Favorite cities and settings are in the menu at the top.",
 	"english": "English",
-	"czech": "Czech"
+	"czech": "Czech",
+	"north": "N",
+	"east": "E",
+	"south": "S",
+	"west": "W"
 }

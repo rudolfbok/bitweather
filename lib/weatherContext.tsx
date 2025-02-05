@@ -78,6 +78,8 @@ interface WeatherContextType {
 	getFavoriteCities: () => string[];
 	removeCityFromFavorites: (city: string) => void;
 	getIconPath: (iconCode: string) => string | undefined;
+	visibleCompass: boolean;
+	setVisibleCompass: (visibleCompass: boolean) => void;
 }
 
 export const WeatherContext = createContext<WeatherContextType | undefined>(undefined);
@@ -95,6 +97,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currentLanguage, setCurrentLanguage] = useState<string>(i18n.language);
 	const [suggestions, setSuggestions] = useState<string[] | null>([]);
+	const [visibleCompass, setVisibleCompass] = useState<boolean>(false)
 
 	useEffect(() => {
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -199,6 +202,8 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
 				setCurrentLanguage,
 				isOpen,
 				setIsOpen,
+				visibleCompass,
+				setVisibleCompass
 			}}
 		>
 			{children}

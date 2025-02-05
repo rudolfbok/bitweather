@@ -16,8 +16,10 @@ import TempMax from '@/public/icons/tempmax.svg';
 import TempMinDark from '@/public/icons/tempmin-dark.svg';
 import TempMin from '@/public/icons/tempmin.svg';
 
+import Compass from './Compass'
+
 export default function Hero() {
-	const { weatherData, location, error, isDarkMode, getIconPath } = useWeather();
+	const { weatherData, location, error, isDarkMode, getIconPath, visibleCompass } = useWeather();
 	const { t } = useTranslation();
 
 	const capitalizeFirstLetter = (string) => {
@@ -53,6 +55,8 @@ export default function Hero() {
 
 	return (
 		<section>
+			{visibleCompass && !weatherData && <Compass/>}
+
 			{error && !weatherData && <p className="text-center mt-6 font-semibold">{t('error')}</p>}
 
 			{weatherData && (

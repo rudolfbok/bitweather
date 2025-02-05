@@ -16,7 +16,7 @@ import TempMax from '@/public/icons/tempmax.svg';
 import TempMinDark from '@/public/icons/tempmin-dark.svg';
 import TempMin from '@/public/icons/tempmin.svg';
 
-import Compass from './Compass'
+import Compass from './Compass';
 
 export default function Hero() {
 	const { weatherData, location, error, isDarkMode, getIconPath, visibleCompass } = useWeather();
@@ -55,7 +55,7 @@ export default function Hero() {
 
 	return (
 		<section>
-			{visibleCompass && !weatherData && <Compass/>}
+			{visibleCompass && !weatherData && <Compass />}
 
 			{error && !weatherData && <p className="text-center mt-6 font-semibold">{t('error')}</p>}
 
@@ -88,7 +88,7 @@ export default function Hero() {
 								<span>{`${Math.round(weatherData.daily[0].temp.max)}°C`}</span>
 							</div>
 							<p className="my-1">
-								{t('temp_feels')}: {Math.round(weatherData.current.feels_like)}
+								{t('tempfeels')}: {Math.round(weatherData.current.feels_like)}
 								°C
 							</p>
 							<p className="font-semibold">

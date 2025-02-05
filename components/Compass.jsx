@@ -51,16 +51,18 @@ export default function Compass() {
 	}, [permissionGranted]);
 
 	return (
-		<div className="flex flex-col items-center justify-center h-[70vh] bg-background rounded-3xl">
+		<div className="flex flex-col items-center justify-center max-h-[70vh] bg-background rounded-3xl">
 			{permissionGranted ? (
 				<div className="relative w-40 h-40">
 					<div
 						className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
 						style={{
-							transform: `rotate(${direction ?? 0}deg)`
+							transform: `rotate(${direction ?? 0}deg)`,
 						}}
 					/>
-					<div className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}>
+					<div
+						className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
+					>
 						<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
 							{t('north')}
 						</span>
@@ -76,11 +78,19 @@ export default function Compass() {
 					</div>
 				</div>
 			) : (
-				<button onClick={requestPermission} className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer">
-					{t('compass_permission')}
+				<div className='text-center space-y-4'>
+				<p>
+				{t('compasstext')}
+				</p>
+				<button
+					onClick={requestPermission}
+					className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer"
+				>
+					{t('compassbutton')}
 				</button>
+				</div>
 			)}
-			{permissionGranted && (<p className="text-red-500 font-bold">{Math.round(direction)}°</p>)}
+			{permissionGranted && <p className="text-red-500 font-bold">{Math.round(direction)}°</p>}
 		</div>
 	);
 }

@@ -16,8 +16,16 @@ import gsap from 'gsap';
 import { Cross as Hamburger } from 'hamburger-react';
 
 export default function FavoritesMenu() {
-	const { favoriteCities, setWeatherData, setLocation, setLatlon, isOpen, setIsOpen, getIconPath, setVisibleCompass } =
-		useWeather();
+	const {
+		favoriteCities,
+		setWeatherData,
+		setLocation,
+		setLatlon,
+		isOpen,
+		setIsOpen,
+		getIconPath,
+		setVisibleCompass,
+	} = useWeather();
 
 	const menuRef = useRef(null);
 
@@ -83,7 +91,7 @@ export default function FavoritesMenu() {
 		setWeatherData(null);
 		setVisibleCompass(true);
 		setIsOpen(false);
-	}
+	};
 
 	return (
 		<div className="flex flex-row gap-4 items-center overflow-hidden">
@@ -139,7 +147,10 @@ export default function FavoritesMenu() {
 								<Nameday />
 								<DarkModeToggle />
 
-								<button className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer" onClick={handleCompass}>
+								<button
+									className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer"
+									onClick={handleCompass}
+								>
 									{t('compass')}
 								</button>
 

@@ -97,7 +97,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currentLanguage, setCurrentLanguage] = useState<string>(i18n.language);
 	const [suggestions, setSuggestions] = useState<string[] | null>([]);
-	const [visibleCompass, setVisibleCompass] = useState<boolean>(false)
+	const [visibleCompass, setVisibleCompass] = useState<boolean>(false);
 
 	useEffect(() => {
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -203,7 +203,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
 				isOpen,
 				setIsOpen,
 				visibleCompass,
-				setVisibleCompass
+				setVisibleCompass,
 			}}
 		>
 			{children}

@@ -10,7 +10,7 @@ export default function CompassPage() {
 		<I18nextProvider i18n={i18n}>
 			<main className="px-4">
 				<Header />
-				<Compass/>
+				<Compass />
 			</main>
 		</I18nextProvider>
 	);

@@ -169,17 +169,13 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
 		'50n': '/weathericons/fog.png',
 	};
 
-	const updateWeatherData = (data: OpenWeatherResponse) => {
-		setWeatherData(data);
-	};
-
 	return (
 		<WeatherContext.Provider
 			value={{
 				city,
 				setCity,
 				weatherData,
-				setWeatherData: updateWeatherData,
+				setWeatherData,
 				location,
 				setLocation,
 				error,

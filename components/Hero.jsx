@@ -55,12 +55,6 @@ export default function Hero() {
 		<section>
 			{error && !weatherData && <p className="text-center mt-6 font-semibold">{t('error')}</p>}
 
-			{!weatherData && !error && (
-				<div className="flex flex-col text-center h-[70vh] place-content-center space-y-4">
-					<p>{t('welcome')}</p>
-				</div>
-			)}
-
 			{weatherData && (
 				<div ref={columnRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
 					<div id="mainbox" className="flex flex-col w-full items-center mt-4">

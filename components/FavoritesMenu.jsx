@@ -6,8 +6,6 @@ import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import { fetchWeather } from '@/lib/weatherService';
 
-import Link from 'next/link';
-
 import DarkModeToggle from './DarkModeToggle';
 import Nameday from './Nameday';
 
@@ -87,7 +85,6 @@ export default function FavoritesMenu() {
 	}, [favoriteCities]);
 
 	const handleCompass = () => {
-		console.log('Setting visibleCompass to true');
 		setWeatherData(null);
 		setVisibleCompass(true);
 		setIsOpen(false);
@@ -143,7 +140,7 @@ export default function FavoritesMenu() {
 								)}
 							</ul>
 
-							<div className="flex flex-col space-y-4">
+							<div className="flex flex-col space-y-4 lg:mt-16">
 								<Nameday />
 								<DarkModeToggle />
 								<button

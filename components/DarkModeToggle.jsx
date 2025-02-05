@@ -4,8 +4,8 @@ import { ToggleSlider } from 'react-toggle-slider';
 
 import Image from 'next/image';
 
-import LightModeIcon from '@/public/lightmode.svg';
 import DarkModeIcon from '@/public/darkmode.svg';
+import LightModeIcon from '@/public/lightmode.svg';
 import { useTranslation } from 'react-i18next';
 
 export default function DarkModeToggle() {

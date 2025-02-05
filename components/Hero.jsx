@@ -115,7 +115,7 @@ export default function Hero() {
 							/>
 							<DataCard
 								icon="/icons/uv.svg"
-								headline="UV Index"
+								headline="UV"
 								data={Math.round(weatherData.daily[0]?.uvi)}
 							/>
 							<DataCard

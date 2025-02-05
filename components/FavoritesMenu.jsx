@@ -90,7 +90,7 @@ export default function FavoritesMenu() {
 							<ul className="flex flex-col lg:flex-row w-[90%] lg:w-full gap-3 lg:gap-6 lg:flex-wrap py-6">
 								{favoriteCities.length > 0 ? (
 									favoriteCities.map((city, index) => {
-										const cityWeather = weatherByCity[city]; // Moved inside curly braces
+										const cityWeather = weatherByCity[city];
 
 										return (
 											<li
@@ -126,10 +126,10 @@ export default function FavoritesMenu() {
 								)}
 							</ul>
 
-							<div className="flex flex-col space-y-2">
+							<div className="flex flex-col space-y-4">
 								<Nameday />
 								<DarkModeToggle />
-								<button className="rounded-2xl h-10 py-2 px-4 my-5 backdrop-blur-3xl bg-zinc-500/10 cursor-pointer lg:hidden">
+								<button className="rounded-2xl h-10 py-2 px-4 backdrop-blur-3xl bg-zinc-500/10 cursor-pointer lg:hidden">
 									{t('compass')}
 								</button>
 								<LanguageSwitcher />

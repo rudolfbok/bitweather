@@ -54,7 +54,7 @@ export default function DailyWeather() {
 	const settings = {
 		dots: true,
 		customPaging: (i) => (
-			<div id="dots">
+			<div id="dots" className='mt-2'>
 				<img src={isDarkMode ? '/carouseldot-dark.svg' : '/carouseldot.svg'} />
 			</div>
 		),

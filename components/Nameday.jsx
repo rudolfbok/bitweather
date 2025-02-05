@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import i18n from '@/lib/i18n';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Nameday() {

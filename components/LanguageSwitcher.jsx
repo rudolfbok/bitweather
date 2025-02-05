@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import { useWeather } from '@/lib/weatherContext';
+import { useTranslation } from 'react-i18next';
 
 export default function LanguageSwitcher() {
 	const { i18n, t } = useTranslation();

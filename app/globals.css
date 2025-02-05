@@ -30,11 +30,6 @@ button {
 	color: #000000;
 }
 
-body {
-	background-color: var(--background);
-	color: var(--foreground);
-}
-
 .dark {
 	--background: #121212;
 	--foreground: #ededed;

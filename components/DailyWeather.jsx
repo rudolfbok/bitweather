@@ -1,11 +1,10 @@
-import { useContext, useEffect, useRef } from 'react';
 import { useWeather } from '@/lib/weatherContext';
-import Image from 'next/image';
 import Calendar from '@/public/icons/calendar.svg';
 import ThreeDots from '@/public/threedots.svg';
 import ThreeDotsDark from '@/public/threedotsdark.svg';
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 
 import gsap from 'gsap';
 
@@ -63,7 +62,7 @@ export default function DailyWeather() {
 		if (i18n.language === 'cz') {
 			const fetchTranslations = async () => {
 				const translations = [];
-				const delay = 500; // Delay in milliseconds
+				const delay = 500;
 
 				for (let index = 0; index < 7; index++) {
 					const translatedText = await translateToCzech(weatherData.daily[index + 1].summary);
@@ -79,7 +78,7 @@ export default function DailyWeather() {
 	}, [i18n.language, weatherData]);
 
 	return (
-		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center mt-4 p-4">
+		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center p-4 mt-4">
 			<div className="flex h-auto w-full mb-2 items-center">
 				<Image src={Calendar} alt="Daily forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('daily')}</span>

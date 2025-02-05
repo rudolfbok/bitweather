@@ -1,21 +1,20 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { fetchWeather } from '@/lib/weatherService';
-import { useState } from 'react';
 import { useWeather } from '@/lib/weatherContext';
-import Image from 'next/image';
+import { fetchWeather } from '@/lib/weatherService';
 import Logo from '@/public/logo.png';
+import Image from 'next/image';
 
-import SearchGlass from '@/public/searchglass.svg';
 import SearchGlassDark from '@/public/searchglass-dark.svg';
+import SearchGlass from '@/public/searchglass.svg';
 
-import DeleteInput from '@/public/deleteinput.svg';
 import DeleteInputDark from '@/public/deleteinput-dark.svg';
+import DeleteInput from '@/public/deleteinput.svg';
 
-import FavoritesMenu from './FavoritesMenu';
 import { useTranslation } from 'react-i18next';
+import FavoritesMenu from './FavoritesMenu';
 
 export default function Header() {
 	const { setCity, setWeatherData, setLocation, setLatlon, setError, isDarkMode } = useWeather();
@@ -79,7 +78,7 @@ export default function Header() {
 		if (response.error) {
 			setSuggestions([]);
 		} else {
-			setSuggestions(response.locations); // Store multiple cities
+			setSuggestions(response.locations);
 		}
 	});
 

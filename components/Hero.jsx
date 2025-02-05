@@ -1,20 +1,20 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useWeather } from '@/lib/weatherContext';
 import gsap from 'gsap';
 import Image from 'next/image';
-import { useWeather } from '@/lib/weatherContext';
-import DataCard from './DataCard';
+import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import DailyWeather from './DailyWeather';
+import DataCard from './DataCard';
+import FavoritesToggle from './FavoritesToggle';
 import HourlyWeather from './HourlyWeather';
 import Map from './Map';
-import FavoritesToggle from './FavoritesToggle';
-import { useTranslation } from 'react-i18next';
 
-import TempMin from '@/public/icons/tempmin.svg';
-import TempMinDark from '@/public/icons/tempmin-dark.svg';
-import TempMax from '@/public/icons/tempmax.svg';
 import TempMaxDark from '@/public/icons/tempmax-dark.svg';
+import TempMax from '@/public/icons/tempmax.svg';
+import TempMinDark from '@/public/icons/tempmin-dark.svg';
+import TempMin from '@/public/icons/tempmin.svg';
 
 export default function Hero() {
 	const { weatherData, location, error, isDarkMode, getIconPath } = useWeather();
@@ -146,6 +146,7 @@ export default function Hero() {
 							/>
 						</div>
 					</div>
+
 					<Map />
 				</div>
 			)}

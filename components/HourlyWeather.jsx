@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { useWeather } from '@/lib/weatherContext';
-import Image from 'next/image';
 import Clock from '@/public/icons/clock.svg';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 export default function DailyWeather() {
 	const { weatherData, getIconPath, isDarkMode } = useWeather();
@@ -55,7 +54,7 @@ export default function DailyWeather() {
 	const settings = {
 		dots: true,
 		customPaging: (i) => (
-			<div id="dots" className="mt-2">
+			<div id="dots">
 				<img src={isDarkMode ? '/carouseldot-dark.svg' : '/carouseldot.svg'} />
 			</div>
 		),
@@ -72,12 +71,12 @@ export default function DailyWeather() {
 	};
 
 	return (
-		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center mt-4 p-4 md:px-6">
+		<div className="flex flex-col rounded-2xl w-full bg-zinc-500/5 items-center p-4 pb-6 md:px-6 mt-4">
 			<div className="flex h-auto w-full mb-4">
 				<Image src={Clock} alt="Hourly forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('hourly')}</span>
 			</div>
-			<Slider {...settings} className="w-full mb-5">
+			<Slider {...settings} className="w-full">
 				{weatherData.hourly.slice(1, 24).map((hour, index) => {
 					const hourFormatted = getHour(hour.dt);
 					const hourlyIconCode = hour.weather[0].icon;

@@ -1,8 +1,7 @@
-import React from 'react';
-import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import { useWeather } from '@/lib/weatherContext';
-import Image from 'next/image';
 import MapIcon from '@/public/icons/map.svg';
+import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
 export default function Map() {

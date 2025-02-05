@@ -22,9 +22,9 @@ export default function DarkModeToggle() {
 	};
 
 	return (
-		<div className="flex flex-row justify-center">
+		<div className="flex flex-row justify-center items-center gap-2">
 			<ToggleSlider onToggle={toggleDarkMode} />
-			<span className="mx-2">{isDarkMode ? t('darkmode') : t('lightmode')}</span>
+			<span>{isDarkMode ? t('darkmode') : t('lightmode')}</span>
 			<Image
 				src={isDarkMode ? DarkModeIcon : LightModeIcon}
 				alt={isDarkMode ? 'Dark Mode Icon' : 'Light Mode Icon'}

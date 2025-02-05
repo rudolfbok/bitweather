@@ -1,9 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
-import gsap from 'gsap';
 import { useWeather } from '@/lib/weatherContext';
-import Image from 'next/image';
 import Favorite from '@/public/favorite.svg';
 import NotFavorite from '@/public/notfavorite.svg';
+import gsap from 'gsap';
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 export default function FavoritesToggle() {
 	const {

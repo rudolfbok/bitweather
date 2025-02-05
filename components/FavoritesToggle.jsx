@@ -1,4 +1,5 @@
 import { useWeather } from '@/lib/weatherContext';
+import { fetchWeather } from '@/lib/weatherService';
 import Favorite from '@/public/favorite.svg';
 import NotFavorite from '@/public/notfavorite.svg';
 import gsap from 'gsap';
@@ -7,7 +8,6 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function FavoritesToggle() {
 	const {
-		fetchWeather,
 		location,
 		addCityToFavorites,
 		getFavoriteCities,

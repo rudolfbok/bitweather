@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function LanguageSwitcher() {
 	const { i18n, t } = useTranslation();
-	const { currentLanguage, setCurrentLanguage } = useWeather();
+	const { setCurrentLanguage } = useWeather();
 
 	const handleLanguageChange = (event) => {
 		const lang = event.target.value;

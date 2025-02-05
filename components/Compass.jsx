@@ -49,7 +49,7 @@ export default function Compass() {
 	}, [permissionGranted]);
 
 	return (
-		<div className="flex flex-col items-center justify-center h-screen bg-gray-100 rounded-3xl">
+		<div className="flex flex-col items-center justify-center h-screen bg-background rounded-3xl">
 			{permissionGranted ? (
 				<div className="relative w-40 h-40">
 					{/* Compass container */}

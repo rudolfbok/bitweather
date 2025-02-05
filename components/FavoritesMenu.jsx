@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import { fetchWeather } from '@/lib/weatherService';
 
+import Link from 'next/link';
+
 import DarkModeToggle from './DarkModeToggle';
 import Nameday from './Nameday';
 
@@ -129,9 +131,9 @@ export default function FavoritesMenu() {
 							<div className="flex flex-col space-y-4">
 								<Nameday />
 								<DarkModeToggle />
-								<button className="rounded-2xl h-10 py-2 px-4 backdrop-blur-3xl bg-zinc-500/10 cursor-pointer lg:hidden">
-									{t('compass')}
-								</button>
+								
+									<Link href="/compass">{t('compass')}</Link>
+								
 								<LanguageSwitcher />
 							</div>
 						</div>

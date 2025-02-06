@@ -7,10 +7,9 @@ import { useWeather } from '@/lib/weatherContext';
 export default function Compass() {
 	const { t } = useTranslation();
 	const { isDarkMode } = useWeather();
-	const [direction, setDirection] = useState(null); // Compass heading in degrees
+	const [direction, setDirection] = useState(null);
 	const [permissionGranted, setPermissionGranted] = useState(false);
 
-	// Request permissions for iOS devices
 	const requestPermission = async () => {
 		const DeviceOrientationEventWithPermission = DeviceOrientationEvent;
 
@@ -30,21 +29,15 @@ export default function Compass() {
 		}
 	};
 
-	// Set up event listener for device orientation
 	useEffect(() => {
 		if (!permissionGranted) return;
 
 		const handleOrientation = (event) => {
 			if (event.webkitCompassHeading !== null) {
-				// Here we make sure that the alpha value is updated correctly
-				setDirection(event.webkitCompassHeading); // Update compass direction with the 'alpha' angle
+				setDirection(event.webkitCompassHeading);
 			}
 		};
-
-		// Add event listener for device orientation
 		window.addEventListener('deviceorientation', handleOrientation);
-
-		// Clean up event listener when component is unmounted
 		return () => {
 			window.removeEventListener('deviceorientation', handleOrientation);
 		};
@@ -59,7 +52,7 @@ export default function Compass() {
 		if (angle > 200 && angle < 250) return t('southwest');
 		if (angle >= 250 && angle <= 290) return t('west');
 		if (angle > 290 && angle < 340) return t('northwest');
-		return t('north'); // Fallback
+		return t('north');
 	};
 
 	return (

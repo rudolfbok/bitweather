@@ -120,17 +120,15 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
 		if (location.city) {
 			fetchWeather(location.city)
 				.then((data) => {
-					// Check if data contains an error
 					if (data.error) {
-						setError(data.error); // Set error message
+						setError(data.error);
 					} else {
-						// If no error, safely access weatherData, location, and latlon
 						setWeatherData(data.weatherData);
 						setLocation(data.location!);
 						setLatlon(data.latlon!);
 					}
 				})
-				.catch((err: Error) => setError(err.message)); // In case of network errors
+				.catch((err: Error) => setError(err.message));
 		}
 	}, [i18n.language, location.city]);
 

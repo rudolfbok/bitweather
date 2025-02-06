@@ -144,7 +144,7 @@ export default function Hero() {
 							/>
 						</div>
 					</div>
-					
+
 					<Map />
 				</div>
 			)}

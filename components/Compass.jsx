@@ -60,7 +60,7 @@ export default function Compass() {
 			{permissionGranted ? (
 				<div className="flex flex-col justify-center items-center space-y-8">
 					<div
-						className={`border-2 p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}
+						className={`border-2 p-10 relative rounded-full font-bold ${isDarkMode ? 'border-white' : 'border-black'}`}
 					>
 						{Array.from({ length: 24 }).map((_, i) => (
 							<div
@@ -71,16 +71,16 @@ export default function Compass() {
 								}}
 							/>
 						))}
-						<span className="absolute top-[2px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
+						<span className="absolute top-[2px] left-1/2 transform -translate-x-1/2 text-lg bg-background">
 							0
 						</span>
-						<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
+						<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg bg-background">
 							180
 						</span>
-						<span className="absolute top-1/2 left-[3px] transform -translate-y-1/2 text-lg font-bold bg-background">
+						<span className="absolute top-1/2 left-[3px] transform -translate-y-1/2 text-lg bg-background">
 							270
 						</span>
-						<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg font-bold bg-background">
+						<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg bg-background">
 							90
 						</span>
 						<div className="relative w-[160px] h-[160px]">
@@ -94,18 +94,18 @@ export default function Compass() {
 								}}
 							/>
 							<div
-								className={`absolute inset-0 w-full h-full rounded-full border bg-zinc-500/10 text-black text-times font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
+								className={`absolute inset-0 w-full h-full rounded-full border bg-zinc-500/10 text-black text-xl font-bold font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
 							>
-								<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+								<span className="absolute top-0 left-1/2 transform -translate-x-1/2">
 									{t('northlabel')}
 								</span>
-								<span className="absolute top-1/2 left-[5px] transform -translate-y-1/2 text-xl font-bold">
+								<span className="absolute top-1/2 left-[5px] transform -translate-y-1/2">
 									{t('westlabel')}
 								</span>
-								<span className="absolute top-1/2 right-[5px] transform -translate-y-1/2 text-xl font-bold">
+								<span className="absolute top-1/2 right-[5px] transform -translate-y-1/2">
 									{t('eastlabel')}
 								</span>
-								<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+								<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
 									{t('southlabel')}
 								</span>
 							</div>
@@ -120,7 +120,7 @@ export default function Compass() {
 			) : (
 				<div className="text-center space-y-4 h-full mt-4">
 					<span className="font-bold text-xl">{t('compass')}</span>
-					<p className='font-semibold'>{t('compassinfo')}</p>
+					<p className="font-semibold">{t('compassinfo')}</p>
 					<p>{t('compasstext')}</p>
 					<button
 						onClick={requestPermission}

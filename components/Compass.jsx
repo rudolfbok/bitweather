@@ -88,11 +88,14 @@ export default function Compass() {
 								<img src="/compassarrow.svg" alt="North arrow"/>
 							</div>
 							<div
-								className="absolute left-1/2 w-0.5 h-20 bg-red-600 origin-bottom  -translate-x-1/2"
+								className="absolute left-1/2 w-0.5 h-20 bg-red-600 origin-bottom -translate-x-1/2"
 								style={{
 									transform: `rotate(${direction ?? 0}deg)`,
 								}}
 							/>
+							<div className='absolute bg-red-600 w-2 h-2 left-[81px] -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full'>
+								
+								</div>
 							<div
 								className={`absolute inset-0 w-full h-full rounded-full border bg-zinc-500/10 text-black text-xl font-bold font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
 							>

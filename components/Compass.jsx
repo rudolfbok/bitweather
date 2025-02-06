@@ -118,17 +118,17 @@ export default function Compass() {
 						<span className="absolute top-[-35] left-1/2 transform -translate-x-1/2 text-lg font-bold">
 							0
 						</span>
-						<span className="absolute bottom-[-35] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+						<span className="absolute bottom-[-35px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
 							180
 						</span>
-						<span className="absolute top-1/2 left-[-40] transform -translate-y-1/2 text-lg font-bold">
+						<span className="absolute top-1/2 left-[-40px] transform -translate-y-1/2 text-lg font-bold">
 							270
 						</span>
-						<span className="absolute top-1/2 right-[-35] transform -translate-y-1/2 text-lg font-bold">
+						<span className="absolute top-1/2 right-[-35px] transform -translate-y-1/2 text-lg font-bold">
 							90
 						</span>
-						<div className="absolute top-[-15] left-[50.5%] transform -translate-x-1/2 text-lg font-bold">
-							<img src="/compassarrow.svg" alt="North arrow" className='' />
+						<div className="absolute top-[-15px] left-[50px] transform -translate-x-1/2 text-lg font-bold">
+							<img src="/compassarrow.svg" alt="North arrow"/>
 						</div>
 						<div className="relative w-40 h-40">
 							<div

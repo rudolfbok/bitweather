@@ -66,12 +66,12 @@ export default function Compass() {
 		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
 			<div className="flex flex-col justify-center items-center space-y-8">
 				<div className={`border-2 border-black p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}>
-					{Array.from({ length: 25 }).map((_, i) => (
+					{Array.from({ length: 24 }).map((_, i) => (
 						<div
 							key={i}
-							className="absolute left-[95px] top-[95px] w-[50px] h-[50px] border-2 border-dotted border-black rounded-full"
+							className="absolute left-[100px] top-[119px] w-[40px] h-0.5 bg-red-500"
 							style={{
-								transform: `rotate(${i * 15}deg) translateX(120px)`,
+								transform: `rotate(${i * 15}deg) translateX(100px)`,
 							}}
 						/>
 					))}
@@ -88,7 +88,7 @@ export default function Compass() {
 						90
 					</span>
 					<div className="relative w-[160px] h-[160px]">
-						<div className="absolute top-[-12px] left-1/2 transform -translate-x-1/2">
+						<div className="absolute top-[-12px] left-[81px] transform -translate-x-1/2">
 							<img src="/compassarrow.svg" alt="North arrow" className='' />
 						</div>
 						<div

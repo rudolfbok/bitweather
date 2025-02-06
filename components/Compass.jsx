@@ -64,6 +64,63 @@ export default function Compass() {
 
 	return (
 		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
+			<div className="flex flex-col justify-center items-center space-y-8">
+				<div className={`border-2 border-black p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}>
+					{Array.from({ length: 25 }).map((_, i) => (
+						<div
+							key={i}
+							className="absolute left-[95px] top-[95px] w-[50px] h-[50px] border-2 border-dotted border-black rounded-full"
+							style={{
+								transform: `rotate(${i * 15}deg) translateX(120px)`,
+							}}
+						/>
+					))}
+					<span className="absolute top-[-3px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+						0
+					</span>
+					<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+						180
+					</span>
+					<span className="absolute top-1/2 left-[3px] transform -translate-y-1/2 text-lg font-bold">
+						270
+					</span>
+					<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg font-bold">
+						90
+					</span>
+					<div className="relative w-[160px] h-[160px]">
+						<div className="absolute top-[-12px] left-1/2 transform -translate-x-1/2">
+							<img src="/compassarrow.svg" alt="North arrow" className='' />
+						</div>
+						<div
+							className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
+							style={{
+								transform: `rotate(${direction ?? 0}deg)`,
+							}}
+						/>
+						<div
+							className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
+						>
+							<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+								{t('northlabel')}
+							</span>
+							<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
+								{t('westlabel')}
+							</span>
+							<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
+								{t('eastlabel')}
+							</span>
+							<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+								{t('southlabel')}
+							</span>
+						</div>
+					</div>
+				</div>
+				<div className='flex flex-row gap-2'>
+					<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
+					<span>-</span>
+					<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
+				</div>
+			</div>
 			{permissionGranted ? (
 				<div className="flex flex-col justify-center items-center space-y-8">
 					<div className={`border-2 border-black p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}>

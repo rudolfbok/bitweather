@@ -66,20 +66,20 @@ export default function Compass() {
 		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
 			<div className="flex flex-col justify-center items-center space-y-8">
 				<div className={`border-2 border-black p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}>
-					<span className="absolute top-[-5px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+					<span className="absolute top-[-3px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
 						0
 					</span>
-					<span className="absolute bottom-[-5px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+					<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
 						180
 					</span>
-					<span className="absolute top-1/2 left-[-5px] transform -translate-y-1/2 text-lg font-bold">
+					<span className="absolute top-1/2 left-[3px] transform -translate-y-1/2 text-lg font-bold">
 						270
 					</span>
 					<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg font-bold">
 						90
 					</span>
 					<div className="relative w-[160px] h-[160px]">
-						<div className="absolute top-[-15px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+						<div className="absolute top-[-12px] left-1/2 transform -translate-x-1/2">
 							<img src="/compassarrow.svg" alt="North arrow" className='' />
 						</div>
 						<div

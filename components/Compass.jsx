@@ -50,12 +50,15 @@ export default function Compass() {
 		};
 	}, [permissionGranted]);
 
-	const directions = {
-		0: "sever",
-		90: "východ",
-		150: "severovýchod",
-		180: "jih",
-		270: "západ",
+	const getDirectionLabel = (angle) => {
+		if (angle >= 0 && angle < 45) return t('north');
+		if (angle >= 45 && angle < 90) return t('northeast');
+		if (angle >= 90 && angle < 135) return t('east');
+		if (angle >= 135 && angle < 180) return t('southeast');
+		if (angle >= 180 && angle < 225) return t('south');
+		if (angle >= 225 && angle < 270) return t('southwest');
+		if (angle >= 270 && angle < 315) return t('west');
+		return t('northwest'); // Covers 315–360
 	  };
 
 	return (
@@ -86,7 +89,7 @@ export default function Compass() {
 							</span>
 						</div>
 					</div>
-					<span>{directions[Math.round(direction)] || "Neznámý směr"}</span>
+					<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
 					<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
 				</div>
 			) : (

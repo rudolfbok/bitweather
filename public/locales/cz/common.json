@@ -30,5 +30,10 @@
 	"north": "S",
 	"east": "V",
 	"south": "J",
-	"west": "Z"
+	"west": "Z",
+	"northeast": "severoýchod",
+	"northwest": "severozápad",
+	"southeast": "jihovýchod",
+	"southwest": "jihozápad",
+	"directionerror": "Neznámý směr" 
 }

@@ -30,5 +30,10 @@
 	"north": "N",
 	"east": "E",
 	"south": "S",
-	"west": "W"
+	"west": "W",
+	"northeast": "northeast",
+	"northwest": "northwest",
+	"southeast": "southeast",
+	"southwest": "southwest",
+	"directionerror": "Direction unknown" 
 }

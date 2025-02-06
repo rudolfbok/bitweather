@@ -144,10 +144,10 @@ export default function FavoritesMenu() {
 								<Nameday />
 								<DarkModeToggle />
 								<button
-									className="rounded-2xl p-2 px-6 bg-zinc-500/10 cursor-pointer lg:hidden"
+									className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer lg:hidden"
 									onClick={handleCompass}
 								>
-									{t('compass')}
+									{t('compassbutton')}
 								</button>
 								<LanguageSwitcher />
 							</div>

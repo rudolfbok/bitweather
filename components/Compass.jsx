@@ -50,6 +50,14 @@ export default function Compass() {
 		};
 	}, [permissionGranted]);
 
+	const directions = {
+		0: "sever",
+		90: "východ",
+		150: "severovýchod",
+		180: "jih",
+		270: "západ",
+	  };
+
 	return (
 		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
 			{permissionGranted ? (
@@ -78,6 +86,7 @@ export default function Compass() {
 							</span>
 						</div>
 					</div>
+					<span>{directions[Math.round(direction)] || "Neznámý směr"}</span>
 					<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
 				</div>
 			) : (

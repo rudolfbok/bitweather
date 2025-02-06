@@ -79,7 +79,7 @@ export default function Compass() {
 						90
 					</span>
 					<div className="relative w-[160px] h-[160px]">
-						<div className="absolute top-[-15px] left-[-1/2] transform -translate-x-1/2 text-lg font-bold">
+						<div className="absolute top-[-15px] left-[-50%] transform -translate-x-1/2 text-lg font-bold">
 							<img src="/compassarrow.svg" alt="North arrow" className='' />
 						</div>
 						<div

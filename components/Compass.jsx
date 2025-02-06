@@ -88,7 +88,7 @@ export default function Compass() {
 								<img src="/compassarrow.svg" alt="North arrow" className="" />
 							</div>
 							<div
-								className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
+								className="absolute left-1/2 w-0.5 h-20 bg-red-600 origin-bottom transform -translate-x-1/2"
 								style={{
 									transform: `rotate(${direction ?? 0}deg)`,
 								}}
@@ -111,9 +111,8 @@ export default function Compass() {
 							</div>
 						</div>
 					</div>
-					<div className="flex flex-row gap-2">
-						<span className="!text-red-500 font-bold">{Math.round(direction)}°</span>
-						<span>-</span>
+					<div className="flex flex-col text-center text-lg">
+						<span className="!text-red-600 font-bold">{Math.round(direction)}°</span>
 						<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
 					</div>
 				</div>

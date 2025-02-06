@@ -90,8 +90,11 @@ export default function Compass() {
 							</span>
 						</div>
 					</div>
-					<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
-					<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
+					<div className='flex flex-row'>
+						<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
+						<span>-</span>
+						<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
+					</div>			
 				</div>
 			) : (
 				<div className="text-center space-y-4">

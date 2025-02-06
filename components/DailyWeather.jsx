@@ -1,7 +1,5 @@
 import { useWeather } from '@/lib/weatherContext';
 import Calendar from '@/public/icons/calendar.svg';
-import ThreeDots from '@/public/threedots.svg';
-import ThreeDotsDark from '@/public/threedotsdark.svg';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';

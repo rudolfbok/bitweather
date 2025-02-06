@@ -75,7 +75,7 @@ export default function Compass() {
 					<span className="absolute top-1/2 left-[-40px] transform -translate-y-1/2 text-lg font-bold">
 						270
 					</span>
-					<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-lg font-bold">
+					<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg font-bold">
 						90
 					</span>
 					<div className="relative w-[160px] h-[160px]">

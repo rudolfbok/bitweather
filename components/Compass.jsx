@@ -101,7 +101,7 @@ export default function Compass() {
 								}}
 							/>
 							<div
-								className={`absolute inset-0 w-full h-full rounded-full border text-black text-times font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
+								className={`absolute inset-0 w-full h-full rounded-full border bg-zinc-500/5 text-black text-times font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
 							>
 								<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
 									{t('northlabel')}

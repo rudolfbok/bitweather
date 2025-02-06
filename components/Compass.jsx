@@ -79,7 +79,7 @@ export default function Compass() {
 							/>
 						))}
 						<span className="absolute top-[2px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
-							360
+							0
 						</span>
 						<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
 							180

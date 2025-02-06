@@ -127,7 +127,7 @@ export default function Compass() {
 			) : (
 				<div className="text-center space-y-4 h-full mt-4">
 					<span className="font-bold text-xl">{t('compass')}</span>
-					<p>{t('compasstext')}BETA</p>
+					<p>{t('compasstext')}</p>
 					<button
 						onClick={requestPermission}
 						className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer"

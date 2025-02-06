@@ -85,7 +85,7 @@ export default function Compass() {
 						</span>
 						<div className="relative w-[160px] h-[160px]">
 							<div className="absolute top-[-12px] left-[81px] -translate-x-1/2">
-								<img src="/compassarrow.svg" alt="North arrow"/>
+								<img src="/compassarrow.svg" alt="North arrow" />
 							</div>
 							<div
 								className="absolute left-1/2 w-0.5 h-20 bg-red-600 origin-bottom -translate-x-1/2"
@@ -93,13 +93,11 @@ export default function Compass() {
 									transform: `rotate(${direction ?? 0}deg)`,
 								}}
 							/>
-							<div className='absolute bg-red-600 w-2 h-2 left-[81px] -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full'/>
+							<div className="absolute bg-red-600 w-2 h-2 left-[81px] -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full" />
 							<div
 								className={`absolute inset-0 w-full h-full rounded-full border bg-zinc-500/10 text-black text-xl font-bold font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
 							>
-								<span className="absolute top-0 left-1/2  -translate-x-1/2">
-									{t('northlabel')}
-								</span>
+								<span className="absolute top-0 left-1/2  -translate-x-1/2">{t('northlabel')}</span>
 								<span className="absolute top-1/2 left-[5px]  -translate-y-1/2">
 									{t('westlabel')}
 								</span>

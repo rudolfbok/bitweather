@@ -73,7 +73,7 @@ export default function DailyWeather() {
 				setTranslatedSummaries(translations);
 			};
 
-			fetchTranslations();
+			// fetchTranslations();
 		}
 	}, [i18n.language, weatherData]);
 
@@ -82,7 +82,7 @@ export default function DailyWeather() {
 			<div className="flex h-auto w-full mb-2 items-center">
 				<Image src={Calendar} alt="Daily forecast" height={25} width={25} />
 				<span className="flex w-full font-semibold ml-1">{t('daily')}</span>
-				<Image
+				{/* <Image
 					ref={dotsRef}
 					alt="Detailed forecast"
 					src={isDarkMode ? ThreeDotsDark : ThreeDots}
@@ -90,7 +90,7 @@ export default function DailyWeather() {
 					height={20}
 					onClick={handleSummaryClick}
 					className="cursor-pointer mx-3"
-				/>
+				/>  */}
 			</div>
 			<div className="flex flex-col w-full justify-center">
 				{weatherData.daily.slice(1, 8).map((day, index) => {
@@ -114,13 +114,13 @@ export default function DailyWeather() {
 									<span className="text-center font-bold">{`${Math.round(day.temp.max)}°C`}</span>
 								</div>
 							</div>
-							{openSummaryIndex.includes(index) && (
+							{/* {openSummaryIndex.includes(index) && (
 								<div ref={(el) => (summaryRef.current[index] = el)}>
 									<p className="text-sm">
 										{i18n.language === 'cz' ? translatedSummaries[index] : day.summary}
 									</p>
 								</div>
-							)}
+							)} */}
 						</div>
 					);
 				})}

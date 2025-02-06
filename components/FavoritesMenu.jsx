@@ -11,6 +11,8 @@ import Nameday from './Nameday';
 
 import gsap from 'gsap';
 
+import i18n from '@/lib/i18n';
+
 import { Cross as Hamburger } from 'hamburger-react';
 
 export default function FavoritesMenu() {
@@ -82,7 +84,7 @@ export default function FavoritesMenu() {
 		if (favoriteCities.length > 0) {
 			fetchWeatherForFavorites();
 		}
-	}, [favoriteCities]);
+	}, [favoriteCities, i18n.language]);
 
 	const handleCompass = () => {
 		setWeatherData(null);

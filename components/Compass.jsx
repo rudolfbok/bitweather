@@ -60,41 +60,58 @@ export default function Compass() {
 		if (angle >= 250 && angle <= 290) return t('west');
 		if (angle > 290 && angle < 340) return t('northwest');
 		return t('north'); // Fallback
-	  };	  
+	};
 
 	return (
 		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
 			{permissionGranted ? (
 				<div className="flex flex-col justify-center items-center space-y-4">
-					<div className="relative w-40 h-40">
-						<div
-							className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
-							style={{
-								transform: `rotate(${direction ?? 0}deg)`,
-							}}
-						/>
-						<div
-							className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
-						>
-							<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-								{t('northlabel')}
-							</span>
-							<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
-								{t('westlabel')}
-							</span>
-							<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
-								{t('eastlabel')}
-							</span>
-							<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-								{t('southlabel')}
-							</span>
+					<div className={`border-2 border-black p-10 rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}>
+						<div className="relative w-40 h-40">
+							<div
+								className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
+								style={{
+									transform: `rotate(${direction ?? 0}deg)`,
+								}}
+							/>
+							<div
+								className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
+							>
+								<div className="absolute top-[-15] left-[50.5%] transform -translate-x-1/2 text-lg font-bold">
+									<img src="/compassarrow.svg" alt="North arrow" className=''/>
+								</div>
+								<span className="absolute top-[-35] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+									0
+								</span>
+								<span className="absolute bottom-[-35] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+									180
+								</span>
+								<span className="absolute top-1/2 left-[-40] transform -translate-y-1/2 text-lg font-bold">
+									270
+								</span>
+								<span className="absolute top-1/2 right-[-35] transform -translate-y-1/2 text-lg font-bold">
+									90
+								</span>
+								<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+									{t('northlabel')}
+								</span>
+								<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
+									{t('westlabel')}
+								</span>
+								<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
+									{t('eastlabel')}
+								</span>
+								<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
+									{t('southlabel')}
+								</span>
+							</div>
 						</div>
 					</div>
-					<div className='flex flex-row'>
+					<div className='flex flex-row gap-2'>
 						<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
 						<span>-</span>
 						<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
-					</div>			
+					</div>
 				</div>
 			) : (
 				<div className="text-center space-y-4">

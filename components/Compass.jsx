@@ -65,30 +65,30 @@ export default function Compass() {
 						{Array.from({ length: 24 }).map((_, i) => (
 							<div
 								key={i}
-								className={`absolute left-[100.5px] top-[119px] w-[41px] h-0.5 border-dotted border ${isDarkMode ? 'border-white' : 'border-black'}`}
+								className={`absolute left-[100px] top-[119px] w-[41px] h-0.5 border-dotted border ${isDarkMode ? 'border-white' : 'border-black'}`}
 								style={{
 									transform: `rotate(${i * 15}deg) translateX(100px)`,
 								}}
 							/>
 						))}
-						<span className="absolute top-[2px] left-1/2 transform -translate-x-1/2 text-lg bg-background">
+						<span className="absolute top-[2px] left-1/2 -translate-x-1/2 text-lg bg-background">
 							0
 						</span>
-						<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg bg-background">
+						<span className="absolute bottom-[3px] left-1/2 -translate-x-1/2 text-lg bg-background">
 							180
 						</span>
-						<span className="absolute top-1/2 left-[3px] transform -translate-y-1/2 text-lg bg-background">
+						<span className="absolute top-1/2 left-[3px] -translate-y-1/2 text-lg bg-background">
 							270
 						</span>
-						<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg bg-background">
+						<span className="absolute top-1/2 right-[10px] -translate-y-1/2 text-lg bg-background">
 							90
 						</span>
 						<div className="relative w-[160px] h-[160px]">
-							<div className="absolute top-[-12px] left-[81px] transform -translate-x-1/2">
-								<img src="/compassarrow.svg" alt="North arrow" className="" />
+							<div className="absolute top-[-12px] left-[81px] -translate-x-1/2">
+								<img src="/compassarrow.svg" alt="North arrow"/>
 							</div>
 							<div
-								className="absolute left-1/2 w-0.5 h-20 bg-red-600 origin-bottom transform -translate-x-1/2"
+								className="absolute left-1/2 w-0.5 h-20 bg-red-600 origin-bottom  -translate-x-1/2"
 								style={{
 									transform: `rotate(${direction ?? 0}deg)`,
 								}}
@@ -96,16 +96,16 @@ export default function Compass() {
 							<div
 								className={`absolute inset-0 w-full h-full rounded-full border bg-zinc-500/10 text-black text-xl font-bold font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
 							>
-								<span className="absolute top-0 left-1/2 transform -translate-x-1/2">
+								<span className="absolute top-0 left-1/2  -translate-x-1/2">
 									{t('northlabel')}
 								</span>
-								<span className="absolute top-1/2 left-[5px] transform -translate-y-1/2">
+								<span className="absolute top-1/2 left-[5px]  -translate-y-1/2">
 									{t('westlabel')}
 								</span>
-								<span className="absolute top-1/2 right-[5px] transform -translate-y-1/2">
+								<span className="absolute top-1/2 right-[5px]  -translate-y-1/2">
 									{t('eastlabel')}
 								</span>
-								<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+								<span className="absolute bottom-0 left-1/2  -translate-x-1/2">
 									{t('southlabel')}
 								</span>
 							</div>

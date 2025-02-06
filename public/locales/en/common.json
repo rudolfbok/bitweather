@@ -27,13 +27,17 @@
 	"menutext": "Favorite cities and settings are in the menu at the top.",
 	"english": "English",
 	"czech": "Czech",
-	"north": "N",
-	"east": "E",
-	"south": "S",
-	"west": "W",
+	"northlabel": "N",
+	"eastlabel": "E",
+	"southlabel": "S",
+	"westlabel": "W",
+	"north": "north",
+	"east": "east",
+	"south": "south",
+	"west": "west",
 	"northeast": "northeast",
 	"northwest": "northwest",
 	"southeast": "southeast",
 	"southwest": "southwest",
-	"directionerror": "Direction unknown" 
+	"directionerror": "Unknown direction" 
 }

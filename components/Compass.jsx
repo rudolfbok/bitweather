@@ -51,16 +51,16 @@ export default function Compass() {
 	}, [permissionGranted]);
 
 	const getDirectionLabel = (angle) => {
-		if (angle === 0 || angle === 360) return t('north');
-		if (angle > 0 && angle < 90) return t('northeast');
-		if (angle === 90) return t('east');
-		if (angle > 90 && angle < 180) return t('southeast');
-		if (angle === 180) return t('south');
-		if (angle > 180 && angle < 270) return t('southwest');
-		if (angle === 270) return t('west');
-		if (angle > 270 && angle < 360) return t('northwest');
-		return t('north'); // Fallback for unexpected values
-	  };
+		if ((angle >= 340 && angle <= 360) || (angle >= 0 && angle <= 20)) return t('north');
+		if (angle > 20 && angle < 70) return t('northeast');
+		if (angle >= 70 && angle <= 110) return t('east');
+		if (angle > 110 && angle < 160) return t('southeast');
+		if (angle >= 160 && angle <= 200) return t('south');
+		if (angle > 200 && angle < 250) return t('southwest');
+		if (angle >= 250 && angle <= 290) return t('west');
+		if (angle > 290 && angle < 340) return t('northwest');
+		return t('north'); // Fallback
+	  };	  
 
 	return (
 		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
@@ -77,16 +77,16 @@ export default function Compass() {
 							className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
 						>
 							<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-								{t('north')}
+								{t('northlabel')}
 							</span>
 							<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
-								{t('west')}
+								{t('westlabel')}
 							</span>
 							<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
-								{t('east')}
+								{t('eastlabel')}
 							</span>
 							<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
-								{t('south')}
+								{t('southlabel')}
 							</span>
 						</div>
 					</div>

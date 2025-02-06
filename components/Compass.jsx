@@ -106,10 +106,10 @@ export default function Compass() {
 								<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
 									{t('northlabel')}
 								</span>
-								<span className="absolute top-1/2 left-0 transform -translate-y-1/2 text-xl font-bold">
+								<span className="absolute top-1/2 left-[5px] transform -translate-y-1/2 text-xl font-bold">
 									{t('westlabel')}
 								</span>
-								<span className="absolute top-1/2 right-0 transform -translate-y-1/2 text-xl font-bold">
+								<span className="absolute top-1/2 right-[5px] transform -translate-y-1/2 text-xl font-bold">
 									{t('eastlabel')}
 								</span>
 								<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">

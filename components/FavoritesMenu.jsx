@@ -95,7 +95,7 @@ export default function FavoritesMenu() {
 			{isOpen && (
 				<div className="fixed inset-0 z-50 backdrop-blur-3xl lg:bg-background" ref={menuRef}>
 					<div
-						className={`fixed overflow-y-auto flex flex-col top-0 right-0 w-full md:w-[45%] lg:w-screen h-full md:bg-background lg:bg-transparent py-6 z-40`}
+						className={`fixed overflow-y-auto flex flex-col top-0 right-0 w-full md:w-[45%] lg:w-screen h-full md:bg-background lg:bg-transparent py-10 z-40`}
 					>
 						<div className="flex flex-col lg:flex-col items-center w-full lg:p-20">
 							<p className="text-xl w-full text-center lg:text-start lg:text-2xl">

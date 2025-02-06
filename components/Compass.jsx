@@ -63,14 +63,16 @@ export default function Compass() {
 	};
 
 	return (
-		<div className="flex items-center justify-center h-[70vh] bg-background rounded-3xl">
+		<div className="flex flex-col items-center justify-center h-[70vh] gap-10">
+			<span className='font-bold text-xl'>{t('compass')}</span>
 			{permissionGranted ? (
 				<div className="flex flex-col justify-center items-center space-y-8">
+					
 					<div className={`border-2 border-black p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}>
 						{Array.from({ length: 24 }).map((_, i) => (
 							<div
 								key={i}
-								className={`absolute left-[100.5px] top-[119px] w-[41px] h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'}`}
+								className={`absolute left-[100.5px] top-[119px] w-[41px] h-0.5 border-dotted border ${isDarkMode ? 'border-white' : 'border-black'}`}
 								style={{
 									transform: `rotate(${i * 15}deg) translateX(100px)`,
 								}}
@@ -99,7 +101,7 @@ export default function Compass() {
 								}}
 							/>
 							<div
-								className={`absolute inset-0 w-full h-full rounded-full border-2 border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
+								className={`absolute inset-0 w-full h-full rounded-full border border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
 							>
 								<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
 									{t('northlabel')}
@@ -129,7 +131,7 @@ export default function Compass() {
 						onClick={requestPermission}
 						className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer"
 					>
-						{t('compassbutton')}
+						{t('compasspermission')}
 					</button>
 				</div>
 			)}

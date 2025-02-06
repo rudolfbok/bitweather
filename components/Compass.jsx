@@ -64,11 +64,11 @@ export default function Compass() {
 
 	return (
 		<div className="flex flex-col items-center justify-center h-[70vh] gap-10">
-			<span className='font-bold text-xl'>{t('compass')}</span>
 			{permissionGranted ? (
 				<div className="flex flex-col justify-center items-center space-y-8">
-					
-					<div className={`border-2 border-black p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}>
+					<div
+						className={`border-2 p-10 relative rounded-full ${isDarkMode ? 'border-white' : 'border-black'}`}
+					>
 						{Array.from({ length: 24 }).map((_, i) => (
 							<div
 								key={i}
@@ -92,7 +92,7 @@ export default function Compass() {
 						</span>
 						<div className="relative w-[160px] h-[160px]">
 							<div className="absolute top-[-12px] left-[81px] transform -translate-x-1/2">
-								<img src="/compassarrow.svg" alt="North arrow" className='' />
+								<img src="/compassarrow.svg" alt="North arrow" className="" />
 							</div>
 							<div
 								className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
@@ -101,7 +101,7 @@ export default function Compass() {
 								}}
 							/>
 							<div
-								className={`absolute inset-0 w-full h-full rounded-full border border-black text-black ${isDarkMode ? 'border-white' : 'border-black'}`}
+								className={`absolute inset-0 w-full h-full rounded-full border text-black text-times font-serif ${isDarkMode ? 'border-white' : 'border-black'}`}
 							>
 								<span className="absolute top-0 left-1/2 transform -translate-x-1/2 text-xl font-bold">
 									{t('northlabel')}
@@ -118,14 +118,15 @@ export default function Compass() {
 							</div>
 						</div>
 					</div>
-					<div className='flex flex-row gap-2'>
+					<div className="flex flex-row gap-2">
 						<span className="!text-red-500 font-bold">{Math.round(direction)}°</span>
 						<span>-</span>
 						<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
 					</div>
 				</div>
 			) : (
-				<div className="text-center space-y-4">
+				<div className="text-center space-y-4 h-full mt-4">
+					<span className="font-bold text-xl">{t('compass')}</span>
 					<p>{t('compasstext')}</p>
 					<button
 						onClick={requestPermission}

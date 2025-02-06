@@ -109,7 +109,7 @@ export default function FavoritesMenu() {
 										return (
 											<li
 												key={index}
-												className="flex flex-row relative justify-between items-center lg:items-center rounded-2xl lg:h-36 lg:w-52 p-4 bg-zinc-500/10 cursor-pointer"
+												className="flex flex-row relative justify-between items-center lg:items-center rounded-2xl lg:h-36 lg:w-56 p-4 bg-zinc-500/10 cursor-pointer"
 												onClick={() => handleCityClick(city)}
 											>
 												<div className="flex flex-col">

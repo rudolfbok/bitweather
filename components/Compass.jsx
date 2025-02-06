@@ -75,16 +75,16 @@ export default function Compass() {
 							}}
 						/>
 					))}
-					<span className="absolute top-[-3px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+					<span className="absolute top-[1px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
 						0
 					</span>
-					<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg font-bold">
+					<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
 						180
 					</span>
-					<span className="absolute top-1/2 left-[3px] transform -translate-y-1/2 text-lg font-bold">
+					<span className="absolute top-1/2 left-[3px] transform -translate-y-1/2 text-lg font-bold bg-background">
 						270
 					</span>
-					<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg font-bold">
+					<span className="absolute top-1/2 right-[10px] transform -translate-y-1/2 text-lg font-bold bg-background">
 						90
 					</span>
 					<div className="relative w-[160px] h-[160px]">

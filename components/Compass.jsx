@@ -69,7 +69,7 @@ export default function Compass() {
 					{Array.from({ length: 24 }).map((_, i) => (
 						<div
 							key={i}
-							className="absolute left-[100px] top-[119px] w-[80px] h-0.5 bg-background"
+							className="absolute left-[100px] top-[119px] w-[40px] h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'}"
 							style={{
 								transform: `rotate(${i * 15}deg) translateX(100px)`,
 							}}
@@ -92,7 +92,7 @@ export default function Compass() {
 							<img src="/compassarrow.svg" alt="North arrow" className='' />
 						</div>
 						<div
-							className="absolute left-1/2 w-0.5 h-20 bg-red-500 origin-bottom transform -translate-x-1/2"
+							className="absolute left-1/2 w-0.5 h-40 bg-red-500 origin-bottom transform -translate-x-1/2"
 							style={{
 								transform: `rotate(${direction ?? 0}deg)`,
 							}}

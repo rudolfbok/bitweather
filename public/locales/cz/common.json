@@ -25,7 +25,7 @@
 	"english": "Angličtina",
 	"czech": "Čeština",
 	"compass": "Kompas",
-	"compassbutton": "Kompas (pouze pro iPhone)",
+	"compassinfo": "Tato funkce je dostupná pouze pro zařízení s iOS a iPadOS.",
 	"compasspermission": "Udělit povolení",
 	"compasstext": "Povolte přístup k vaší poloze pro správné fungování kompasu.",
 	"northlabel": "S",

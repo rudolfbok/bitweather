@@ -140,14 +140,14 @@ export default function FavoritesMenu() {
 								)}
 							</ul>
 
-							<div className="flex flex-col space-y-4 lg:mt-16">
+							<div className="flex flex-col items-center space-y-4 lg:mt-16">
 								<Nameday />
 								<DarkModeToggle />
 								<button
-									className="rounded-2xl p-2 px-4 bg-zinc-500/10 cursor-pointer lg:hidden"
+									className="rounded-2xl p-2 px-4 w-36 bg-zinc-500/10 cursor-pointer lg:hidden"
 									onClick={handleCompass}
 								>
-									{t('compassbutton')}
+									{t('compass')}
 								</button>
 								<LanguageSwitcher />
 							</div>

@@ -25,7 +25,7 @@
 	"english": "English",
 	"czech": "Czech",
 	"compass": "Compass",
-	"compassbutton": "Compass (available only for iPhone)",
+	"compassinfo": "This feature is only available on devices with iOS and iPadOS.",
 	"compasspermission": "Grant permission",
 	"compasstext": "Click to grant permission for location access to use the compass.",
 	"northlabel": "N",

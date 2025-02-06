@@ -132,7 +132,7 @@ export default function Header() {
 					value={inputValue}
 					onChange={handleInput}
 					onKeyDown={handleSearch}
-					className={`text-center h-10 w-full px-12 relative rounded-2xl focus:outline-none z-20 focus:placeholder-transparent backdrop-blur-3xl bg-zinc-500/5 ${suggestions && suggestions.length > 0 && 'rounded-tr-2xl rounded-tl-2xl rounded-bl-none rounded-br-none'}`}
+					className={`text-center h-10 w-full px-12 relative rounded-2xl focus:outline-none z-20 focus:placeholder-transparent bg-zinc-500/5 ${suggestions && suggestions.length > 0 && 'rounded-tr-2xl rounded-tl-2xl rounded-bl-none rounded-br-none'}`}
 					autoComplete="off"
 				/>
 				{inputValue.trim() && (

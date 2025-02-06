@@ -117,7 +117,7 @@ export default function Compass() {
 						</div>
 					</div>
 					<div className='flex flex-row gap-2'>
-						<span className="text-red-500 font-bold">{Math.round(direction)}°</span>
+						<span className="!text-red-500 font-bold">{Math.round(direction)}°</span>
 						<span>-</span>
 						<span>{getDirectionLabel(Math.round(direction)) || t('directionerror')}</span>
 					</div>

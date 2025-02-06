@@ -69,14 +69,14 @@ export default function Compass() {
 					{Array.from({ length: 24 }).map((_, i) => (
 						<div
 							key={i}
-							className={`absolute left-[100px] top-[119px] w-[40px] h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'}`}
+							className={`absolute left-[100.5px] top-[119px] w-[41px] h-0.5 ${isDarkMode ? 'bg-white' : 'bg-black'}`}
 							style={{
 								transform: `rotate(${i * 15}deg) translateX(100px)`,
 							}}
 						/>
 					))}
-					<span className="absolute top-[1px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
-						0
+					<span className="absolute top-[2px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
+						360
 					</span>
 					<span className="absolute bottom-[3px] left-1/2 transform -translate-x-1/2 text-lg font-bold bg-background">
 						180

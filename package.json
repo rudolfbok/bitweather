@@ -10,27 +10,27 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@next/bundle-analyzer": "^15.1.6",
-		"@react-google-maps/api": "^2.20.3",
-		"gsap": "^3.12.5",
+		"@next/bundle-analyzer": "^15.5.15",
+		"@react-google-maps/api": "^2.20.8",
+		"gsap": "^3.15.0",
 		"hamburger-react": "^2.5.2",
 		"next": "15.1.2",
-		"next-i18next": "^15.4.1",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"react-i18next": "^15.2.0",
+		"next-i18next": "^15.4.3",
+		"react": "^19.2.5",
+		"react-dom": "^19.2.5",
+		"react-i18next": "^15.7.4",
 		"react-slick": "^0.30.3",
 		"react-toggle-slider": "^0.4.1",
 		"slick-carousel": "^1.8.1"
 	},
 	"devDependencies": {
-		"@types/node": "^20",
-		"@types/react": "^19",
-		"@types/react-dom": "^19",
+		"@types/node": "^20.19.39",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
 		"eslint-config-next": "15.0.4",
-		"postcss": "^8",
-		"prettier": "^3.4.2",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5"
+		"postcss": "^8.5.12",
+		"prettier": "^3.8.3",
+		"tailwindcss": "^3.4.19",
+		"typescript": "^5.9.3"
 	}
 }

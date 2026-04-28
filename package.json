@@ -14,7 +14,7 @@
 		"@react-google-maps/api": "^2.20.3",
 		"gsap": "^3.12.5",
 		"hamburger-react": "^2.5.2",
-		"next": "15.0.4",
+		"next": "15.1.2",
 		"next-i18next": "^15.4.1",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
